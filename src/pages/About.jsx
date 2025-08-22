@@ -2,25 +2,31 @@ import Reveal from "../components/Reveal.jsx";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
 
+// Import team photos
+import georgePortrait from "../assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp";
+import georgeWorking from "../assets/Team Assets/20250222_144727.webp";
+import georgeCreative from "../assets/Team Assets/IMG-20250308-WA0041.webp";
+import georgeStudio from "../assets/Team Assets/20250107_174642_resized_1.webp";
+
 export default function About() {
   const teamPhotos = [
     {
-      src: "Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp",
+      src: georgePortrait,
       alt: "George Nizoridis - Portrait",
       caption: "Founder & CEO"
     },
     {
-      src: "Assets/Team Assets/20250222_144727.webp",
+      src: georgeWorking,
       alt: "George Nizoridis - Working",
       caption: "Lead Developer"
     },
     {
-      src: "Assets/Team Assets/IMG-20250308-WA0041.webp",
+      src: georgeCreative,
       alt: "George Nizoridis - Creative",
       caption: "Creative Director"
     },
     {
-      src: "Assets/Team Assets/20250107_174642_resized_1.webp",
+      src: georgeStudio,
       alt: "George Nizoridis - Studio",
       caption: "Studio Head"
     }
@@ -211,7 +217,7 @@ export default function About() {
                <div className="relative inline-block mb-8">
                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[var(--cyan)] mx-auto">
                    <img 
-                     src="Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp"
+                     src={georgePortrait}
                      alt="George Nizoridis" 
                      className="w-full h-full object-cover"
                    />

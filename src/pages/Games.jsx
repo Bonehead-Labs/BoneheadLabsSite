@@ -3,6 +3,14 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 
+// Import game images
+import peteBanner from "../assets/Pete the Pig/BANNER V2.png";
+import peteSplash from "../assets/Pete the Pig/SPLASH SCREEN.webp";
+import peteJump from "../assets/Pete the Pig/Jump.png";
+import peteScreenshot from "../assets/Pete the Pig/Screenshot 2025-08-22 174113.png";
+import boneheadBanner from "../assets/Bonehead Friend/BONEHEAD BANNER.png";
+import boneheadIcon from "../assets/Bonehead Friend/base-bonehead-ICON.png";
+
 export default function Games() {
   const [expandedGame, setExpandedGame] = useState(null);
 
@@ -11,7 +19,7 @@ export default function Games() {
       id: "pete-the-pig",
       title: "Pete the Pig", 
       tag: "Demo", 
-      art: "Assets/Pete the Pig/BANNER V2.png", 
+      art: peteBanner, 
       blurb: "A classic platformer featuring a pig heading to the bank!",
       description: "A fast-paced platformer where you play as Pete, a plucky pig with a knack for adventure. Features tight controls, satisfying combat mechanics, and a world full of secrets to discover.",
       status: "Demo Available",
@@ -32,9 +40,9 @@ export default function Games() {
         "Multiple difficulty modes"
       ],
       artwork: [
-        "Assets/Pete the Pig/SPLASH SCREEN.webp",
-        "Assets/Pete the Pig/Jump.png",
-        "Assets/Pete the Pig/Screenshot 2025-08-22 174113.png"
+        peteSplash,
+        peteJump,
+        peteScreenshot
       ],
       links: {
         demo: "https://itch.io/pete-the-pig-demo",
@@ -46,7 +54,7 @@ export default function Games() {
       id: "bonehead-friend",
       title: "Bonehead Friend", 
       tag: "Demo", 
-      art: "Assets/Bonehead Friend/BONEHEAD BANNER.png", 
+      art: boneheadBanner, 
       blurb: "A physics-based fidget game that lets you have fun whilst doing other tasks.",
       description: "An experimental physics playground where you can grab, throw, and manipulate objects in real-time. Perfect for when you need a break or want to experiment with physics interactions.",
       status: "Demo Available",
@@ -67,7 +75,7 @@ export default function Games() {
         "Customizable physics settings"
       ],
       artwork: [
-        "Assets/Bonehead Friend/base-bonehead-ICON.png"
+        boneheadIcon
       ],
       links: {
         demo: "https://itch.io/bonehead-friend-demo",
