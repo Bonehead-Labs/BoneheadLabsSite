@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
+import { Link } from 'react-router-dom';
 
 export default function Projects() {
   const [expandedProject, setExpandedProject] = useState(null);
@@ -138,25 +139,25 @@ export default function Projects() {
                   <div className="p-6">
                     <div className="mb-4">
                                            <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-                       <p className="mt-2 text-sm text-white/70">{project.blurb}</p>
-                     </div>
-                     
-                     <div className="space-y-3 text-sm">
-                       <div>
-                         <span className="font-semibold text-white">Status:</span>
-                         <span className="ml-2 text-white/70">{project.status}</span>
-                       </div>
-                       <div>
-                         <span className="font-semibold text-[var(--ink)]">Category:</span>
-                         <span className="ml-2 text-white/70">{project.category}</span>
-                       </div>
-                       <div>
-                         <span className="font-semibold text-white">Last Update:</span>
-                         <span className="ml-2 text-white/70">{project.lastUpdate}</span>
-                       </div>
-                     </div>
+                      <p className="mt-2 text-sm text-white/70">{project.blurb}</p>
+                    </div>
+                    
+                    <div className="space-y-3 text-sm">
+                      <div>
+                        <span className="font-semibold text-white">Status:</span>
+                        <span className="ml-2 text-white/70">{project.status}</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-[var(--ink)]">Category:</span>
+                        <span className="ml-2 text-white/70">{project.category}</span>
+                      </div>
+                      <div>
+                        <span className="font-semibold text-white">Last Update:</span>
+                        <span className="ml-2 text-white/70">{project.lastUpdate}</span>
+                      </div>
+                    </div>
 
-                     <p className="mt-4 text-sm text-white/70">{project.description}</p>
+                    <p className="mt-4 text-sm text-white/70">{project.description}</p>
                     
                     <div className="mt-6 flex gap-3">
                       <button 
@@ -286,12 +287,12 @@ export default function Projects() {
                               </>
                             ) : (
                               <>
-                                <a 
-                                  href={project.links.contact} 
+                                <Link 
+                                  to={project.links.contact} 
                                   className="inline-flex items-center rounded-xl border-2 border-white px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
                                 >
                                   Contact Sales
-                                </a>
+                                </Link>
                                 <a 
                                   href={project.links.documentation} 
                                   target="_blank" 
@@ -321,9 +322,9 @@ export default function Projects() {
             <h2 className="text-2xl font-bold text-white">Technical Insights</h2>
             <p className="mt-2 text-white/70">We occasionally share technical deep-dives and lessons learned.</p>
             <div className="mt-6">
-              <a href="/contact" className="inline-flex items-center rounded-2xl border-2 border-white px-5 py-3 font-semibold text-white transition hover:translate-y-[-1px]">
+              <Link to="/contact" className="inline-flex items-center rounded-2xl border-2 border-white px-5 py-3 font-semibold text-white transition hover:translate-y-[-1px]">
                 Subscribe to updates
-              </a>
+              </Link>
             </div>
           </FadeIn>
         </Container>

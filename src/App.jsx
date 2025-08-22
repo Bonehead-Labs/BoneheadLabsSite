@@ -13,7 +13,7 @@ function Nav() {
     <header className="sticky top-0 z-40 border-b border-[var(--ink-20)] bg-[var(--paper)]/90 backdrop-blur">
       <Container className="flex h-14 items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src="/Assets/image.png" alt="Bonehead Labs" className="h-8 w-8 rounded-full border-2 border-[var(--ink)] object-contain"/>
+          <img src={`${import.meta.env.BASE_URL}Assets/image.png`} alt="Bonehead Labs" className="h-8 w-8 rounded-full border-2 border-[var(--ink)] object-contain"/>
           <strong className="tracking-wide text-[var(--ink)]">Bonehead Labs</strong>
         </Link>
         <nav className="hidden gap-6 text-sm sm:flex text-[var(--ink-70)]">
@@ -33,7 +33,7 @@ function Footer() {
     <footer className="border-t-2 border-[var(--ink)] bg-[var(--paper)]">
       <Container className="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
         <div className="flex items-center gap-3">
-          <img src="/Assets/image.png" alt="Bonehead Labs" className="h-7 w-7 rounded-full border-2 border-[var(--ink)] object-contain"/>
+          <img src={`${import.meta.env.BASE_URL}Assets/image.png`} alt="Bonehead Labs" className="h-7 w-7 rounded-full border-2 border-[var(--ink)] object-contain"/>
           <span className="text-sm text-[var(--ink-70)]">© {new Date().getFullYear()} Bonehead Labs</span>
         </div>
         <nav className="flex items-center gap-5 text-sm text-[var(--ink-70)]">
@@ -73,7 +73,7 @@ export default function App() {
       '--ink-20': 'rgba(11,13,15,0.20)',
       '--cyan': '#22D3EE'
     }}>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <Nav />
         <main>
           <AnimatedRoutes />

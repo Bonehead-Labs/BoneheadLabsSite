@@ -1,5 +1,6 @@
 import Reveal from "../components/Reveal.jsx";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
+import { Link } from 'react-router-dom';
 
 export default function About() {
   const teamPhotos = [
@@ -210,7 +211,7 @@ export default function About() {
                <div className="relative inline-block mb-8">
                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[var(--cyan)] mx-auto">
                    <img 
-                     src="/Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp"
+                     src={`${import.meta.env.BASE_URL}Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp`}
                      alt="George Nizoridis" 
                      className="w-full h-full object-cover"
                    />
@@ -320,18 +321,18 @@ export default function About() {
              I'm always open to connecting with fellow developers and gamers.
            </p>
            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-             <a 
-               href="/contact" 
+             <Link 
+               to="/contact" 
                className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--cyan)] px-6 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px] hover:shadow-lg"
              >
                Get in touch
-             </a>
-             <a 
-               href="/games" 
+             </Link>
+             <Link 
+               to="/games" 
                className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-6 py-3 font-semibold text-[var(--ink)] hover:bg-[var(--ink-20)] transition-colors"
              >
                See my work
-             </a>
+             </Link>
            </div>
          </FadeIn>
        </Container>

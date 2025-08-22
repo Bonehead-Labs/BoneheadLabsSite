@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 
@@ -247,9 +248,9 @@ export default function Games() {
             <h2 className="text-2xl font-bold text-[var(--ink)]">More Games Coming Soon</h2>
             <p className="mt-2 text-[var(--ink-70)]">We're always experimenting with new ideas and mechanics.</p>
             <div className="mt-6">
-              <a href="/contact" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
+              <Link to="/contact" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
                 Get in touch
-              </a>
+              </Link>
             </div>
           </FadeIn>
         </Container>

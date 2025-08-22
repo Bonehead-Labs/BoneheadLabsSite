@@ -2,6 +2,7 @@ import Reveal from "../components/Reveal.jsx";
 import Parallax from "../components/Parallax.jsx";
 import ScrollBackground from "../components/ScrollBackground.jsx";
 import { Container, FadeIn } from "../utils/common.jsx";
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -22,24 +23,24 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.18} bidirectional>
               <div className="mt-7 flex flex-wrap gap-3">
-                <a href="/games" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--cyan)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px] active:translate-y-[0]">
+                <Link to="/games" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--cyan)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px] active:translate-y-[0]">
                   Play our Games
-                </a>
-                <a href="/projects" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
+                </Link>
+                <Link to="/projects" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
                   Explore our Projects
-                </a>
+                </Link>
               </div>
             </Reveal>
           </div>
           <Parallax offset={80}>
-            <img src="/Assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png" alt="Bonehead mascot" className="h-[60vh] w-auto object-contain"/>
+            <img src={`${import.meta.env.BASE_URL}Assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png`} alt="Bonehead mascot" className="h-[60vh] w-auto object-contain"/>
           </Parallax>
         </Container>
       </section>
 
       {/* Featured Games - full-bleed sections */}
       <section className="relative min-h-[80vh] w-full overflow-hidden border-t-2 border-[var(--ink)]">
-        <ScrollBackground src="/Assets/Pete the Pig/BANNER V2.png" alt="Pete the Pig" direction="left" sizePercent={70} />
+        <ScrollBackground src={`${import.meta.env.BASE_URL}Assets/Pete the Pig/BANNER V2.png`} alt="Pete the Pig" direction="left" sizePercent={70} />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper)]/90 via-[var(--paper)]/40 to-transparent"/>
         <Container className="relative flex min-h-[90vh] items-end pb-12">
           <div className="max-w-xl rounded-3xl border-2 border-[var(--ink)] bg-[var(--paper)] px-6 py-5">
@@ -53,7 +54,7 @@ export default function Home() {
               <p className="mt-3 text-[var(--ink-70)]">A classic platformer featuring a pig heading to the bank!</p>
             </Reveal>
             <Reveal delay={0.20} bidirectional>
-              <a href="/games" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</a>
+              <Link to="/games" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
             </Reveal>
           </div>
         </Container>
@@ -62,7 +63,7 @@ export default function Home() {
       <div className="h-6 bg-[var(--ink)]"></div>
 
       <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)]">
-        <ScrollBackground src="/Assets/Bonehead Friend/BONEHEAD BANNER.png" alt="Bonehead Friend" direction="right" sizePercent={70} />
+        <ScrollBackground src={`${import.meta.env.BASE_URL}Assets/Bonehead Friend/BONEHEAD BANNER.png`} alt="Bonehead Friend" direction="right" sizePercent={70} />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper)]/90 via-[var(--paper)]/40 to-transparent"/>
         <Container className="relative flex min-h-[90vh] items-end pb-12">
           <div className="max-w-xl rounded-3xl border-2 border-[var(--ink)] bg-[var(--paper)] px-6 py-5 ml-auto text-right">
@@ -76,7 +77,7 @@ export default function Home() {
               <p className="mt-3 text-[var(--ink-70)]">A physics-based fidget game that lets you have fun whilst doing other tasks.</p>
             </Reveal>
             <Reveal delay={0.20} bidirectional>
-              <a href="/projects" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</a>
+              <Link to="/projects" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
             </Reveal>
           </div>
         </Container>
@@ -133,9 +134,9 @@ export default function Home() {
               Check out our about page for more info about us, thank you for staying.
             </p>
             <div className="mt-6">
-              <a href="/about" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
+              <Link to="/about" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
                 About
-              </a>
+              </Link>
             </div>
           </FadeIn>
         </Container>
