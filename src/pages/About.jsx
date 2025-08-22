@@ -5,22 +5,22 @@ import { Link } from 'react-router-dom';
 export default function About() {
   const teamPhotos = [
     {
-      src: `${import.meta.env.BASE_URL}Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp`,
+      src: "Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp",
       alt: "George Nizoridis - Portrait",
       caption: "Founder & CEO"
     },
     {
-      src: `${import.meta.env.BASE_URL}Assets/Team Assets/20250222_144727.webp`,
+      src: "Assets/Team Assets/20250222_144727.webp",
       alt: "George Nizoridis - Working",
       caption: "Lead Developer"
     },
     {
-      src: `${import.meta.env.BASE_URL}Assets/Team Assets/IMG-20250308-WA0041.webp`,
+      src: "Assets/Team Assets/IMG-20250308-WA0041.webp",
       alt: "George Nizoridis - Creative",
       caption: "Creative Director"
     },
     {
-      src: `${import.meta.env.BASE_URL}Assets/Team Assets/20250107_174642_resized_1.webp`,
+      src: "Assets/Team Assets/20250107_174642_resized_1.webp",
       alt: "George Nizoridis - Studio",
       caption: "Studio Head"
     }
@@ -211,7 +211,7 @@ export default function About() {
                <div className="relative inline-block mb-8">
                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[var(--cyan)] mx-auto">
                    <img 
-                     src={`${import.meta.env.BASE_URL}Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp`}
+                     src="Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp"
                      alt="George Nizoridis" 
                      className="w-full h-full object-cover"
                    />

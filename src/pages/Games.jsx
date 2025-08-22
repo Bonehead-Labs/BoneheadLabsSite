@@ -11,7 +11,7 @@ export default function Games() {
       id: "pete-the-pig",
       title: "Pete the Pig", 
       tag: "Demo", 
-      art: `${import.meta.env.BASE_URL}Assets/Pete the Pig/BANNER V2.png`, 
+      art: "Assets/Pete the Pig/BANNER V2.png", 
       blurb: "A classic platformer featuring a pig heading to the bank!",
       description: "A fast-paced platformer where you play as Pete, a plucky pig with a knack for adventure. Features tight controls, satisfying combat mechanics, and a world full of secrets to discover.",
       status: "Demo Available",
@@ -32,9 +32,9 @@ export default function Games() {
         "Multiple difficulty modes"
       ],
       artwork: [
-        `${import.meta.env.BASE_URL}Assets/Pete the Pig/SPLASH SCREEN.webp`,
-        `${import.meta.env.BASE_URL}Assets/Pete the Pig/Jump.png`,
-        `${import.meta.env.BASE_URL}Assets/Pete the Pig/Screenshot 2025-08-22 174113.png`
+        "Assets/Pete the Pig/SPLASH SCREEN.webp",
+        "Assets/Pete the Pig/Jump.png",
+        "Assets/Pete the Pig/Screenshot 2025-08-22 174113.png"
       ],
       links: {
         demo: "https://itch.io/pete-the-pig-demo",
@@ -46,7 +46,7 @@ export default function Games() {
       id: "bonehead-friend",
       title: "Bonehead Friend", 
       tag: "Demo", 
-      art: `${import.meta.env.BASE_URL}Assets/Bonehead Friend/BONEHEAD BANNER.png`, 
+      art: "Assets/Bonehead Friend/BONEHEAD BANNER.png", 
       blurb: "A physics-based fidget game that lets you have fun whilst doing other tasks.",
       description: "An experimental physics playground where you can grab, throw, and manipulate objects in real-time. Perfect for when you need a break or want to experiment with physics interactions.",
       status: "Demo Available",
@@ -67,7 +67,7 @@ export default function Games() {
         "Customizable physics settings"
       ],
       artwork: [
-        `${import.meta.env.BASE_URL}Assets/Bonehead Friend/base-bonehead-ICON.png`
+        "Assets/Bonehead Friend/base-bonehead-ICON.png"
       ],
       links: {
         demo: "https://itch.io/bonehead-friend-demo",
