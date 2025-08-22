@@ -1,9 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-export default defineConfig(({ command }) => ({
+export default defineConfig({
   plugins: [react()],
-  base: command === 'build' ? '/BoneheadLabsSite/' : '/', // Only use base path for production builds
+  base: '/BoneheadLabsSite/',
   server: {
     port: 3000,
     open: true
@@ -21,4 +21,4 @@ export default defineConfig(({ command }) => ({
   define: {
     __BUILD_TIME__: JSON.stringify(new Date().toISOString())
   }
-}))
+})

@@ -73,7 +73,7 @@ export default function App() {
       '--ink-20': 'rgba(11,13,15,0.20)',
       '--cyan': '#22D3EE'
     }}>
-      <Router basename={import.meta.env.BASE_URL}>
+      <Router basename="/BoneheadLabsSite">
         <Nav />
         <main>
           <AnimatedRoutes />
