@@ -210,7 +210,7 @@ export default function About() {
                <div className="relative inline-block mb-8">
                  <div className="w-48 h-48 rounded-full overflow-hidden border-4 border-[var(--cyan)] mx-auto">
                    <img 
-                     src={`${import.meta.env.BASE_URL}Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp`}
+                     src="/Assets/Team Assets/George_Nizoridis_Portrait_01_Background.webp"
                      alt="George Nizoridis" 
                      className="w-full h-full object-cover"
                    />
