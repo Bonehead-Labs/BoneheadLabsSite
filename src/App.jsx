@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from "framer-motion";
 import PageTransition from './components/PageTransition.jsx';
 import Home from './pages/Home';
@@ -8,6 +8,37 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import { Container } from './utils/common.jsx';
 import logoImage from './assets/image.png';
+import { useEffect, useState } from 'react';
+
+// Component to handle routing fallback
+function RoutingFallback() {
+  const [shouldRedirect, setShouldRedirect] = useState(false);
+  
+  useEffect(() => {
+    // Check if we're on GitHub Pages and if the current path should redirect
+    if (window.location.hostname === 'george-nizor.github.io') {
+      const currentPath = window.location.pathname;
+      // If we're on a sub-route that's not the root, redirect to home
+      if (currentPath !== '/BoneheadLabsSite/' && currentPath.startsWith('/BoneheadLabsSite/')) {
+        // Check if the app has loaded properly
+        setTimeout(() => {
+          const rootElement = document.getElementById('root');
+          if (rootElement && rootElement.children.length === 0) {
+            // App hasn't loaded, redirect to home
+            setShouldRedirect(true);
+          }
+        }, 1000);
+      }
+    }
+  }, []);
+
+  if (shouldRedirect) {
+    window.location.href = '/BoneheadLabsSite/';
+    return null;
+  }
+
+  return null;
+}
 
 function Nav() {
   return (
@@ -77,6 +108,7 @@ export default function App() {
       <Router basename="/BoneheadLabsSite">
         <Nav />
         <main>
+          <RoutingFallback />
           <AnimatedRoutes />
         </main>
         <Footer />
