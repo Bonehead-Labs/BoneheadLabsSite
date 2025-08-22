@@ -6,7 +6,7 @@ export default function Reveal({ children, delay = 0, y = 24, duration = 0.6, cl
 
 	if (bidirectional) {
 		// Scroll-synced reversible animation
-		const { scrollYProgress } = useScroll({ target: ref, offset: ["start 85%", "end 15%"] });
+		const { scrollYProgress } = useScroll({ target: ref, offset: ["start 95%", "end 15%"] });
 		const opacityRaw = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 		const yRaw = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [y, 0, 0, -y]);
 		const opacity = useSpring(opacityRaw, { stiffness: 120, damping: 24, mass: 0.8 });
