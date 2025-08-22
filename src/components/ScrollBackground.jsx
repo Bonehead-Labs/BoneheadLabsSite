@@ -13,20 +13,20 @@ export default function ScrollBackground({
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ["start end", "end start"] });
 
-  // Fly-in from edge -> hold -> fly-out with cross-fade
+  // Fly-in from edge -> hold -> fly-out with cross-fade (slower)
   const startX = direction === "left" ? -600 : 600;
   const endX = direction === "left" ? 600 : -600;
-  const xRaw = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [startX, 0, 0, endX]);
-  const yRaw = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [30, 0, 0, -30]);
-  const scaleRaw = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0.98, 1, 1, 0.98]);
-  const opacityRaw = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const xRaw = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [startX, 0, 0, endX]);
+  const yRaw = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [20, 0, 0, -20]);
+  const scaleRaw = useTransform(scrollYProgress, [0, 0.4, 0.6, 1], [0.985, 1, 1, 0.985]);
+  const opacityRaw = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0, 1, 1, 0]);
 
   // Spring smoothing so it feels fluid, not jittery
-  const springOpts = { stiffness: 120, damping: 26, mass: 0.8 };
+  const springOpts = { stiffness: 70, damping: 26, mass: 1 };
   const x = useSpring(xRaw, springOpts);
   const y = useSpring(yRaw, springOpts);
   const scale = useSpring(scaleRaw, springOpts);
-  const opacity = useSpring(opacityRaw, { stiffness: 120, damping: 24, mass: 0.8 });
+  const opacity = useSpring(opacityRaw, { stiffness: 70, damping: 24, mass: 1 });
 
   const innerStyle = {
     width: `${sizePercent}%`,
