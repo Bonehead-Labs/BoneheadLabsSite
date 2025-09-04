@@ -21,23 +21,16 @@ export default function Games() {
       tag: "Demo", 
       art: peteBanner, 
       blurb: "A classic platformer featuring a pig heading to the bank!",
-      description: "A fast-paced platformer where you play as Pete, a plucky pig with a knack for adventure. Features tight controls, satisfying combat mechanics, and a world full of secrets to discover.",
-      status: "Demo Available",
-      platforms: ["PC", "Web"],
-      releaseDate: "Demo 2024",
-      developmentHistory: [
-        "Started as a prototype in early 2024",
-        "Core platforming mechanics refined over 3 months",
-        "Art style evolved from simple shapes to current cartoon aesthetic",
-        "Sound design focused on satisfying feedback and charm",
-        "Currently expanding level design and enemy variety"
-      ],
+      description: "Pete the pig is a simple platformer with the goal of collecting briefcases of money to complete levels in the fastest time.",
+      status: "Demo Available on Itch.io",
+      platforms: ["PC"],
+      releaseDate: "2025 (Demo)",
       features: [
-        "Tight 2D platforming controls",
-        "Combat system with multiple weapon types",
-        "Procedurally generated levels",
-        "Collectible coins and power-ups",
-        "Multiple difficulty modes"
+        "Snappy platformer controls.",
+        "Double jumping and wall-jumping.",
+        "hand crafted levels.",
+        "Wolf enemies to defeat",
+        "Level timer, and best time tracker."
       ],
       artwork: [
         peteSplash,
