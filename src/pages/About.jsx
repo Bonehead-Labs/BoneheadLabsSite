@@ -75,9 +75,6 @@ export default function About() {
        <Container>
          <FadeIn className="text-center mb-16">
            <h2 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Our Story</h2>
-           <p className="mt-4 max-w-2xl mx-auto text-lg text-[var(--ink-70)]">
-             How one developer's passion for game feel became a full-fledged studio
-           </p>
          </FadeIn>
          
          <div className="max-w-4xl mx-auto space-y-12">
@@ -90,8 +87,11 @@ export default function About() {
                <div className="flex-1">
                  <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Beginning</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   Bonehead Labs started as a solo experiment—one developer asking "what if we could make games that feel as good to play as they look?" 
-                   What began as late-night coding sessions and weekend game jams slowly evolved into something bigger.
+                   Bonehead Labs' lead developer George, had always enjoyed playing video games, working with software, and the idea of developing his own. 
+                   However, starting his traditional Computer Science degree in 2016 dampened his enthusiasm, and he ended up swapping to Finance.
+                   Over his career, George had found a way back into software development, in the world of Data Analytics, even becoming an Analytics Engineer, becoming proficient in AI and Data Engineering.
+                   Through the Power of A.I George found his way back into software development, with an all knowing tutor and productivity tool at his side, he began learning game development.
+                   He instantly, fell in love with the process.
                  </p>
                </div>
              </div>
@@ -103,10 +103,10 @@ export default function About() {
                  2
                </div>
                <div className="flex-1">
-                 <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Evolution</h3>
+                 <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Inception</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   From prototyping game mechanics to building complete experiences, the focus has always been on that elusive "game feel." 
-                   Every project teaches us something new about what makes games truly satisfying to play.
+                   George had a clear vision after completing his first wave of prototype projects, he wanted to create a software company, building games that people would enjoy, and tools/products that would improve people's lives.
+                   So, on to chatGPT he went, to of all things, try and come up with a name for his new company.
                  </p>
                </div>
              </div>
@@ -118,10 +118,23 @@ export default function About() {
                  3
                </div>
                <div className="flex-1">
+                 <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Evolution</h3>
+                 <p className="text-[var(--ink-70)] leading-relaxed">
+                   Today, bonehead labs is more than a dream, it's a reality, and we plans to make a mark.
+                 </p>
+               </div>
+             </div>
+           </FadeIn>
+
+           <FadeIn delay={0.3}>
+             <div className="flex items-start gap-8">
+               <div className="flex-shrink-0 w-16 h-16 bg-[var(--cyan)] rounded-full flex items-center justify-center text-2xl font-bold text-white">
+                 4
+               </div>
+               <div className="flex-1">
                  <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Future</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   Today, Bonehead Labs is still small but growing—building games, tools, and sharing knowledge with the development community. 
-                   The mission remains the same: create experiences that feel amazing to play.
+                   We hope to create a studio that is known for its games, and tools, and that we are a company that is known for its quality and innovation.
                  </p>
                </div>
              </div>
@@ -134,9 +147,9 @@ export default function About() {
      <section className="bg-[var(--ink)] py-24">
        <Container>
          <FadeIn className="text-center mb-16">
-           <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Our Tech Stack</h2>
+           <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Our Development Stack</h2>
            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/70">
-             We mainly build in Godot. These are the core tools that keep things moving.
+             Our Development stack enables the development of our games and tools, keeping organised, efficient, and productive.
            </p>
          </FadeIn>
          
@@ -191,8 +204,7 @@ export default function About() {
            <FadeIn delay={0.2} className="mt-12">
              <div className="text-center">
                <p className="text-white/80 max-w-2xl mx-auto leading-relaxed">
-                 Godot is the main engine. Aseprite handles the pixels. Cursor and ChatGPT help ship faster. 
-                 Notion keeps the chaos organized.
+                For Games, Godot is our engine of Choice. Aseprite helps us create our pixel art. Cursor and ChatGPT enable efficient coding. LLM's aren't entirely effective at GDScript and are more for short specific tasks in this domain, but are extremely valuable for tool development in Python and Go Lang.
                </p>
              </div>
            </FadeIn>
@@ -206,7 +218,7 @@ export default function About() {
          <FadeIn className="text-center mb-16">
            <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Meet the Team</h2>
            <p className="mt-4 max-w-2xl mx-auto text-lg text-white/70">
-             Currently a solo mission, but every great studio starts somewhere
+             One man team, but this may grow!
            </p>
          </FadeIn>
          
@@ -230,8 +242,8 @@ export default function About() {
                <h3 className="text-3xl font-bold text-white mb-2">George Nizoridis</h3>
                <p className="text-xl text-[var(--cyan)] mb-4">Founder, CEO & Everything Else</p>
                <p className="text-white/80 max-w-2xl mx-auto leading-relaxed">
-                 I handle the whole stack — code, art, design, and the unglamorous bits too. 
-                 I like moving fast, keeping it playful, and shipping things that feel good.
+                 I handle the whole stack — code, art, design, and the business side. 
+                 My development philosophy is prioritise the core functionality, and then add the bells and whistles.
                </p>
              </div>
            </FadeIn>
@@ -263,8 +275,7 @@ export default function About() {
             <div className="text-center max-w-3xl mx-auto">
               <div className="inline-block bg-white/10 rounded-2xl p-6 border border-white/20">
                 <p className="text-white/90 text-lg italic">
-                  "Being a solo developer isn't about limitations—it's about having complete creative control and the freedom to iterate quickly. 
-                  Every decision, every pixel, every line of code is mine, and that's exactly how I like it... for now."
+                  "People ask me how I do it? I just bite off more than I can chew, then I chew it."
                 </p>
                 <p className="text-[var(--cyan)] font-semibold mt-4">— George Nizoridis</p>
               </div>
@@ -276,7 +287,7 @@ export default function About() {
             <div className="text-center">
               <h3 className="text-2xl font-bold text-white mb-6">The AI Team</h3>
               <p className="text-white/70 mb-8 max-w-2xl mx-auto">
-                I'm not completely solo — these AI tools carry a fair bit of weight too.
+                Our company is A.I Positive, we are at the forefront of using A.I for development, responsibly and effectively.
               </p>
               
               <div className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto">
@@ -292,7 +303,7 @@ export default function About() {
                   <h4 className="text-lg font-bold text-white mb-2">GPT-5</h4>
                   <p className="text-sm text-[var(--cyan)] mb-3">AI Developer & Artist</p>
                   <p className="text-sm text-white/80">
-                    Coding partner and brainstorming buddy. Helps get ideas out of my head and into something playable.
+                    Generates well-lined pixel art for re-drawing an animation in Aseprite, as well as assisting with coding and tool development.
                   </p>
                 </div>
                 
@@ -308,7 +319,7 @@ export default function About() {
                   <h4 className="text-lg font-bold text-white mb-2">Cursor IDE</h4>
                   <p className="text-sm text-[var(--cyan)] mb-3">AI-Powered Editor</p>
                   <p className="text-sm text-white/80">
-                    The IDE that actually helps ship. Like pair programming with someone who never sleeps.
+                    Primary IDE for coding, fantastic for context aware coding, and code completion.
                   </p>
                 </div>
               </div>
@@ -323,8 +334,7 @@ export default function About() {
          <FadeIn className="text-center">
            <h2 className="text-3xl font-bold text-[var(--ink)]">Ready to Connect?</h2>
            <p className="mt-4 text-[var(--ink-70)] max-w-2xl mx-auto">
-             Whether you want to discuss game development, collaborate on a project, or just chat about the industry, 
-             I'm always open to connecting with fellow developers and gamers.
+             Please get in touch, we are always excited to hear from people!
            </p>
            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
              <Link 
