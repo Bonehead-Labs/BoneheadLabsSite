@@ -46,7 +46,7 @@ export default function About() {
                  <span className="block text-[var(--cyan)]">Bonehead Labs</span>
                </h1>
                <p className="mt-6 max-w-2xl text-xl text-[var(--ink-70)] leading-relaxed">
-                 From solo developer to studio founder—one man's journey to build games that feel as good as they look.
+                 How did we start? And where are we heading?
                </p>
              </FadeInInitial>
            </div>

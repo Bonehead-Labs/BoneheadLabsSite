@@ -25,11 +25,14 @@ export default function Games() {
       status: "Demo Available on Itch.io",
       platforms: ["PC"],
       releaseDate: "2025 (Demo)",
+      developmentHistory: [
+        "Demo Developed and Released - 2025"
+      ],
       features: [
         "Snappy platformer controls.",
         "Double jumping and wall-jumping.",
-        "hand crafted levels.",
-        "Wolf enemies to defeat",
+        "Hand crafted levels.",
+        "Wolf enemies to defeat.",
         "Level timer, and best time tracker."
       ],
       artwork: [
@@ -49,23 +52,18 @@ export default function Games() {
       tag: "Demo", 
       art: boneheadBanner, 
       blurb: "A physics-based fidget game that lets you have fun whilst doing other tasks.",
-      description: "An experimental physics playground where you can grab, throw, and manipulate objects in real-time. Perfect for when you need a break or want to experiment with physics interactions.",
-      status: "Demo Available",
+      description: "Bonehead friend is a physics-based game with a bonehead mascot that you can interact with. You can throw objects, pick them up and hit him with them, use explosives and more! It has a transparent background, so it can be overlayed over any other program on your computer.",
+      status: "Demo Available on Itch.io",
       platforms: ["PC", "Web"],
-      releaseDate: "Demo 2024",
+      releaseDate: "2025 (Demo)",
       developmentHistory: [
-        "Born from a weekend physics experiment",
-        "Core grab mechanics developed in Unity",
-        "Object interaction system refined through playtesting",
-        "Visual feedback optimized for satisfying feel",
-        "Currently adding new object types and interactions"
+        "Demo Developed and Released - 2025"
       ],
       features: [
-        "Real-time physics simulation",
-        "Intuitive grab and throw mechanics",
-        "Multiple object types with unique properties",
-        "Relaxing ambient soundtrack",
-        "Customizable physics settings"
+        "Physics based draggable system.",
+        "Melee Weapons.",
+        "Explosives.",
+        "Cursor Powers."
       ],
       artwork: [
         boneheadIcon

@@ -67,3 +67,5 @@ BoneheadLabsSite/
 | `python app.py` | `npm run dev` | Run development server |
 | `__main__.py` | `main.jsx` | Entry point |
 | Flask/Django | React | Web framework |
+
+Updated 04/09/2025
