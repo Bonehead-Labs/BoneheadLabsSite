@@ -3,30 +3,37 @@ import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 export default function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    alert('Thanks for your message! We\'ll get back to you soon.');
+    
+    // Get form data
+    const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+    
+    // Create mailto link with pre-filled data
+    const emailSubject = subject ? `[Contact Form] ${subject}` : '[Contact Form] New Message';
+    const emailBody = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`;
+    
+    const mailtoLink = `mailto:bonehead.labs@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    
+    // Open the user's default email client
+    window.location.href = mailtoLink;
   };
 
   const contactMethods = [
     {
-      title: "Email",
-      description: "For business inquiries and collaborations",
-      value: "hello@boneheadlabs.dev",
-      link: "mailto:hello@boneheadlabs.dev",
-      icon: "📧"
-    },
-    {
       title: "Discord",
       description: "Join our community server",
       value: "BoneheadLabs",
-      link: "#",
+      link: "https://discord.gg/boneheadlabs",
       icon: "💬"
     },
     {
-      title: "Twitter",
+      title: "@BoneheadLabs",
       description: "Follow our development journey",
-      value: "@BoneheadLabs",
-      link: "#",
+      value: "https://twitter.com/boneheadlabs",
+      link: "https://twitter.com/boneheadlabs",
       icon: "🐦"
     }
   ];
@@ -49,12 +56,13 @@ export default function Contact() {
           <div className="grid items-start gap-12 lg:grid-cols-2">
             {/* Contact Form */}
             <FadeIn>
-              <h2 className="text-2xl font-bold text-[var(--ink)] mb-6">Send us a message</h2>
+              <h2 className="text-2xl font-bold text-[var(--ink)] mb-6">Email us!</h2>
               <form onSubmit={handleSubmit} className="rounded-3xl border-2 border-[var(--ink)] p-6 space-y-4">
                 <div>
                   <label className="block text-sm font-bold text-[var(--ink)]">Name</label>
                   <input 
                     type="text" 
+                    name="name"
                     placeholder="Your name" 
                     className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] placeholder-[var(--ink-50)] outline-none focus:border-[var(--cyan)]"
                     required
@@ -65,6 +73,7 @@ export default function Contact() {
                   <label className="block text-sm font-bold text-[var(--ink)]">Email</label>
                   <input 
                     type="email" 
+                    name="email"
                     placeholder="you@example.com" 
                     className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] placeholder-[var(--ink-50)] outline-none focus:border-[var(--cyan)]"
                     required
@@ -73,7 +82,7 @@ export default function Contact() {
                 
                 <div>
                   <label className="block text-sm font-bold text-[var(--ink)]">Subject</label>
-                  <select className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] outline-none focus:border-[var(--cyan)]">
+                  <select name="subject" className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] outline-none focus:border-[var(--cyan)]">
                     <option value="">Select a subject</option>
                     <option value="collaboration">Collaboration</option>
                     <option value="feedback">Game Feedback</option>
@@ -85,6 +94,7 @@ export default function Contact() {
                 <div>
                   <label className="block text-sm font-bold text-[var(--ink)]">Message</label>
                   <textarea 
+                    name="message"
                     rows={5} 
                     placeholder="Tell us what's on your mind..." 
                     className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] placeholder-[var(--ink-50)] outline-none focus:border-[var(--cyan)]"
@@ -103,25 +113,32 @@ export default function Contact() {
 
             {/* Contact Information */}
             <FadeIn delay={1}>
-              <h2 className="text-2xl font-bold text-[var(--ink)] mb-6">Other ways to reach us</h2>
+              <h2 className="text-2xl font-bold text-[var(--ink)] mb-6">Our communities</h2>
               
               <div className="space-y-6">
                 {contactMethods.map((method, i) => (
-                  <div key={method.title} className="rounded-3xl border-2 border-[var(--ink)] p-6">
+                  <a 
+                    key={method.title}
+                    href={method.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="block rounded-3xl border-2 border-[var(--ink)] p-6 hover:bg-[var(--cyan-20)] hover:border-[var(--cyan)] transition-all duration-300 group cursor-pointer"
+                  >
                     <div className="flex items-start gap-4">
-                      <div className="text-2xl">{method.icon}</div>
+                      <div className="text-2xl group-hover:scale-110 transition-transform duration-300">{method.icon}</div>
                       <div className="flex-1">
-                        <h3 className="font-bold text-[var(--ink)]">{method.title}</h3>
-                        <p className="text-sm text-[var(--ink-70)] mt-1">{method.description}</p>
-                        <a 
-                          href={method.link} 
-                          className="inline-block mt-2 text-[var(--cyan)] font-semibold hover:text-[var(--ink)] transition-colors"
-                        >
+                        <h3 className="font-bold text-[var(--ink)] group-hover:text-[var(--cyan)] transition-colors">
+                          {method.title}
+                        </h3>
+                        <p className="text-sm text-[var(--ink-70)] mt-1 group-hover:text-[var(--ink)] transition-colors">
+                          {method.description}
+                        </p>
+                        <p className="text-sm text-[var(--ink-70)] mt-2 group-hover:text-[var(--ink)] transition-colors">
                           {method.value}
-                        </a>
+                        </p>
                       </div>
                     </div>
-                  </div>
+                  </a>
                 ))}
               </div>
 
