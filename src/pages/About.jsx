@@ -8,6 +8,13 @@ import georgeWorking from "../assets/Team Assets/20250222_144727.webp";
 import georgeCreative from "../assets/Team Assets/IMG-20250308-WA0041.webp";
 import georgeStudio from "../assets/Team Assets/20250107_174642_resized_1.webp";
 
+// Import tech stack icons
+import godotLogo from "../assets/Icons/Godot-Logo.png";
+import asepriteLogo from "../assets/Icons/Aseprite-Logo.png";
+import cursorLogo from "../assets/Icons/Cursor-Logo.png";
+import notionLogo from "../assets/Icons/Notion-Logo.png";
+import chatgptLogo from "../assets/Icons/ChatGPT-Logo.png";
+
 export default function About() {
   const teamPhotos = [
     {
@@ -159,39 +166,39 @@ export default function About() {
                                    {[
                  { 
                    name: "Godot", 
-                   icon: "⚡", 
+                   icon: godotLogo, 
                    description: "Game Engine",
                    color: "from-orange-500 to-red-600"
                  },
                  { 
                    name: "Aseprite", 
-                   icon: "🎨", 
+                   icon: asepriteLogo, 
                    description: "Pixel Art",
                    color: "from-purple-500 to-pink-600"
                  },
                  { 
                    name: "Cursor IDE", 
-                   icon: "💻", 
+                   icon: cursorLogo, 
                    description: "Development",
                    color: "from-blue-500 to-cyan-600"
                  },
                  { 
                    name: "Notion", 
-                   icon: "📋", 
+                   icon: notionLogo, 
                    description: "Organization",
                    color: "from-gray-500 to-slate-600"
                  },
                  { 
                    name: "ChatGPT", 
-                   icon: "🤖", 
+                   icon: chatgptLogo, 
                    description: "AI Assistant",
-                   color: "from-green-500 to-emerald-600"
+                   color: "from-gray-500 to-green-600"
                  }
                ].map((tool, index) => (
                  <div key={tool.name} className="text-center group">
                    <div className="relative">
-                     <div className={`w-20 h-20 bg-gradient-to-br ${tool.color} rounded-2xl border-2 border-white/20 flex items-center justify-center text-3xl mx-auto mb-4 group-hover:border-[var(--cyan)] transition-all duration-300 group-hover:scale-105 shadow-lg`}>
-                       {tool.icon}
+                     <div className={`w-20 h-20 bg-gradient-to-br ${tool.color} rounded-2xl border-2 border-white/20 flex items-center justify-center mx-auto mb-4 group-hover:border-[var(--cyan)] transition-all duration-300 group-hover:scale-105 shadow-lg`}>
+                       <img src={tool.icon} alt={tool.name} className="w-12 h-12 object-contain" />
                      </div>
                    </div>
                    <h3 className="text-lg font-bold text-white mb-1">{tool.name}</h3>
@@ -293,8 +300,8 @@ export default function About() {
               <div className="grid gap-8 sm:grid-cols-2 max-w-2xl mx-auto">
                 <div className="text-center">
                   <div className="relative inline-block mb-4">
-                    <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--cyan)] bg-white/10 flex items-center justify-center text-2xl">
-                      🚀
+                    <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--cyan)] bg-white flex items-center justify-center">
+                      <img src={chatgptLogo} alt="ChatGPT" className="w-12 h-12 object-contain" />
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[var(--cyan)] rounded-full flex items-center justify-center text-white font-bold text-sm">
                       AI
@@ -309,8 +316,8 @@ export default function About() {
                 
                 <div className="text-center">
                   <div className="relative inline-block mb-4">
-                    <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--cyan)] bg-white/10 flex items-center justify-center text-2xl">
-                      ✨
+                    <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[var(--cyan)] bg-white flex items-center justify-center">
+                      <img src={cursorLogo} alt="Cursor IDE" className="w-12 h-12 object-contain" />
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-[var(--cyan)] rounded-full flex items-center justify-center text-white font-bold text-sm">
                       AI
