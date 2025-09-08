@@ -14,7 +14,13 @@ export default defineConfig({
         manualChunks: undefined,
         chunkFileNames: 'js/[name]-[hash].js',
         entryFileNames: 'js/[name]-[hash].js',
-        assetFileNames: 'css/[name]-[hash].[ext]'
+        assetFileNames: (assetInfo) => {
+          // Keep JSON files in their original location for proper loading
+          if (assetInfo.name && assetInfo.name.endsWith('.json')) {
+            return '[name].[ext]';
+          }
+          return 'css/[name]-[hash].[ext]';
+        }
       }
     }
   },
