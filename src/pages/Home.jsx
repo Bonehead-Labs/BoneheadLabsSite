@@ -31,7 +31,7 @@ export default function Home() {
                   Play our Games
                 </Link>
                 <Link to="/projects" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
-                  Explore our Projects
+                  Explore The Lab
                 </Link>
               </div>
             </Reveal>
@@ -87,7 +87,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Tools & Research - inverted */}
+      {/* The Lab - inverted */}
       <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)] bg-[var(--ink)]">
         <div className="absolute inset-0 opacity-10" style={{background:"radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25), transparent 40%)"}}/>
         <Container className="relative flex min-h-[90vh] flex-col items-center justify-center py-16">
@@ -100,7 +100,7 @@ export default function Home() {
                   <Beaker className="w-8 h-8 text-white" />
                 </div>
               </div>
-              <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Tools & Research</h2>
+              <h2 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h2>
             </div>
           </Reveal>
           <Reveal delay={0.10} bidirectional>

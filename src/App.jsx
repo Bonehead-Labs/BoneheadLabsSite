@@ -20,7 +20,7 @@ function Nav() {
         <nav className="hidden gap-6 text-sm sm:flex text-[var(--ink-70)]">
           <Link to="/" className="hover:text-[var(--ink)]">Home</Link>
           <Link to="/games" className="hover:text-[var(--ink)]">Games</Link>
-          <Link to="/projects" className="hover:text-[var(--ink)]">Projects</Link>
+          <Link to="/projects" className="hover:text-[var(--ink)]">The Lab</Link>
           <Link to="/about" className="hover:text-[var(--ink)]">About</Link>
           <Link to="/contact" className="hover:text-[var(--ink)]">Contact</Link>
         </nav>
@@ -40,7 +40,7 @@ function Footer() {
         <nav className="flex items-center gap-5 text-sm text-[var(--ink-70)]">
           <Link to="/" className="hover:text-[var(--ink)]">Home</Link>
           <Link to="/games" className="hover:text-[var(--ink)]">Games</Link>
-          <Link to="/projects" className="hover:text-[var(--ink)]">Projects</Link>
+          <Link to="/projects" className="hover:text-[var(--ink)]">The Lab</Link>
           <Link to="/about" className="hover:text-[var(--ink)]">About</Link>
           <Link to="/contact" className="hover:text-[var(--ink)]">Contact</Link>
         </nav>

@@ -106,7 +106,7 @@ export default function Projects() {
       <section className="bg-[var(--ink)]">
         <Container className="py-16">
           <FadeInInitial>
-            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">Projects</h1>
+            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h1>
             <p className="mt-4 max-w-prose text-white/70">We develop video games, create open source and premium tools, and conduct and share research.</p>
           </FadeInInitial>
         </Container>
