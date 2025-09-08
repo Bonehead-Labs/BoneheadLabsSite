@@ -2,6 +2,7 @@ import Reveal from "../components/Reveal.jsx";
 import Parallax from "../components/Parallax.jsx";
 import ScrollBackground from "../components/ScrollBackground.jsx";
 import LabAnimation from "../components/LabAnimation.jsx";
+import LottieEmbed from "../components/LottieEmbed.jsx";
 import { Container, FadeIn } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
 import { Code, Zap, Search } from 'lucide-react';
@@ -92,9 +93,20 @@ export default function Home() {
       <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)] bg-[var(--ink)]">
         <div className="absolute inset-0 opacity-10" style={{background:"radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25), transparent 40%)"}}/>
         <Container className="relative flex min-h-[90vh] flex-col items-center justify-center py-16">
-          <LabAnimation className="mb-10">
+          <div className="text-center mb-10">
+            <div className="relative mx-auto w-48 h-48 mb-4">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--cyan)]/30 to-[var(--cyan-20)]/20 border border-white/10" />
+              <div className="absolute inset-2 rounded-xl bg-[var(--ink)] border border-white/10 flex items-center justify-center">
+                <LottieEmbed
+                  src="/animations/tmon-nbd-lab.json"
+                  width={192}
+                  height={192}
+                  speed={1}
+                />
+              </div>
+            </div>
             <h2 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h2>
-          </LabAnimation>
+          </div>
           <Reveal delay={0.10} bidirectional>
             <p className="mt-3 text-white/70 max-w-prose text-center mb-8">Explore our GitHub for reusable systems, production tools, and R&D.</p>
           </Reveal>

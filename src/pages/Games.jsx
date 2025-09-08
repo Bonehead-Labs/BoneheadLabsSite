@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
+import LottieEmbed from "../components/LottieEmbed.jsx";
 
 // Import game images
 import peteBanner from "../assets/Pete the Pig/BANNER V2.png";
@@ -85,10 +86,18 @@ export default function Games() {
       {/* Page Header */}
       <section className="bg-[var(--paper)]">
         <Container className="py-16">
-          <FadeInInitial>
+          <div className="text-center">
+            <div className="relative mx-auto w-48 h-48 mb-4">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--cyan)]/30 to-[var(--cyan-20)]/20 border border-[var(--ink)]/10" />
+              <div className="absolute inset-2 rounded-xl bg-[var(--paper)] border border-[var(--ink)]/10 flex items-center justify-center">
+                <LottieEmbed src="/animations/gaming.json" width={192} height={192} speed={1} />
+              </div>
+            </div>
             <h1 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Games</h1>
-            <p className="mt-4 max-w-prose text-[var(--ink-70)]">Small scope, strong identity, great feel. Each game is crafted with care and attention to detail.</p>
-          </FadeInInitial>
+            <FadeInInitial>
+              <p className="mt-2 max-w-prose text-[var(--ink-70)] mx-auto">Small scope, strong identity, great feel. Each game is crafted with care and attention to detail.</p>
+            </FadeInInitial>
+          </div>
         </Container>
       </section>
 

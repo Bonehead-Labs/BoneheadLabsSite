@@ -127,7 +127,7 @@ export default function About() {
                <div className="flex-1">
                  <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Evolution</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   Today, bonehead labs is more than a dream, it's a reality, and we plans to make a mark.
+                   Today, bonehead labs is more than a dream, it's a reality, and we plan to make a mark.
                  </p>
                </div>
              </div>
@@ -354,7 +354,7 @@ export default function About() {
                to="/games" 
                className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-6 py-3 font-semibold text-[var(--ink)] hover:bg-[var(--ink-20)] transition-colors"
              >
-               See my work
+               View Games
              </Link>
            </div>
          </FadeIn>

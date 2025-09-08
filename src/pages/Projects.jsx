@@ -4,6 +4,7 @@ import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
 import { Code, Zap, Search } from 'lucide-react';
 import LabAnimation from "../components/LabAnimation.jsx";
+import LottieEmbed from "../components/LottieEmbed.jsx";
 
 export default function Projects() {
   const [expandedProject, setExpandedProject] = useState(null);
@@ -107,9 +108,18 @@ export default function Projects() {
       <section className="bg-[var(--ink)]">
         <Container className="py-16">
           <div className="text-center">
-            <LabAnimation>
-              <h1 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h1>
-            </LabAnimation>
+            <div className="relative mx-auto w-48 h-48 mb-4">
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--cyan)]/30 to-[var(--cyan-20)]/20 border border-white/10" />
+              <div className="absolute inset-2 rounded-xl bg-[var(--ink)] border border-white/10 flex items-center justify-center">
+                <LottieEmbed
+                  src="/animations/tmon-nbd-lab.json"
+                  width={192}
+                  height={192}
+                  speed={1}
+                />
+              </div>
+            </div>
+            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h1>
             <FadeInInitial>
               <p className="mt-4 max-w-prose text-white/70 mx-auto">We develop video games, create open source and premium tools, and conduct and share research.</p>
             </FadeInInitial>
