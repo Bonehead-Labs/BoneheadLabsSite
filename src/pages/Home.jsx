@@ -3,16 +3,10 @@ import Parallax from "../components/Parallax.jsx";
 import ScrollBackground from "../components/ScrollBackground.jsx";
 import { Container, FadeIn } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
+import { Code, Zap, Search, Beaker } from 'lucide-react';
 import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
-
-// Note: Replace these placeholder icon paths with actual Flaticon icon assets once downloaded and added to the project.
-// Suggested Flaticon icons can be sourced from https://www.flaticon.com/
-// Ensure icons are saved in the assets folder and imported here.
-const openSourceIcon = '🧩'; // Placeholder for Flaticon icon, e.g., import openSourceIcon from '../assets/icons/open-source.png';
-const premiumToolsIcon = '⚡'; // Placeholder for Flaticon icon, e.g., import premiumToolsIcon from '../assets/icons/premium-tools.png';
-const researchIcon = '🔬'; // Placeholder for Flaticon icon, e.g., import researchIcon from '../assets/icons/research.png';
 
 export default function Home() {
   return (
@@ -103,7 +97,7 @@ export default function Home() {
                 {/* Animated floating code block */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[var(--cyan)] to-[var(--cyan-20)] rounded-2xl animate-pulse"></div>
                 <div className="absolute inset-2 bg-[var(--ink)] rounded-xl flex items-center justify-center animate-heartbeat">
-                  <span className="text-4xl">⚡</span>
+                  <Beaker className="w-8 h-8 text-white" />
                 </div>
               </div>
               <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Tools & Research</h2>
@@ -115,21 +109,21 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
             <Reveal delay={0.06} bidirectional>
               <Link to="/projects#premium-tools" className="flex flex-col items-center justify-center rounded-3xl border-2 border-white/20 bg-white/5 p-6 hover:border-[var(--cyan)] transition-colors text-center h-full">
-                <span className="text-5xl mb-3">{premiumToolsIcon}</span>
+                <Zap className="w-12 h-12 text-white mb-3" />
                 <h3 className="text-xl font-bold text-white">Premium Tools</h3>
                 <p className="text-sm text-white/70 mt-2">Enterprise-grade workflow solutions</p>
               </Link>
             </Reveal>
             <Reveal bidirectional>
               <Link to="/projects#github" className="flex flex-col items-center justify-center rounded-3xl border-2 border-white/20 bg-white/5 p-6 hover:border-[var(--cyan)] transition-colors text-center h-full">
-                <span className="text-5xl mb-3">{openSourceIcon}</span>
+                <Code className="w-12 h-12 text-white mb-3" />
                 <h3 className="text-xl font-bold text-white">Open Source Codebases</h3>
                 <p className="text-sm text-white/70 mt-2">Reusable solutions for developers</p>
               </Link>
             </Reveal>
             <Reveal delay={0.12} bidirectional>
               <Link to="/projects#research" className="flex flex-col items-center justify-center rounded-3xl border-2 border-white/20 bg-white/5 p-6 hover:border-[var(--cyan)] transition-colors text-center h-full">
-                <span className="text-5xl mb-3">{researchIcon}</span>
+                <Search className="w-12 h-12 text-white mb-3" />
                 <h3 className="text-xl font-bold text-white">Research</h3>
                 <p className="text-sm text-white/70 mt-2">Data-driven industry insights</p>
               </Link>

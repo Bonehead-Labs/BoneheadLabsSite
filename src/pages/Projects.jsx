@@ -2,13 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
-
-// Note: Replace these placeholder icon paths with actual Flaticon icon assets once downloaded and added to the project.
-// Suggested Flaticon icons can be sourced from https://www.flaticon.com/
-// Ensure icons are saved in the assets folder and imported here.
-const openSourceIcon = '🧩'; // Placeholder for Flaticon icon, e.g., import openSourceIcon from '../assets/icons/open-source.png';
-const premiumToolsIcon = '⚡'; // Placeholder for Flaticon icon, e.g., import premiumToolsIcon from '../assets/icons/premium-tools.png';
-const researchIcon = '🔬'; // Placeholder for Flaticon icon, e.g., import researchIcon from '../assets/icons/research.png';
+import { Code, Zap, Search } from 'lucide-react';
 
 export default function Projects() {
   const [expandedProject, setExpandedProject] = useState(null);
@@ -18,7 +12,7 @@ export default function Projects() {
       id: "github",
       title: "Open Source Codebases",
       tag: "Community Driven",
-      icon: openSourceIcon,
+      icon: <Code className="w-20 h-20 text-white" />,
       blurb: "Robust, reusable software solutions for developers and creators.",
       highlights: [
         "Accessible libraries and frameworks for game development",
@@ -50,7 +44,7 @@ export default function Projects() {
       id: "research",
       title: "Research & Development",
       tag: "Innovation",
-      icon: researchIcon,
+      icon: <Search className="w-20 h-20 text-white" />,
       blurb: "Data-driven insights for game design and industry advancement.",
       highlights: [
         "Traditional data science and machine learning on proprietary and public datasets",
@@ -77,7 +71,7 @@ export default function Projects() {
       id: "premium-tools",
       title: "Premium Tools",
       tag: "Enterprise Ready",
-      icon: premiumToolsIcon,
+      icon: <Zap className="w-20 h-20 text-white" />,
       blurb: "Tailored solutions for critical development challenges.",
       highlights: [
         "One-off purchase model with reliable, ongoing support",
@@ -131,7 +125,7 @@ export default function Projects() {
                 <div className="grid gap-0 sm:grid-cols-2">
                   <div className="relative aspect-[16/9] p-4">
                     <div className="relative h-full w-full rounded-2xl overflow-hidden border-2 border-white/20 bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                      <span className="text-8xl">{project.icon}</span>
+                      {project.icon}
                       <span className="absolute left-3 top-3 rounded-full border-2 border-white bg-[var(--cyan)] px-3 py-1 text-xs font-semibold text-white">
                         {project.tag}
                       </span>
