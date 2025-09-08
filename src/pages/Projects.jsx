@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
 import { Code, Zap, Search, Beaker } from 'lucide-react';
-import SimpleLottie from "../components/SimpleLottie.jsx";
 import LabAnimation from "../components/LabAnimation.jsx";
 
 export default function Projects() {
@@ -108,11 +107,8 @@ export default function Projects() {
       <section className="bg-[var(--ink)]">
         <Container className="py-16">
           <div className="text-center">
-            <div className="relative mx-auto w-48 h-48 mb-4">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--cyan)]/30 to-[var(--cyan-20)]/20 border border-white/10" />
-              <div className="absolute inset-2 rounded-xl bg-[var(--ink)] border border-white/10 flex items-center justify-center">
-                <SimpleLottie src="/animations/tmon-nbd-lab.json" width={192} height={192} speed={1} />
-              </div>
+            <div className="mx-auto w-48 h-48 mb-4 flex items-center justify-center">
+              <Beaker className="w-48 h-48 text-white" />
             </div>
             <h1 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h1>
             <FadeInInitial>

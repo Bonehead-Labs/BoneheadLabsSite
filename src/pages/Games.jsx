@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 import { Gamepad2 } from 'lucide-react';
-import SimpleLottie from "../components/SimpleLottie.jsx";
 
 // Import game images
 import peteBanner from "../assets/Pete the Pig/BANNER V2.png";
@@ -88,11 +87,8 @@ export default function Games() {
       <section className="bg-[var(--paper)]">
         <Container className="py-16">
           <div className="text-center">
-            <div className="relative mx-auto w-48 h-48 mb-4">
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--cyan)]/30 to-[var(--cyan-20)]/20 border border-[var(--ink)]/10" />
-              <div className="absolute inset-2 rounded-xl bg-[var(--paper)] border border-[var(--ink)]/10 flex items-center justify-center">
-                <SimpleLottie src="/animations/gaming.json" width={192} height={192} speed={1} />
-              </div>
+            <div className="mx-auto w-48 h-48 mb-4 flex items-center justify-center">
+              <Gamepad2 className="w-48 h-48 text-[var(--ink)]" />
             </div>
             <h1 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Games</h1>
             <FadeInInitial>
