@@ -2,11 +2,10 @@ import Reveal from "../components/Reveal.jsx";
 import Parallax from "../components/Parallax.jsx";
 import ScrollBackground from "../components/ScrollBackground.jsx";
 import LabAnimation from "../components/LabAnimation.jsx";
-import LottieEmbed from "../components/LottieEmbed.jsx";
-import LottieDirect from "../components/LottieDirect.jsx";
 import { Container, FadeIn } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
-import { Code, Zap, Search } from 'lucide-react';
+import { Code, Zap, Search, Beaker } from 'lucide-react';
+import SimpleLottie from "../components/SimpleLottie.jsx";
 import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
@@ -98,7 +97,7 @@ export default function Home() {
             <div className="relative mx-auto w-48 h-48 mb-4">
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--cyan)]/30 to-[var(--cyan-20)]/20 border border-white/10" />
               <div className="absolute inset-2 rounded-xl bg-[var(--ink)] border border-white/10 flex items-center justify-center">
-                <LottieDirect src="/animations/tmon-nbd-lab.json" width={192} height={192} speed={1} />
+                <SimpleLottie src="/animations/tmon-nbd-lab.json" width={192} height={192} speed={1} />
               </div>
             </div>
             <h2 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h2>
