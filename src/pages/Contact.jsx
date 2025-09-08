@@ -45,7 +45,7 @@ export default function Contact() {
         <Container className="py-16">
           <FadeInInitial>
             <h1 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Get in Touch</h1>
-            <p className="mt-4 max-w-prose text-[var(--ink-70)]">We'd love to hear from you. Whether you have a question, want to collaborate, or just want to say hi.</p>
+            <p className="mt-4 max-w-prose text-[var(--ink-70)]">We'd love to hear from you. Whether you have a question, want to collaborate, get in touch!</p>
           </FadeInInitial>
         </Container>
       </section>
@@ -145,8 +145,7 @@ export default function Contact() {
               <div className="mt-8 rounded-3xl border-2 border-[var(--ink)] p-6">
                 <h3 className="font-bold text-[var(--ink)] mb-2">Response Time</h3>
                 <p className="text-sm text-[var(--ink-70)]">
-                  We typically respond within 24-48 hours during business days. 
-                  For urgent matters, email is your best bet.
+                  We typically respond within 24-48 hours during business days.
                 </p>
               </div>
             </FadeIn>

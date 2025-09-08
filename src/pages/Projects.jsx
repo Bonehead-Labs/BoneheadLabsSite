@@ -3,100 +3,101 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
 
+// Note: Replace these placeholder icon paths with actual Flaticon icon assets once downloaded and added to the project.
+// Suggested Flaticon icons can be sourced from https://www.flaticon.com/
+// Ensure icons are saved in the assets folder and imported here.
+const openSourceIcon = '🧩'; // Placeholder for Flaticon icon, e.g., import openSourceIcon from '../assets/icons/open-source.png';
+const premiumToolsIcon = '⚡'; // Placeholder for Flaticon icon, e.g., import premiumToolsIcon from '../assets/icons/premium-tools.png';
+const researchIcon = '🔬'; // Placeholder for Flaticon icon, e.g., import researchIcon from '../assets/icons/research.png';
+
 export default function Projects() {
   const [expandedProject, setExpandedProject] = useState(null);
 
   const projects = [
     {
-      id: "open-source",
-      title: "Open Source Libraries",
-      tag: "Community",
-      icon: "🔧",
-      blurb: "Sharing what we learn with the development community.",
-      description: "We believe in giving back to the game development community by open-sourcing tools, libraries, and sharing knowledge that others might find useful. All our open source projects are MIT licensed and actively maintained.",
-      status: "Active Development",
-      category: "Libraries & Tools",
-      lastUpdate: "Updated regularly",
-      features: [
-        "MIT licensed for maximum community use",
-        "Well-documented with examples",
-        "Active maintenance and updates",
-        "Cross-platform compatibility",
-        "Performance-focused implementations"
+      id: "github",
+      title: "Open Source Codebases",
+      tag: "Community Driven",
+      icon: openSourceIcon,
+      blurb: "Robust, reusable software solutions for developers and creators.",
+      highlights: [
+        "Accessible libraries and frameworks for game development",
+        "Community-driven contributions and transparent development",
+        "Proven utility in real-world projects and prototypes",
+        "Focused on modularity and cross-platform compatibility"
       ],
       repositories: [
         {
-          name: "Bonehead-Physics",
-          description: "Lightweight 2D physics engine for Unity",
-          language: "C#",
-          stars: 127,
-          url: "https://github.com/boneheadlabs/bonehead-physics"
+          name: "bonehead-labs-official-systems",
+          description: "Reusable Godot game systems as importable modules (work in progress).",
+          language: "GDScript",
+          stars: 1,
+          url: "https://github.com/Bonehead-Labs/bonehead-labs-official-systems"
         },
         {
-          name: "GameFeel-Kit",
-          description: "Collection of game feel utilities and effects",
-          language: "C#",
-          stars: 89,
-          url: "https://github.com/boneheadlabs/gamefeel-kit"
-        },
-        {
-          name: "Asset-Pipeline",
-          description: "Automated asset processing and optimization tools",
+          name: "PBIP-Factory",
+          description: "Generate multiple Power BI PBIP projects from a template + CSV of parameter values.",
           language: "Python",
-          stars: 45,
-          url: "https://github.com/boneheadlabs/asset-pipeline"
+          stars: 1,
+          url: "https://github.com/Bonehead-Labs/PBIP-Factory"
         }
       ],
       links: {
-        github: "https://github.com/boneheadlabs",
-        discord: "https://discord.gg/boneheadlabs",
-        documentation: "https://docs.boneheadlabs.dev"
+        github: "https://github.com/Bonehead-Labs"
+      }
+    },
+    {
+      id: "research",
+      title: "Research & Development",
+      tag: "Innovation",
+      icon: researchIcon,
+      blurb: "Data-driven insights for game design and industry advancement.",
+      highlights: [
+        "Traditional data science and machine learning on proprietary and public datasets",
+        "Statistical analysis to uncover trends and patterns",
+        "Interactive delivery via Streamlit apps hosted on GitHub Pages",
+        "Value-focused insights for consumers and industry partners"
+      ],
+      placeholder: true,
+      projects: [
+        {
+          name: "Indie Game Market Analysis",
+          description: "Decoding success factors and market trends for indie developers.",
+        },
+        {
+          name: "Understanding Gamers",
+          description: "Behavioral insights into player preferences and engagement drivers.",
+        }
+      ],
+      links: {
+        contact: "/contact"
       }
     },
     {
       id: "premium-tools",
       title: "Premium Tools",
-      tag: "Professional",
-      icon: "⚡",
-      blurb: "Professional-grade tools designed for productivity and efficiency.",
-      description: "Our premium tools are built for developers who need reliable, powerful solutions for their daily workflow. These tools help streamline development processes and improve code quality.",
-      status: "Available Now",
-      category: "Development Tools",
-      lastUpdate: "Latest version 2.1.0",
-      features: [
-        "Professional support and documentation",
-        "Regular updates and new features",
-        "Enterprise licensing options",
-        "Priority bug fixes and support",
-        "Custom integration assistance"
+      tag: "Enterprise Ready",
+      icon: premiumToolsIcon,
+      blurb: "Tailored solutions for critical development challenges.",
+      highlights: [
+        "One-off purchase model with reliable, ongoing support",
+        "Built with Python, Go, SQL, GraphQL, and cutting-edge databases",
+        "Developed by Bonehead Labs and trusted partners",
+        "Designed for business and personal value with timely care"
       ],
-      tools: [
+      placeholder: true,
+      projects: [
         {
-          name: "CodeGen Pro",
-          description: "AI-powered code generation and refactoring tool",
-          price: "$49/month",
-          platforms: ["VS Code", "JetBrains", "Standalone"],
-          url: "/tools/codegen-pro"
+          name: "GameFlow Studio",
+          description: "Streamlined game development pipeline for rapid prototyping and deployment.",
         },
         {
-          name: "Asset Manager",
-          description: "Advanced asset organization and optimization suite",
-          price: "$29/month",
-          platforms: ["Unity", "Unreal", "Standalone"],
-          url: "/tools/asset-manager"
-        },
-        {
-          name: "Performance Profiler",
-          description: "Real-time performance monitoring and optimization",
-          price: "$79/month",
-          platforms: ["Windows", "macOS", "Linux"],
-          url: "/tools/performance-profiler"
+          name: "DataForge Analytics",
+          description: "Advanced analytics engineering suite for real-time data pipeline optimization.",
         }
       ],
       links: {
-        pricing: "/pricing",
-        contact: "/contact",
-        documentation: "https://docs.boneheadlabs.dev/premium"
+        contact: "/contact"
       }
     }
   ];
@@ -111,8 +112,8 @@ export default function Projects() {
       <section className="bg-[var(--ink)]">
         <Container className="py-16">
           <FadeInInitial>
-            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">Projects & Tools</h1>
-            <p className="mt-4 max-w-prose text-white/70">Technical capabilities, tools, and experiments that help us build better games.</p>
+            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">Projects</h1>
+            <p className="mt-4 max-w-prose text-white/70">We develop video games, create open source and premium tools, and conduct and share research.</p>
           </FadeInInitial>
         </Container>
       </section>
@@ -122,11 +123,11 @@ export default function Projects() {
         <Container className="py-16">
           <div className="grid gap-8">
             {projects.map((project, i) => (
-              <FadeIn 
-                key={project.id} 
-                delay={i} 
-                                 className="group overflow-hidden rounded-3xl border-2 border-white/20 bg-white/5"
-              >
+              <div key={project.id} id={project.id}>
+                <FadeIn 
+                  delay={i} 
+                                   className="group overflow-hidden rounded-3xl border-2 border-white/20 bg-white/5"
+                >
                 <div className="grid gap-0 sm:grid-cols-2">
                   <div className="relative aspect-[16/9] p-4">
                     <div className="relative h-full w-full rounded-2xl overflow-hidden border-2 border-white/20 bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
@@ -141,23 +142,7 @@ export default function Projects() {
                                            <h2 className="text-2xl font-bold text-white">{project.title}</h2>
                       <p className="mt-2 text-sm text-white/70">{project.blurb}</p>
                     </div>
-                    
-                    <div className="space-y-3 text-sm">
-                      <div>
-                        <span className="font-semibold text-white">Status:</span>
-                        <span className="ml-2 text-white/70">{project.status}</span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-[var(--ink)]">Category:</span>
-                        <span className="ml-2 text-white/70">{project.category}</span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-white">Last Update:</span>
-                        <span className="ml-2 text-white/70">{project.lastUpdate}</span>
-                      </div>
-                    </div>
 
-                    <p className="mt-4 text-sm text-white/70">{project.description}</p>
                     
                     <div className="mt-6 flex gap-3">
                       <button 
@@ -166,7 +151,7 @@ export default function Projects() {
                       >
                         {expandedProject === project.id ? 'Show Less' : 'Learn More'}
                       </button>
-                      {project.id === "open-source" ? (
+                      {project.id === "github" ? (
                         <a 
                           href={project.links.github} 
                           target="_blank" 
@@ -175,14 +160,7 @@ export default function Projects() {
                         >
                           View on GitHub
                         </a>
-                      ) : (
-                        <a 
-                          href={project.links.pricing} 
-                          className="rounded-xl border-2 border-white px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-                        >
-                          View Pricing
-                        </a>
-                      )}
+                      ) : null}
                     </div>
                   </div>
                 </div>
@@ -198,21 +176,23 @@ export default function Projects() {
                       className="overflow-hidden border-t-2 border-white/20"
                     >
                       <div className="p-6 space-y-8">
-                        {/* Features */}
-                        <div>
-                          <h3 className="text-lg font-bold text-white mb-3">Key Features</h3>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            {project.features.map((feature, index) => (
-                              <div key={index} className="flex items-center">
-                                <span className="w-1.5 h-1.5 bg-[var(--cyan)] rounded-full mr-2"></span>
-                                <span className="text-sm text-white/70">{feature}</span>
-                              </div>
-                            ))}
+                        {/* Highlights */}
+                        {project.highlights && project.highlights.length > 0 && (
+                          <div>
+                            <h3 className="text-lg font-bold text-white mb-3">Capabilities & Delivery</h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                              {project.highlights.map((item, index) => (
+                                <div key={index} className="flex items-center">
+                                  <span className="w-1.5 h-1.5 bg-[var(--cyan)] rounded-full mr-2"></span>
+                                  <span className="text-sm text-white/70">{item}</span>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        )}
 
-                        {/* Open Source Repositories or Premium Tools */}
-                        {project.id === "open-source" ? (
+                        {/* GitHub Featured Repositories */}
+                        {project.id === "github" ? (
                           <div>
                             <h3 className="text-lg font-bold text-white mb-3">Featured Repositories</h3>
                             <div className="space-y-4">
@@ -240,76 +220,47 @@ export default function Projects() {
                               ))}
                             </div>
                           </div>
-                        ) : (
+                        ) : project.id === "research" ? (
                           <div>
-                            <h3 className="text-lg font-bold text-white mb-3">Available Tools</h3>
-                            <div className="grid gap-4 sm:grid-cols-2">
-                              {project.tools.map((tool, index) => (
+                            <h3 className="text-lg font-bold text-white mb-3">Upcoming Focus Areas</h3>
+                            <div className="space-y-4">
+                              {project.projects.map((proj, index) => (
                                 <div key={index} className="p-4 rounded-xl border border-white/20 bg-white/5 hover:border-[var(--cyan)] transition-colors">
-                                  <h4 className="font-semibold text-white">{tool.name}</h4>
-                                  <p className="text-sm text-white/70 mt-1">{tool.description}</p>
-                                  <div className="mt-2 text-xs text-[var(--cyan)] font-medium">{tool.price}</div>
-                                  <div className="mt-2 text-xs text-white/50">{tool.platforms.join(", ")}</div>
-                                  <a 
-                                    href={tool.url} 
-                                    className="mt-3 inline-block px-3 py-1 rounded-lg border border-white text-xs font-medium text-white hover:bg-white/20 transition-colors"
-                                  >
-                                    Learn More
-                                  </a>
+                                  <div className="flex items-start justify-between">
+                                    <div className="flex-1">
+                                      <h4 className="font-semibold text-white">{proj.name}</h4>
+                                      <p className="text-sm text-white/70 mt-1">{proj.description}</p>
+                                    </div>
+                                  </div>
                                 </div>
                               ))}
                             </div>
                           </div>
-                        )}
-
-                        {/* Links */}
-                        <div>
-                          <h3 className="text-lg font-bold text-white mb-3">Get Started</h3>
-                          <div className="flex flex-wrap gap-3">
-                            {project.id === "open-source" ? (
-                              <>
-                                <a 
-                                  href={project.links.documentation} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center rounded-xl border-2 border-white px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-                                >
-                                  Documentation
-                                </a>
-                                <a 
-                                  href={project.links.discord} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center rounded-xl border-2 border-white px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-                                >
-                                  Join Discord
-                                </a>
-                              </>
-                            ) : (
-                              <>
-                                <Link 
-                                  to={project.links.contact} 
-                                  className="inline-flex items-center rounded-xl border-2 border-white px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-                                >
-                                  Contact Sales
-                                </Link>
-                                <a 
-                                  href={project.links.documentation} 
-                                  target="_blank" 
-                                  rel="noopener noreferrer"
-                                  className="inline-flex items-center rounded-xl border-2 border-white px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-                                >
-                                  Documentation
-                                </a>
-                              </>
-                            )}
+                        ) : project.id === "premium-tools" ? (
+                          <div>
+                            <h3 className="text-lg font-bold text-white mb-3">Upcoming Products</h3>
+                            <div className="space-y-4">
+                              {project.projects.map((proj, index) => (
+                                <div key={index} className="p-4 rounded-xl border border-white/20 bg-white/5 hover:border-[var(--cyan)] transition-colors">
+                                  <div className="flex items-start justify-between">
+                                    <div className="flex-1">
+                                      <h4 className="font-semibold text-white">{proj.name}</h4>
+                                      <p className="text-sm text-white/70 mt-1">{proj.description}</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        ) : null}
+
+                        {/* Concise presentation; no extra CTA section */}
                       </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
               </FadeIn>
+              </div>
             ))}
           </div>
         </Container>

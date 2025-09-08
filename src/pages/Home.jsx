@@ -7,6 +7,13 @@ import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
 
+// Note: Replace these placeholder icon paths with actual Flaticon icon assets once downloaded and added to the project.
+// Suggested Flaticon icons can be sourced from https://www.flaticon.com/
+// Ensure icons are saved in the assets folder and imported here.
+const openSourceIcon = '🧩'; // Placeholder for Flaticon icon, e.g., import openSourceIcon from '../assets/icons/open-source.png';
+const premiumToolsIcon = '⚡'; // Placeholder for Flaticon icon, e.g., import premiumToolsIcon from '../assets/icons/premium-tools.png';
+const researchIcon = '🔬'; // Placeholder for Flaticon icon, e.g., import researchIcon from '../assets/icons/research.png';
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--paper)]">
@@ -21,7 +28,7 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.12} bidirectional>
               <p className="mt-4 max-w-prose text-xl text-[var(--ink-70)]">
-                A small software lab building fun games and useful tools.
+                We make games, build tools, and conduct research.
               </p>
             </Reveal>
             <Reveal delay={0.18} bidirectional>
@@ -86,44 +93,47 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Featured Projects - inverted */}
+      {/* Tools & Research - inverted */}
       <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)] bg-[var(--ink)]">
-        <div className="absolute inset-0 opacity-10" style={{background:"radial-gradient(circle at 30% 20%, rgba(255,255,255,0.25), transparent 40%)"}}/>
-        <Container className="relative flex min-h-[90vh] items-center py-16">
-          <div className="grid gap-10 sm:grid-cols-2">
-            <div>
-              <Reveal bidirectional>
-                <div className="text-center mb-8">
-                  <div className="relative mx-auto w-32 h-32 mb-6">
-                    {/* Animated floating code block */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-[var(--cyan)] to-[var(--cyan-20)] rounded-2xl animate-pulse"></div>
-                    <div className="absolute inset-2 bg-[var(--ink)] rounded-xl flex items-center justify-center animate-heartbeat">
-                      <span className="text-4xl">⚡</span>
-                    </div>
-                  </div>
-                  <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Featured Projects</h2>
+        <div className="absolute inset-0 opacity-10" style={{background:"radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25), transparent 40%)"}}/>
+        <Container className="relative flex min-h-[90vh] flex-col items-center justify-center py-16">
+          <Reveal bidirectional>
+            <div className="text-center mb-10">
+              <div className="relative mx-auto w-32 h-32 mb-6">
+                {/* Animated floating code block */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[var(--cyan)] to-[var(--cyan-20)] rounded-2xl animate-pulse"></div>
+                <div className="absolute inset-2 bg-[var(--ink)] rounded-xl flex items-center justify-center animate-heartbeat">
+                  <span className="text-4xl">⚡</span>
                 </div>
-              </Reveal>
-              <Reveal delay={0.10} bidirectional>
-                <p className="mt-3 text-white/70 max-w-prose">Open source libraries and diverse tools to make your life easier.</p>
-              </Reveal>
+              </div>
+              <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Tools & Research</h2>
             </div>
-            <div className="space-y-6">
-              <Reveal bidirectional>
-                <div className="rounded-3xl border-2 border-white/20 bg-white/5 p-6">
-                  <div className="text-sm font-semibold text-[var(--cyan)]">Open Source</div>
-                  <div className="mt-2 text-lg font-bold text-white">Open source libraries</div>
-                  <p className="mt-2 text-white/70 text-sm">Community-driven tools and libraries for developers.</p>
-                </div>
-              </Reveal>
-              <Reveal delay={0.09} bidirectional>
-                <div className="rounded-3xl border-2 border-white/20 bg-white/5 p-6">
-                  <div className="text-sm font-semibold text-[var(--cyan)]">Premium</div>
-                  <div className="mt-2 text-lg font-bold text-white">Premium tools</div>
-                  <p className="mt-2 text-white/70 text-sm">Professional-grade tools designed for productivity and efficiency.</p>
-                </div>
-              </Reveal>
-            </div>
+          </Reveal>
+          <Reveal delay={0.10} bidirectional>
+            <p className="mt-3 text-white/70 max-w-prose text-center mb-8">Explore our GitHub for reusable systems, production tools, and R&D.</p>
+          </Reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 w-full max-w-4xl">
+            <Reveal delay={0.06} bidirectional>
+              <Link to="/projects#premium-tools" className="flex flex-col items-center justify-center rounded-3xl border-2 border-white/20 bg-white/5 p-6 hover:border-[var(--cyan)] transition-colors text-center h-full">
+                <span className="text-5xl mb-3">{premiumToolsIcon}</span>
+                <h3 className="text-xl font-bold text-white">Premium Tools</h3>
+                <p className="text-sm text-white/70 mt-2">Enterprise-grade workflow solutions</p>
+              </Link>
+            </Reveal>
+            <Reveal bidirectional>
+              <Link to="/projects#github" className="flex flex-col items-center justify-center rounded-3xl border-2 border-white/20 bg-white/5 p-6 hover:border-[var(--cyan)] transition-colors text-center h-full">
+                <span className="text-5xl mb-3">{openSourceIcon}</span>
+                <h3 className="text-xl font-bold text-white">Open Source Codebases</h3>
+                <p className="text-sm text-white/70 mt-2">Reusable solutions for developers</p>
+              </Link>
+            </Reveal>
+            <Reveal delay={0.12} bidirectional>
+              <Link to="/projects#research" className="flex flex-col items-center justify-center rounded-3xl border-2 border-white/20 bg-white/5 p-6 hover:border-[var(--cyan)] transition-colors text-center h-full">
+                <span className="text-5xl mb-3">{researchIcon}</span>
+                <h3 className="text-xl font-bold text-white">Research</h3>
+                <p className="text-sm text-white/70 mt-2">Data-driven industry insights</p>
+              </Link>
+            </Reveal>
           </div>
         </Container>
       </section>
