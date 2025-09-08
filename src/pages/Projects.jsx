@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
 import { Code, Zap, Search } from 'lucide-react';
+import LabAnimation from "../components/LabAnimation.jsx";
 
 export default function Projects() {
   const [expandedProject, setExpandedProject] = useState(null);
@@ -105,10 +106,14 @@ export default function Projects() {
       {/* Page Header */}
       <section className="bg-[var(--ink)]">
         <Container className="py-16">
-          <FadeInInitial>
-            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h1>
-            <p className="mt-4 max-w-prose text-white/70">We develop video games, create open source and premium tools, and conduct and share research.</p>
-          </FadeInInitial>
+          <div className="text-center">
+            <LabAnimation>
+              <h1 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h1>
+            </LabAnimation>
+            <FadeInInitial>
+              <p className="mt-4 max-w-prose text-white/70 mx-auto">We develop video games, create open source and premium tools, and conduct and share research.</p>
+            </FadeInInitial>
+          </div>
         </Container>
       </section>
 

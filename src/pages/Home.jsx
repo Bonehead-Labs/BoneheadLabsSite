@@ -1,9 +1,10 @@
 import Reveal from "../components/Reveal.jsx";
 import Parallax from "../components/Parallax.jsx";
 import ScrollBackground from "../components/ScrollBackground.jsx";
+import LabAnimation from "../components/LabAnimation.jsx";
 import { Container, FadeIn } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
-import { Code, Zap, Search, Beaker } from 'lucide-react';
+import { Code, Zap, Search } from 'lucide-react';
 import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
@@ -91,18 +92,9 @@ export default function Home() {
       <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)] bg-[var(--ink)]">
         <div className="absolute inset-0 opacity-10" style={{background:"radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25), transparent 40%)"}}/>
         <Container className="relative flex min-h-[90vh] flex-col items-center justify-center py-16">
-          <Reveal bidirectional>
-            <div className="text-center mb-10">
-              <div className="relative mx-auto w-32 h-32 mb-6">
-                {/* Animated floating code block */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[var(--cyan)] to-[var(--cyan-20)] rounded-2xl animate-pulse"></div>
-                <div className="absolute inset-2 bg-[var(--ink)] rounded-xl flex items-center justify-center animate-heartbeat">
-                  <Beaker className="w-8 h-8 text-white" />
-                </div>
-              </div>
-              <h2 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h2>
-            </div>
-          </Reveal>
+          <LabAnimation className="mb-10">
+            <h2 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h2>
+          </LabAnimation>
           <Reveal delay={0.10} bidirectional>
             <p className="mt-3 text-white/70 max-w-prose text-center mb-8">Explore our GitHub for reusable systems, production tools, and R&D.</p>
           </Reveal>
