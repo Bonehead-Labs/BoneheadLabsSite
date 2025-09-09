@@ -2,10 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="./favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.png" />
-    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="./favicon.png" />
+    <script>
+      const baseUrl = window.location.hostname === 'localhost' ? '' : '/BoneheadLabsSite';
+      document.write(`
+        <link rel="icon" type="image/x-icon" href="${baseUrl}/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="${baseUrl}/favicon.png" />
+        <link rel="shortcut icon" type="image/x-icon" href="${baseUrl}/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="${baseUrl}/favicon.png" />
+      `);
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bonehead Labs</title>
     

@@ -9,6 +9,10 @@ export default defineConfig({
     open: true
   },
   publicDir: 'public',
+  define: {
+    __BUILD_TIME__: JSON.stringify(new Date().toISOString()),
+    'import.meta.env.VITE_BASE_URL': JSON.stringify('/BoneheadLabsSite/')
+  },
   build: {
     rollupOptions: {
       output: {
@@ -18,8 +22,5 @@ export default defineConfig({
         assetFileNames: 'css/[name]-[hash].[ext]'
       }
     }
-  },
-  define: {
-    __BUILD_TIME__: JSON.stringify(new Date().toISOString())
   }
 })
