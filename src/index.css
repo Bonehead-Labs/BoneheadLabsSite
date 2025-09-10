@@ -1,3 +1,5 @@
+@import 'highlight.js/styles/github-dark.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -66,4 +68,68 @@
 
 .animate-heartbeat {
   animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Custom blog content styling */
+.blog-content pre {
+  background-color: var(--ink) !important;
+  border: 2px solid var(--ink);
+  border-radius: 1rem;
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+}
+
+.blog-content pre code {
+  background: transparent !important;
+  color: white !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+.blog-content code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.875rem;
+}
+
+.blog-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  border: 2px solid var(--ink-20);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.blog-content th,
+.blog-content td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--ink-20);
+}
+
+.blog-content th {
+  background-color: var(--ink-20);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.blog-content td {
+  color: var(--ink-70);
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 2px solid var(--ink-20);
+  margin: 1.5rem 0;
+}
+
+.blog-content hr {
+  border: none;
+  height: 2px;
+  background-color: var(--ink-20);
+  margin: 2rem 0;
+  border-radius: 1px;
 }

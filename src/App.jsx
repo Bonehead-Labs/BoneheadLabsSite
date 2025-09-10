@@ -6,6 +6,8 @@ import Games from './pages/Games';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import { Container } from './utils/common.jsx';
 import logoImage from './assets/image.png';
 
@@ -21,6 +23,7 @@ function Nav() {
           <Link to="/" className="hover:text-[var(--ink)]">Home</Link>
           <Link to="/games" className="hover:text-[var(--ink)]">Games</Link>
           <Link to="/projects" className="hover:text-[var(--ink)]">The Lab</Link>
+          <Link to="/blog" className="hover:text-[var(--ink)]">Blog</Link>
           <Link to="/about" className="hover:text-[var(--ink)]">About</Link>
           <Link to="/contact" className="hover:text-[var(--ink)]">Contact</Link>
         </nav>
@@ -41,6 +44,7 @@ function Footer() {
           <Link to="/" className="hover:text-[var(--ink)]">Home</Link>
           <Link to="/games" className="hover:text-[var(--ink)]">Games</Link>
           <Link to="/projects" className="hover:text-[var(--ink)]">The Lab</Link>
+          <Link to="/blog" className="hover:text-[var(--ink)]">Blog</Link>
           <Link to="/about" className="hover:text-[var(--ink)]">About</Link>
           <Link to="/contact" className="hover:text-[var(--ink)]">Contact</Link>
         </nav>
@@ -57,6 +61,8 @@ function AnimatedRoutes() {
         <Route path="/" element={<PageTransition><Home /></PageTransition>} />
         <Route path="/games" element={<PageTransition><Games /></PageTransition>} />
         <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+        <Route path="/blog" element={<PageTransition><Blog /></PageTransition>} />
+        <Route path="/blog/:slug" element={<PageTransition><BlogPost /></PageTransition>} />
         <Route path="/about" element={<PageTransition><About /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
