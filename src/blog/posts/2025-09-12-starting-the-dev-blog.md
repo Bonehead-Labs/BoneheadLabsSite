@@ -8,33 +8,47 @@ image: "/BoneheadLabsSite/Assets/Official-banner.png"
 author: "George Nizoridis"
 ---
 
-# The Beginning...
+# The Beginning... 🚀
 
-Wow, I guess it's really happening! Bonehead labs has kicked off.
-Had you have asked me five years ago if I'd have thought this dream was possible, I would have said absolutely not!
-Alas here we are, through the power of amazing learning platforms and A.I tools, a workflow to deliver value has never been more accessible, and through bonehead labs, we are sure to create value for you!
+Wow, I guess it's really happening! Bonehead Labs has officially kicked off.
+If you'd asked me five years ago whether I'd ever thought this dream was possible, I would have said *absolutely not*!
+But here we are—thanks to the power of amazing learning platforms and AI tools, creating a workflow to deliver real value has never been more accessible. And through Bonehead Labs, we're committed to bringing that value straight to you!
 
+> "It's hard to see how far you've come if you can't see where you've been."  
 
-## The Blog.
+That's the philosophy driving us forward—transparency, growth, and a whole lot of fun along the way.
 
-This blog will serve as our medium for communicating the more intricate parts of the companie's operations.
-I aim to share more detailed development information for our upcoming projects, in the hopes of inspiring and assisting other developers in their software engineering journey.
+## The Blog 📝
 
-Here we will celebrate achievements, and reflect on failures, always focusing on growth.
+This blog will be our go-to medium for diving into the more intricate parts of the company's operations.
+I'll be sharing detailed development insights from our upcoming projects, with the goal of inspiring and helping other developers on their software engineering journeys.
 
-## Overall Plan.
+Here, we'll celebrate our achievements and reflect on our failures, always with an eye toward growth and learning.
 
-In my time learning the godot game engine, I have created a couple of small projects. As you can imagine these projects, whilst fun, are quite minimal and untidy.
-The first step, is to tidy up these projects, and reframe them as official open-source demos. These two projects are:
-- Apple Man Sam (first game ever developed)
-- Pete the Pig 
-Whilst unpolished, showcasing these games is an important part of the philosophy I wish this company to embody, and that is **transparency**.
-It's hard to see how far you've come, if you can't see where you've been.
+## Overall Plan 🗺️
 
-**Bonehead Friend**
-Bonehead friend will be our first official, polished game product. This will be the next item released, and will not have an open source repot, but will be **free to play**.
-I aim for this to be the first project available on steam.
+During my time learning the Godot game engine, I've whipped up a couple of small projects. As you can imagine, these early efforts—while a blast to create—are pretty minimal and a bit untidy.
+The first step is to polish them up and reframe them as official open-source demos. These two projects are:
+- **Apple Man Sam** (my very first game ever developed)
+- **Pete the Pig**
 
-**Bonehead-labs official systems**
-This project is aimed to be one of our big products, an open source repot of re-usable godot modules that can be used in any game. This is our vision, and is currently in development.
-I expect a preliminary version of all modules to be released relatively quickly, but these systems will definitely evolve over a long period of time, especially as the overarching engine develops.
+While they're unpolished, showcasing these games is a key part of the philosophy I want this company to embody: **transparency**.
+It's all about sharing the full journey, from rough starts to refined results.
+
+### Bonehead Friend 🤖
+Bonehead Friend will be our first official, polished game product. This is the next big release on the horizon—it won't have an open-source repo, but it *will* be **free to play**.
+I'm aiming for this to be our debut on Steam, and I can't wait to share it with the world!
+
+### Bonehead Labs Official Systems 🛠️
+This project is set to be one of our flagship products: an open-source repo of reusable Godot modules that can plug into any game. It's our big vision, and development is already underway.
+I expect a preliminary version of all the modules to drop relatively quickly, but these systems will evolve over time—especially as the Godot engine itself continues to grow and improve.
+
+## Closing Thoughts 🌟
+
+I'm beyond excited to embark on this journey with Bonehead Labs, and I hope you'll join us every step of the way. Whether you're a developer, a gamer, or just curious about what we're cooking up, there's something here for you. Stay tuned for more updates.
+
+## Explore More of Bonehead Labs
+- [The Lab (Projects)](/projects) - Check out our latest experiments and creations.
+- [Games](/games) - Dive into our growing collection of games.
+- [Contact](/contact) - Have questions or want to collaborate? Reach out!
+- [About](/about) - Learn more about who we are and what drives us.
