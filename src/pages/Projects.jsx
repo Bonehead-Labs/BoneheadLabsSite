@@ -270,9 +270,12 @@ export default function Projects() {
       <section className="bg-[var(--ink)] border-t-2 border-white/20">
         <Container className="py-16">
           <FadeIn className="text-center">
-            <h2 className="text-2xl font-bold text-white">Technical Insights</h2>
-            <p className="mt-2 text-white/70">We occasionally share technical deep-dives and lessons learned.</p>
-            <div className="mt-6">
+            <h2 className="text-2xl font-bold text-white">Development Blog</h2>
+            <p className="mt-2 text-white/70">Technical deep-dives, development logs, and lessons learned from our projects.</p>
+            <div className="mt-6 flex gap-4 justify-center">
+              <Link to="/blog" className="inline-flex items-center rounded-2xl border-2 border-white bg-[var(--cyan)] px-5 py-3 font-semibold text-white transition hover:translate-y-[-1px]">
+                Read Our Blog
+              </Link>
               <Link to="/contact" className="inline-flex items-center rounded-2xl border-2 border-white px-5 py-3 font-semibold text-white transition hover:translate-y-[-1px]">
                 Subscribe to updates
               </Link>

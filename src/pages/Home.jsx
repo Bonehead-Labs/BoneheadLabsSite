@@ -4,13 +4,15 @@ import ScrollBackground from "../components/ScrollBackground.jsx";
 import LabAnimation from "../components/LabAnimation.jsx";
 import { Container, FadeIn } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
-import { Code, Zap, Search, Beaker } from 'lucide-react';
+import { Code, Zap, Search, Beaker, FileText } from 'lucide-react';
 // Removed animated icons; using static Lucide icons instead
 import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
+import { getRecentPosts } from '../blog/blogUtils.js';
 
 export default function Home() {
+  const [latestPost] = getRecentPosts(1);
   return (
     <div className="min-h-screen bg-[var(--paper)]">
       {/* Hero Section */}
@@ -34,6 +36,9 @@ export default function Home() {
                 </Link>
                 <Link to="/projects" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
                   Explore The Lab
+                </Link>
+                <Link to="/blog" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
+                  Read the Blog
                 </Link>
               </div>
             </Reveal>
@@ -127,6 +132,73 @@ export default function Home() {
           </div>
         </Container>
       </section>
+
+      {/* Latest Blog Post (below The Lab) */}
+      {latestPost && (
+        <section className="bg-[var(--paper)] border-t-2 border-[var(--ink)]">
+          <Container className="py-16">
+            <div className="text-center mb-10">
+              <Reveal bidirectional>
+                <div className="mx-auto w-48 h-48 mb-4 flex items-center justify-center">
+                  <FileText className="w-48 h-48 text-[var(--ink)]" />
+                </div>
+              </Reveal>
+              <Reveal delay={0.08} bidirectional>
+                <h2 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Latest Blog Post</h2>
+              </Reveal>
+            </div>
+            <FadeIn>
+              <article className="group rounded-3xl border-2 border-[var(--ink-20)] bg-[var(--paper)] p-6 hover:border-[var(--cyan)] transition-colors max-w-4xl mx-auto">
+                <div className="flex flex-col sm:flex-row gap-6">
+                  {latestPost.frontmatter.image && (
+                    <Reveal bidirectional>
+                      <div className="sm:w-64 aspect-video rounded-2xl overflow-hidden border-2 border-[var(--ink-20)]">
+                        <img
+                          src={latestPost.frontmatter.image}
+                          alt={latestPost.frontmatter.title}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                    </Reveal>
+                  )}
+                  <div className="flex-1">
+                    <Reveal delay={0.06} bidirectional>
+                      <div className="flex items-center gap-4 text-sm text-[var(--ink-50)] mb-2">
+                        <div className="flex items-center gap-1">
+                          {latestPost.date.toLocaleDateString()}
+                        </div>
+                        {latestPost.frontmatter.readTime && (
+                          <div className="flex items-center gap-1">
+                            {latestPost.frontmatter.readTime}
+                          </div>
+                        )}
+                      </div>
+                    </Reveal>
+                    <Reveal delay={0.12} bidirectional>
+                      <h3 className="text-2xl font-bold text-[var(--ink)] mb-3 group-hover:text-[var(--cyan)] transition-colors">
+                        {latestPost.frontmatter.title}
+                      </h3>
+                    </Reveal>
+                    <Reveal delay={0.18} bidirectional>
+                      <p className="text-[var(--ink-70)] mb-4">
+                        {latestPost.frontmatter.excerpt}
+                      </p>
+                    </Reveal>
+                    <Reveal delay={0.24} bidirectional>
+                      <Link
+                        to={`/blog/${latestPost.slug}`}
+                        className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]"
+                      >
+                        Read Post
+                      </Link>
+                    </Reveal>
+                  </div>
+                </div>
+              </article>
+            </FadeIn>
+          </Container>
+        </section>
+      )}
 
       {/* Studio Highlight (footnote) */}
       <section className="bg-[var(--paper)] border-t-2 border-[var(--ink)]">
