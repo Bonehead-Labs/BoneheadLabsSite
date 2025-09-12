@@ -4,7 +4,7 @@ import { Calendar, ArrowLeft, Clock } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
-import { getPostBySlug } from '../blog/blogUtils.js';
+import { getPostBySlug, resolvePostImage } from '../blog/blogUtils.js';
 
 export default function BlogPost() {
   const { slug } = useParams();
@@ -46,7 +46,7 @@ export default function BlogPost() {
             {post.frontmatter.image && (
               <div className="w-full aspect-video rounded-3xl overflow-hidden border-2 border-[var(--ink-20)] mb-6">
                 <img 
-                  src={post.frontmatter.image} 
+                  src={resolvePostImage(post.frontmatter.image)} 
                   alt={post.frontmatter.title}
                   className="w-full h-full object-cover"
                 />
@@ -103,6 +103,13 @@ export default function BlogPost() {
                   >
                     {children}
                   </a>
+                ),
+                img: ({ src = '', alt = '' }) => (
+                  <img 
+                    src={resolvePostImage(src)} 
+                    alt={alt} 
+                    className="rounded-2xl border-2 border-[var(--ink-20)] max-w-full h-auto" 
+                  />
                 ),
                 code: ({ inline, children, className }) => {
                   if (inline) {

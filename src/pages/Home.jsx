@@ -9,7 +9,7 @@ import { Code, Zap, Search, Beaker, FileText } from 'lucide-react';
 import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
-import { getRecentPosts } from '../blog/blogUtils.js';
+import { getRecentPosts, resolvePostImage } from '../blog/blogUtils.js';
 
 export default function Home() {
   const [latestPost] = getRecentPosts(1);
@@ -154,7 +154,7 @@ export default function Home() {
                     <Reveal bidirectional>
                       <div className="sm:w-64 aspect-video rounded-2xl overflow-hidden border-2 border-[var(--ink-20)]">
                         <img
-                          src={latestPost.frontmatter.image}
+                          src={resolvePostImage(latestPost.frontmatter.image)}
                           alt={latestPost.frontmatter.title}
                           className="w-full h-full object-cover"
                         />

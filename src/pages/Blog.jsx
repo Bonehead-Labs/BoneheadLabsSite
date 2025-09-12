@@ -1,7 +1,7 @@
 import { Container, FadeIn } from "../utils/common.jsx";
 import { Link } from 'react-router-dom';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
-import { getAllPosts } from '../blog/blogUtils.js';
+import { getAllPosts, resolvePostImage } from '../blog/blogUtils.js';
 
 export default function Blog() {
   const posts = getAllPosts();
@@ -63,7 +63,7 @@ export default function Blog() {
                       {post.frontmatter.image && (
                         <div className="sm:w-48 aspect-video rounded-2xl overflow-hidden border-2 border-[var(--ink-20)]">
                           <img 
-                            src={post.frontmatter.image} 
+                            src={resolvePostImage(post.frontmatter.image)} 
                             alt={post.frontmatter.title}
                             className="w-full h-full object-cover"
                           />

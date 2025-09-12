@@ -1,5 +1,31 @@
 import fm from 'front-matter';
 
+// Eagerly import all blog images from src so Vite gives us hashed URLs in build
+const blogImageUrls = import.meta.glob('/src/assets/blog-images/*', { as: 'url', eager: true });
+
+// Resolve a blog image path. Supports:
+// - @blog-images/filename.png -> resolves via Vite to hashed asset URL
+// - http(s)://... -> returned as-is
+// - /path under public -> prefixed with BASE_URL for GitHub Pages
+export function resolvePostImage(path) {
+  if (!path) return undefined;
+  if (/^https?:\/\//i.test(path)) return path;
+
+  if (path.startsWith('@blog-images/')) {
+    const fileName = path.slice('@blog-images/'.length);
+    const matchKey = Object.keys(blogImageUrls).find(k => k.endsWith('/' + fileName));
+    return matchKey ? blogImageUrls[matchKey] : undefined;
+  }
+
+  const base = import.meta.env.BASE_URL || '/';
+  if (path.startsWith('/')) {
+    const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+    return normalizedBase + path;
+  }
+
+  return path;
+}
+
 // Import all markdown files in the posts directory as raw strings
 // Use an absolute path to be robust across environments
 const blogPosts = import.meta.glob('/src/blog/posts/*.md', { as: 'raw', eager: true });
