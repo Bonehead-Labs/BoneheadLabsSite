@@ -23,17 +23,17 @@ export default function Contact() {
 
   const contactMethods = [
     {
-      title: "Discord",
-      description: "Join our community server",
-      value: "BoneheadLabs",
-      link: "https://discord.gg/boneheadlabs",
-      icon: "💬"
+      title: "@Bonehead_Labs",
+      description: "Check out our Youtube Channel!",
+      value: "Youtube",
+      link: "https://www.youtube.com/@Bonehead-Labs",
+      icon: "📺"
     },
     {
-      title: "@BoneheadLabs",
+      title: "@Bonehead_Labs",
       description: "Follow our development journey",
-      value: "https://twitter.com/boneheadlabs",
-      link: "https://twitter.com/boneheadlabs",
+      value: "Twitter",
+      link: "https://x.com/Bonehead_Labs",
       icon: "🐦"
     }
   ];

@@ -92,7 +92,7 @@ export default function Games() {
             </div>
             <h1 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Games</h1>
             <FadeInInitial>
-              <p className="mt-2 max-w-prose text-[var(--ink-70)] mx-auto">Small scope, strong identity, great feel. Each game is crafted with care and attention to detail.</p>
+              <p className="mt-2 max-w-prose text-[var(--ink-70)] mx-auto">A diverse set of games, both small in scope demos to more polished products.</p>
             </FadeInInitial>
           </div>
         </Container>
@@ -251,7 +251,7 @@ export default function Games() {
         <Container className="py-16">
           <FadeIn className="text-center">
             <h2 className="text-2xl font-bold text-[var(--ink)]">More Games Coming Soon</h2>
-            <p className="mt-2 text-[var(--ink-70)]">We're always experimenting with new ideas and mechanics.</p>
+            <p className="mt-2 text-[var(--ink-70)]">We're always cooking something!</p>
             <div className="mt-6">
               <Link to="/contact" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
                 Get in touch

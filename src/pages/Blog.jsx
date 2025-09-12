@@ -16,8 +16,8 @@ export default function Blog() {
             <div className="lg:col-span-8 space-y-6">
               <FadeIn>
                 <h1 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl lg:text-6xl">
-                  A Peek Inside
-                  <span className="block text-[var(--cyan)]">The Dev Blog</span>
+                  Our Official
+                  <span className="block text-[var(--cyan)]">Dev Blog</span>
                 </h1>
                 <p className="mt-4 max-w-2xl text-lg text-[var(--ink-70)] leading-relaxed">
                   Technical insights, development logs, and lessons learned.
