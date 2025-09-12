@@ -112,3 +112,7 @@ temp/
 
 # Local Netlify folder
 .netlify
+
+
+# Custom exclusions
+docs
