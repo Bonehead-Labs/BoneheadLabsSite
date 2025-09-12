@@ -18,8 +18,10 @@ export function resolvePostImage(path) {
   }
 
   const base = import.meta.env.BASE_URL || '/';
+  const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
   if (path.startsWith('/')) {
-    const normalizedBase = base.endsWith('/') ? base.slice(0, -1) : base;
+    // If already prefixed with base (e.g. /BoneheadLabsSite/...), don't prefix again
+    if (path.startsWith(normalizedBase + '/')) return path;
     return normalizedBase + path;
   }
 

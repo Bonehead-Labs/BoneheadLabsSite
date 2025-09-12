@@ -4,7 +4,7 @@ date: "2025-09-12"
 excerpt: "The First blog post of Bonehead Labs"
 tags: ["company", "startup", "plans"]
 readTime: "1 min read"
-image: "/BoneheadLabsSite/Assets/Official-banner.png"
+image: "@blog-images/Official-banner.png"
 author: "George Nizoridis"
 ---
 
