@@ -71,7 +71,7 @@ export default function Home() {
         </Container>
       </section>
 
-      <div className="h-6 bg-[var(--ink)]"></div>
+      <div className="h-6 bg-[var(--deep)]"></div>
 
       <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)]">
         <ScrollBackground src={boneheadBanner} alt="Bonehead Friend" direction="right" sizePercent={70} />
@@ -95,7 +95,7 @@ export default function Home() {
       </section>
 
       {/* The Lab - inverted */}
-      <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)] bg-[var(--ink)]">
+      <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)] bg-[var(--deep)]">
         <div className="absolute inset-0 opacity-10" style={{background:"radial-gradient(circle at 50% 50%, rgba(255,255,255,0.25), transparent 40%)"}}/>
         <Container className="relative flex min-h-[90vh] flex-col items-center justify-center py-16">
           <div className="text-center mb-10">

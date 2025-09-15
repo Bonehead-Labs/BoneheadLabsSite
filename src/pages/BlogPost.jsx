@@ -126,7 +126,7 @@ export default function BlogPost() {
                   );
                 },
                 pre: ({ children }) => (
-                  <pre className="bg-[var(--ink)] text-white p-4 rounded-2xl overflow-x-auto border-2 border-[var(--ink)] my-6">
+                  <pre className="bg-[var(--code-bg)] text-white p-4 rounded-2xl overflow-x-auto border-2 border-[var(--ink)] my-6">
                     {children}
                   </pre>
                 ),

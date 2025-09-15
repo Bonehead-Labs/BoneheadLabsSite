@@ -72,7 +72,7 @@
 
 /* Custom blog content styling */
 .blog-content pre {
-  background-color: var(--ink) !important;
+  background-color: var(--code-bg) !important;
   border: 2px solid var(--ink);
   border-radius: 1rem;
   padding: 1rem;

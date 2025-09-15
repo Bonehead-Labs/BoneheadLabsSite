@@ -102,9 +102,9 @@ export default function Projects() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--ink)]">
+    <div className="min-h-screen bg-[var(--deep)]">
       {/* Page Header */}
-      <section className="bg-[var(--ink)]">
+      <section className="bg-[var(--deep)]">
         <Container className="py-16">
           <div className="text-center">
             <div className="mx-auto w-48 h-48 mb-4 flex items-center justify-center">
@@ -119,7 +119,7 @@ export default function Projects() {
       </section>
 
       {/* Projects Grid */}
-      <section className="bg-[var(--ink)]">
+      <section className="bg-[var(--deep)]">
         <Container className="py-16">
           <div className="grid gap-8">
             {projects.map((project, i) => (
@@ -267,7 +267,7 @@ export default function Projects() {
       </section>
 
       {/* Technical Blog */}
-      <section className="bg-[var(--ink)] border-t-2 border-white/20">
+      <section className="bg-[var(--deep)] border-t-2 border-white/20">
         <Container className="py-16">
           <FadeIn className="text-center">
             <h2 className="text-2xl font-bold text-white">Development Blog</h2>

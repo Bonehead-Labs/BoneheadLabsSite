@@ -120,7 +120,7 @@ const LabAnimation = ({ children, className = "" }) => {
           {/* Frame */}
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-[var(--cyan)]/30 to-[var(--cyan-20)]/20 border border-white/10" />
           {/* Inner */}
-          <div className="absolute inset-2 rounded-xl bg-[var(--ink)] border border-white/10" />
+          <div className="absolute inset-2 rounded-xl bg-[var(--deep)] border border-white/10" />
 
           {/* SVG: Magnetic stirrer + Erlenmeyer flask setup */}
           <svg className="absolute inset-0 m-auto" width="112" height="112" viewBox="0 0 112 112" fill="none" xmlns="http://www.w3.org/2000/svg">

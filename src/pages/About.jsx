@@ -151,7 +151,7 @@ export default function About() {
      </section>
 
      {/* Tech Stack Section */}
-     <section className="bg-[var(--ink)] py-24">
+     <section className="bg-[var(--deep)] py-24">
        <Container>
          <FadeIn className="text-center mb-16">
            <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Our Development Stack</h2>
@@ -220,7 +220,7 @@ export default function About() {
      </section>
 
      {/* Team Section - Much more prominent with photo grid */}
-     <section className="bg-[var(--ink)] py-24">
+     <section className="bg-[var(--deep)] py-24">
        <Container>
          <FadeIn className="text-center mb-16">
            <h2 className="text-4xl font-extrabold text-white sm:text-5xl">Meet the Team</h2>
