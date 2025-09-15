@@ -4,6 +4,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Global background for proper mobile theming */
+html, body {
+  background-color: var(--paper);
+}
+
+/* Color scheme hint for better native UI adaptation */
+:root {
+  color-scheme: light dark;
+}
+
 /* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
   width: 8px;

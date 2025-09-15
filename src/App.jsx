@@ -100,6 +100,12 @@ export default function App() {
     } catch {}
     // Helps some native UI (e.g., inputs, scrollbars) adapt where supported
     document.documentElement.style.colorScheme = theme;
+    
+    // Apply theme variables to document root so html/body can access them
+    const themeVars = theme === 'dark' ? darkTheme : lightTheme;
+    Object.entries(themeVars).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
   }, [theme]);
 
   const lightTheme = {
@@ -129,7 +135,7 @@ export default function App() {
   const themeVars = theme === 'dark' ? darkTheme : lightTheme;
 
   return (
-    <div className="min-h-screen scroll-smooth" style={themeVars}>
+    <div className="min-h-screen scroll-smooth">
       <Router>
         <Nav theme={theme} onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
         <main>
