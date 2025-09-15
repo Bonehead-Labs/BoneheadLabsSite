@@ -1,0 +1,48 @@
+---
+globs: *.jsx
+description: React component patterns and best practices
+---
+
+# Component Patterns
+
+## Common Components
+Use shared components from [src/utils/common.jsx](mdc:src/utils/common.jsx):
+- `Container` - Consistent max-width and padding
+- `FadeIn` - Scroll-triggered fade animation
+- `FadeInInitial` - Immediate fade animation
+
+## Animation Patterns
+- Use Framer Motion for complex animations
+- Apply `Reveal` component for scroll-triggered reveals
+- Use `AnimatePresence` for enter/exit animations
+- Prefer `motion.div` over `div` when animations are needed
+
+## Page Structure
+Each page should follow this pattern:
+```jsx
+export default function PageName() {
+  return (
+    <div className="min-h-screen bg-[var(--paper)]">
+      <Container className="py-16">
+        {/* Page content */}
+      </Container>
+    </div>
+  );
+}
+```
+
+## Theme Integration
+- Access theme state through props from App.jsx
+- Use CSS variables for all colors
+- Ensure proper contrast in both light and dark modes
+- Test theme switching functionality
+
+## Navigation
+- Use React Router's `Link` component for internal navigation
+- Apply consistent hover states: `hover:text-[var(--ink)]`
+- Use `useLocation` for active state detection if needed
+
+## Blog Integration
+- Use `getRecentPosts()` and `getPostBySlug()` from [src/blog/blogUtils.js](mdc:src/blog/blogUtils.js)
+- Apply `blog-content` class for markdown styling
+- Use `resolvePostImage()` for image paths

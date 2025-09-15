@@ -1,0 +1,44 @@
+---
+description: Dark mode and theming development guidelines
+---
+
+# Theme Development Guidelines
+
+## Theme State Management
+Theme state is centralized in [src/App.jsx](mdc:src/App.jsx):
+- Uses `useState` with localStorage persistence
+- Initializes from `prefers-color-scheme` media query
+- Provides `theme` and `onToggleTheme` props to Nav component
+
+## CSS Variable Definitions
+Light and dark themes are defined as objects in App.jsx:
+```javascript
+const lightTheme = {
+  '--paper': '#ffffff',
+  '--ink': '#0b0d0f',
+  '--deep': '#0b0d0f',
+  '--code-bg': '#0f1418',
+  // ... other variables
+};
+```
+
+## Adding New Theme Variables
+1. Add to both `lightTheme` and `darkTheme` objects in App.jsx
+2. Use semantic names that describe purpose, not appearance
+3. Test in both light and dark modes
+4. Update this rule if adding new variable categories
+
+## Theme Testing Checklist
+- [ ] Toggle works in navigation
+- [ ] Theme persists across page refreshes
+- [ ] System preference detection works
+- [ ] All text remains readable in both modes
+- [ ] Code blocks have proper contrast
+- [ ] Dark sections use `--deep` not `--ink`
+- [ ] No hardcoded colors remain
+
+## Common Theme Issues
+- **Wrong background**: Using `bg-[var(--ink)]` instead of `bg-[var(--deep)]`
+- **Poor contrast**: Not using appropriate `--ink` opacity variants
+- **Hardcoded colors**: Using hex values instead of CSS variables
+- **Missing variables**: Referencing undefined CSS variables like `--cyan-20`

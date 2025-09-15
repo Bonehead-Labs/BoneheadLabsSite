@@ -1,0 +1,32 @@
+---
+alwaysApply: true
+description: Project structure and architecture guidelines
+---
+
+# Bonehead Labs Site - Project Structure
+
+## Core Architecture
+- **Framework**: React 18 with Vite
+- **Routing**: React Router DOM (HashRouter)
+- **Styling**: Tailwind CSS with custom CSS variables
+- **Animations**: Framer Motion
+- **Markdown**: React Markdown with syntax highlighting
+
+## Key Files
+- [src/App.jsx](mdc:src/App.jsx) - Main app component with theme state and routing
+- [src/main.jsx](mdc:src/main.jsx) - React entry point
+- [src/index.css](mdc:src/index.css) - Global styles and CSS variables
+- [tailwind.config.js](mdc:tailwind.config.js) - Tailwind configuration
+
+## Directory Structure
+- `src/pages/` - Page components (Home, About, Projects, etc.)
+- `src/components/` - Reusable UI components
+- `src/utils/` - Shared utilities and common components
+- `src/assets/` - Static assets (images, icons, animations)
+- `src/blog/` - Blog utilities and markdown posts
+
+## Theme System
+- Uses CSS custom properties for theming
+- Light/dark mode with persistent storage
+- Theme variables defined in App.jsx: `--paper`, `--ink`, `--cyan`, `--deep`, `--code-bg`
+- Theme toggle in navigation header

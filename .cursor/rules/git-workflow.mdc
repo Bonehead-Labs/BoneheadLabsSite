@@ -1,0 +1,34 @@
+---
+description: Git workflow and branch management
+---
+
+# Git Workflow Guidelines
+
+## Branch Naming
+- Feature branches: `feature/description` or `Cursor-FeatureName`
+- Bug fixes: `fix/description`
+- Hotfixes: `hotfix/description`
+
+## Commit Messages
+Use descriptive commit messages:
+- `feat: add dark mode toggle with persistent storage`
+- `fix: resolve theme switching in navigation`
+- `style: update code block backgrounds for dark mode`
+- `refactor: replace hardcoded colors with CSS variables`
+
+## Merge Process
+1. Ensure all changes are committed on feature branch
+2. Switch to main: `git checkout main`
+3. Merge feature branch: `git merge feature-branch-name`
+4. Delete feature branch: `git branch -d feature-branch-name`
+5. Push to remote: `git push origin main`
+
+## Before Committing
+- Run `npm run build` to ensure no build errors
+- Check for linter errors: `npm run lint` (if available)
+- Test theme switching functionality
+- Verify responsive design on different screen sizes
+
+## Deployment
+Use the deploy script: `npm run deploy`
+This builds the project and pushes the dist folder to the main branch for GitHub Pages deployment.

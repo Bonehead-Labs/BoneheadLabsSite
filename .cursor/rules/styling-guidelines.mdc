@@ -1,0 +1,36 @@
+---
+globs: *.jsx,*.css
+description: Styling and theming guidelines
+---
+
+# Styling Guidelines
+
+## CSS Variables System
+Always use semantic CSS variables for theming:
+- `--paper` - Main background color
+- `--ink` - Primary text color
+- `--ink-70` - Secondary text (70% opacity)
+- `--ink-50` - Tertiary text (50% opacity)
+- `--ink-20` - Subtle borders/accents (20% opacity)
+- `--cyan` - Brand accent color
+- `--cyan-20` - Cyan with 20% opacity
+- `--deep` - Dark section backgrounds (not text color)
+- `--code-bg` - Code block backgrounds
+
+## Dark Mode Implementation
+- Never use `bg-[var(--ink)]` for backgrounds - use `bg-[var(--deep)]` instead
+- Text colors should use `--ink` variants for proper contrast
+- Code blocks use `--code-bg` for consistent theming
+- Theme state is managed in [src/App.jsx](mdc:src/App.jsx)
+
+## Tailwind Usage
+- Use arbitrary values for CSS variables: `text-[var(--ink)]`
+- Prefer semantic variable names over hardcoded colors
+- Use `Container` component from [src/utils/common.jsx](mdc:src/utils/common.jsx) for consistent spacing
+- Apply `FadeIn` and `FadeInInitial` for animations
+
+## Component Styling
+- Use consistent border radius: `rounded-2xl` for cards, `rounded-3xl` for larger elements
+- Apply hover states with `hover:` prefix
+- Use `transition-colors` for smooth color changes
+- Maintain consistent spacing with Tailwind's spacing scale
