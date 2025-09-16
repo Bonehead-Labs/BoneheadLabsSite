@@ -83,6 +83,21 @@ function AnimatedRoutes() {
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    try {
+      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    } catch {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  return null;
+}
 export default function App() {
   const [theme, setTheme] = useState(() => {
     try {
@@ -137,6 +152,7 @@ export default function App() {
   return (
     <div className="min-h-screen scroll-smooth">
       <Router>
+        <ScrollToTop />
         <Nav theme={theme} onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
         <main>
           <AnimatedRoutes />
@@ -146,3 +162,6 @@ export default function App() {
     </div>
   );
 }
+
+
+
