@@ -9,7 +9,11 @@ export default defineConfig(({ command, mode }) => {
     base,
     server: {
       port: 3000,
-      open: true
+      open: true,
+      watch: {
+        usePolling: true,
+        interval: 1000
+      }
     },
     publicDir: 'public',
     define: {

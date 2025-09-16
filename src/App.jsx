@@ -15,7 +15,7 @@ import logoImage from './assets/image.png';
 
 function Nav({ theme, onToggleTheme }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--ink-20)] bg-[var(--paper)]/90 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-[var(--ink-20)] bg-[var(--paper-elevated)] shadow-sm backdrop-blur">
       <Container className="flex h-14 items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
           <img src={logoImage} alt="Bonehead Labs" className="h-8 w-8 rounded-full border-2 border-[var(--ink)] object-contain"/>
@@ -125,6 +125,7 @@ export default function App() {
 
   const lightTheme = {
     '--paper': '#ffffff',
+    '--paper-elevated': 'rgba(255, 255, 255, 0.95)',
     '--ink': '#0b0d0f',
     '--ink-70': 'rgba(11,13,15,0.70)',
     '--ink-50': 'rgba(11,13,15,0.50)',
@@ -137,6 +138,7 @@ export default function App() {
 
   const darkTheme = {
     '--paper': '#0f1418',
+    '--paper-elevated': 'rgba(15, 20, 24, 0.85)',
     '--ink': '#e6edf3',
     '--ink-70': 'rgba(230,237,243,0.70)',
     '--ink-50': 'rgba(230,237,243,0.50)',

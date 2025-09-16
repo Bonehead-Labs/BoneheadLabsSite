@@ -94,11 +94,11 @@ export default function About() {
                <div className="flex-1">
                  <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Beginning</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   Bonehead Labs' lead developer George, had always enjoyed playing video games, working with software, and the idea of developing his own. 
-                   However, starting his traditional Computer Science degree in 2016 dampened his enthusiasm, and he ended up swapping to Finance.
-                   Over his career, George had found a way back into software development, in the world of Data Analytics, even becoming an Analytics Engineer, becoming proficient in AI and Data Engineering.
-                   Through the Power of A.I George found his way back into software development, with an all knowing tutor and productivity tool at his side, he began learning game development.
-                   He instantly, fell in love with the process.
+                  I've always loved playing video games and working with software, with a long-held dream of developing my own games. 
+                   However, when I started my Computer Science degree in 2016, the traditional academic approach dampened my enthusiasm, and I ended up switching to Finance, worried about making a living in tech.
+                   Over the years, I found my way back to software development through Data Analytics, eventually becoming an Analytics Engineer and gaining expertise in AI and Data Engineering.
+                   Through the power of AI, I discovered an incredible tutor and productivity tool that helped me dive into game development.
+                   I instantly fell in love with the process. 
                  </p>
                </div>
              </div>
@@ -112,8 +112,8 @@ export default function About() {
                <div className="flex-1">
                  <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Inception</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   George had a clear vision after completing his first wave of prototype projects, he wanted to create a software company, building games that people would enjoy, and tools/products that would improve people's lives.
-                   So, on to chatGPT he went, to of all things, try and come up with a name for his new company.
+                   After completing my first wave of prototype projects, I had a clear vision: I wanted to create a software company that builds games people would enjoy and tools that would improve people's lives.
+                   So I turned to ChatGPT to help me come up with a name for my new company 😂.
                  </p>
                </div>
              </div>
@@ -127,7 +127,8 @@ export default function About() {
                <div className="flex-1">
                  <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Evolution</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   Today, bonehead labs is more than a dream, it's a reality, and we plan to make a mark.
+                  Today, bonehead labs is more than a dream, it's a reality. I am developing games that, as a gamer, I would be thrilled to play. I am developing tools that, as a developer, I would be thrilled to use.
+                  Furthermore, I am excited to share this journey with you, please stay tuned in to the Blog, and content streams, for regular updates on progress.
                  </p>
                </div>
              </div>
@@ -141,7 +142,7 @@ export default function About() {
                <div className="flex-1">
                  <h3 className="text-xl font-bold text-[var(--ink)] mb-2">The Future</h3>
                  <p className="text-[var(--ink-70)] leading-relaxed">
-                   We hope to create a studio that is known for its games, and tools, and that we are a company that is known for its quality and innovation.
+                   I see a bright future for bonehead labs. Sometimes the smaller companies can leave a big mark, and it is my vision to bring a positive impact to our future community and customers.
                  </p>
                </div>
              </div>
