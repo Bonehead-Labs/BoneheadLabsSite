@@ -88,7 +88,7 @@ export default function Home() {
               <p className="mt-3 text-[var(--ink-70)]">A physics-based fidget game that lets you have fun whilst doing other tasks.</p>
             </Reveal>
             <Reveal delay={0.20} bidirectional>
-              <Link to="/projects" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
+              <Link to="/games" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
             </Reveal>
           </div>
         </Container>
