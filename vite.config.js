@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig(({ command, mode }) => {
   const isDev = command === 'serve';
-  const base = isDev ? '/' : '/BoneheadLabsSite/';
+  const base = '/'; // Now using custom domain, so base path is root
   return {
     plugins: [react()],
     base,

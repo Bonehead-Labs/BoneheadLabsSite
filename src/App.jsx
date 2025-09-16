@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { AnimatePresence } from "framer-motion";
