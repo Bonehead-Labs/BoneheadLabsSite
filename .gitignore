@@ -91,6 +91,8 @@ jspm_packages/
 # Gatsby files
 .cache/
 public
+!public/CNAME
+!public/favicon-32x32.png
 
 # Storybook build outputs
 .out
