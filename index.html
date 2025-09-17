@@ -8,7 +8,45 @@
     <link rel="shortcut icon" href="/favicon-32x32.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bonehead Labs</title>
-    
+    <script>
+      (function setCircularFavicon() {
+        try {
+          const size = 64;
+          const canvas = document.createElement('canvas');
+          canvas.width = size;
+          canvas.height = size;
+          const ctx = canvas.getContext('2d');
+          const img = new Image();
+          img.crossOrigin = 'anonymous';
+          img.onload = () => {
+            ctx.clearRect(0, 0, size, size);
+            ctx.save();
+            ctx.beginPath();
+            ctx.arc(size/2, size/2, size/2, 0, Math.PI*2);
+            ctx.closePath();
+            ctx.clip();
+            // Draw image preserving aspect ratio and centered
+            const iw = img.naturalWidth;
+            const ih = img.naturalHeight;
+            const scale = Math.max(size/iw, size/ih);
+            const dw = iw * scale;
+            const dh = ih * scale;
+            const dx = (size - dw) / 2;
+            const dy = (size - dh) / 2;
+            ctx.drawImage(img, dx, dy, dw, dh);
+            ctx.restore();
+
+            const dataUrl = canvas.toDataURL('image/png');
+            const link = document.querySelector('link[rel="icon"]') || document.createElement('link');
+            link.rel = 'icon';
+            link.type = 'image/png';
+            link.href = dataUrl;
+            document.head.appendChild(link);
+          };
+          img.src = '/favicon-32x32.png';
+        } catch {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

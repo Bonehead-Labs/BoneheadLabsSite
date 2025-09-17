@@ -15,7 +15,7 @@ export default function Contact() {
     const emailSubject = subject ? `[Contact Form] ${subject}` : '[Contact Form] New Message';
     const emailBody = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`;
     
-    const mailtoLink = `mailto:bonehead.labs@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:contact@boneheadlabs.org?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
     
     // Open the user's default email client
     window.location.href = mailtoLink;

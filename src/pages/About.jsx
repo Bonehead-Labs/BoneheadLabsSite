@@ -249,10 +249,19 @@ export default function About() {
                
                <h3 className="text-3xl font-bold text-white mb-2">George Nizoridis</h3>
                <p className="text-xl text-[var(--cyan)] mb-4">Founder, CEO & Everything Else</p>
-               <p className="text-white/80 max-w-2xl mx-auto leading-relaxed">
-                 I handle the whole stack — code, art, design, and the business side. 
-                 My development philosophy is prioritise the core functionality, and then add the bells and whistles.
-               </p>
+              <p className="text-white/80 max-w-2xl mx-auto leading-relaxed">
+                I handle the whole stack — code, art, design, and the business side. 
+                My development philosophy is prioritise the core functionality, and then add the bells and whistles.{' '}
+                <a
+                  href="https://georgenizoridis.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 font-semibold text-[var(--cyan)] hover:text-white transition-colors underline decoration-[var(--cyan)] underline-offset-4"
+                >
+                  georgenizoridis.com
+                  <span aria-hidden>↗</span>
+                </a>
+              </p>
              </div>
            </FadeIn>
          </div>
