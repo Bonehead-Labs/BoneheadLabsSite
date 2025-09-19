@@ -11,11 +11,43 @@ import peteJump from "../assets/Pete the Pig/Jump.png";
 import peteScreenshot from "../assets/Pete the Pig/Screenshot 2025-08-22 174113.png";
 import boneheadBanner from "../assets/Bonehead Friend/BONEHEAD BANNER.png";
 import boneheadIcon from "../assets/Bonehead Friend/base-bonehead-ICON.png";
+import boneheadScreenshot1 from "../assets/Bonehead Friend/bonehead-friend screenshot1.png";
+import boneheadScreenshot2 from "../assets/Bonehead Friend/bonehead-friend screenshot2.png";
 
 export default function Games() {
   const [expandedGame, setExpandedGame] = useState(null);
 
   const games = [
+    { 
+      id: "bonehead-friend",
+      title: "Bonehead Friend", 
+      tag: "Demo", 
+      art: boneheadBanner, 
+      blurb: "A physics-based fidget game that lets you have fun whilst doing other tasks.",
+      description: "Bonehead friend is a physics-based game with a bonehead mascot that you can interact with. You can throw objects, pick them up and hit him with them, use explosives and more! It has a transparent background, so it can be overlayed over any other program on your computer.",
+      status: "Demo Available on Itch.io",
+      platforms: ["PC", "Web"],
+      releaseDate: "19/09/2025 (Demo)",
+      developmentHistory: [
+        "Demo Developed and Released - 19/09/2025"
+      ],
+      features: [
+        "Physics based draggable system.",
+        "Melee Weapons.",
+        "Explosives.",
+        "Cursor Powers."
+      ],
+      artwork: [
+        boneheadIcon,
+        boneheadScreenshot1,
+        boneheadScreenshot2
+      ],
+      links: {
+        demo: "https://bonehead-labs.itch.io/bonehead-friend",
+        discord: "https://discord.gg/boneheadlabs",
+        twitter: "https://twitter.com/boneheadlabs"
+      }
+    },
     { 
       id: "pete-the-pig",
       title: "Pete the Pig", 
@@ -43,34 +75,6 @@ export default function Games() {
       ],
       links: {
         demo: "https://itch.io/pete-the-pig-demo",
-        discord: "https://discord.gg/boneheadlabs",
-        twitter: "https://twitter.com/boneheadlabs"
-      }
-    },
-    { 
-      id: "bonehead-friend",
-      title: "Bonehead Friend", 
-      tag: "Demo", 
-      art: boneheadBanner, 
-      blurb: "A physics-based fidget game that lets you have fun whilst doing other tasks.",
-      description: "Bonehead friend is a physics-based game with a bonehead mascot that you can interact with. You can throw objects, pick them up and hit him with them, use explosives and more! It has a transparent background, so it can be overlayed over any other program on your computer.",
-      status: "Demo Available on Itch.io",
-      platforms: ["PC", "Web"],
-      releaseDate: "2025 (Demo)",
-      developmentHistory: [
-        "Demo Developed and Released - 2025"
-      ],
-      features: [
-        "Physics based draggable system.",
-        "Melee Weapons.",
-        "Explosives.",
-        "Cursor Powers."
-      ],
-      artwork: [
-        boneheadIcon
-      ],
-      links: {
-        demo: "https://itch.io/bonehead-friend-demo",
         discord: "https://discord.gg/boneheadlabs",
         twitter: "https://twitter.com/boneheadlabs"
       }
@@ -195,6 +199,25 @@ export default function Games() {
                             ))}
                           </div>
                         </div>
+
+                        {/* Gameplay Video */}
+                        {game.id === "bonehead-friend" && (
+                          <div>
+                            <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Gameplay Video</h3>
+                            <div className="aspect-video rounded-lg overflow-hidden border-2 border-[var(--ink-20)]">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/udO6Zvwv9Hs"
+                                title="Bonehead Friend Gameplay"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                                className="w-full h-full"
+                              ></iframe>
+                            </div>
+                          </div>
+                        )}
 
                         {/* Artwork Gallery */}
                         {game.artwork.length > 1 && (

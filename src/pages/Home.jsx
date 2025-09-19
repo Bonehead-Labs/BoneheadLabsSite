@@ -50,29 +50,6 @@ export default function Home() {
       </section>
 
       {/* Featured Games - full-bleed sections */}
-      <section className="relative min-h-[80vh] w-full overflow-hidden border-t-2 border-[var(--ink)]">
-        <ScrollBackground src={peteBanner} alt="Pete the Pig" direction="left" sizePercent={70} />
-        <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper)]/90 via-[var(--paper)]/40 to-transparent"/>
-        <Container className="relative flex min-h-[90vh] items-end pb-12">
-          <div className="max-w-xl rounded-3xl border-2 border-[var(--ink)] bg-[var(--paper)] px-6 py-5">
-            <Reveal bidirectional>
-              <span className="inline-flex items-center rounded-full border-2 border-[var(--ink)] bg-[var(--cyan)] px-3 py-1 text-xs font-semibold text-[var(--ink)]">Demo</span>
-            </Reveal>
-            <Reveal delay={0.08} bidirectional>
-              <h2 className="mt-4 text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Pete the Pig</h2>
-            </Reveal>
-            <Reveal delay={0.14} bidirectional>
-              <p className="mt-3 text-[var(--ink-70)]">A classic platformer featuring a pig heading to the bank!</p>
-            </Reveal>
-            <Reveal delay={0.20} bidirectional>
-              <Link to="/games" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
-            </Reveal>
-          </div>
-        </Container>
-      </section>
-
-      <div className="h-6 bg-[var(--deep)]"></div>
-
       <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)]">
         <ScrollBackground src={boneheadBanner} alt="Bonehead Friend" direction="right" sizePercent={70} />
         <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper)]/90 via-[var(--paper)]/40 to-transparent"/>
@@ -86,6 +63,45 @@ export default function Home() {
             </Reveal>
             <Reveal delay={0.14} bidirectional>
               <p className="mt-3 text-[var(--ink-70)]">A physics-based fidget game that lets you have fun whilst doing other tasks.</p>
+            </Reveal>
+            <Reveal delay={0.20} bidirectional>
+              <div className="mt-6 space-y-4">
+                <a href="https://bonehead-labs.itch.io/bonehead-friend" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--cyan)] px-5 py-3 font-semibold text-[var(--ink)] hover:translate-y-[-1px] transition">Play Demo</a>
+                <div className="mt-4">
+                  <div className="aspect-video rounded-2xl overflow-hidden border-2 border-[var(--ink-20)]">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/udO6Zvwv9Hs"
+                      title="Bonehead Friend Gameplay"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <div className="h-6 bg-[var(--deep)]"></div>
+
+      <section className="relative min-h-[80vh] w-full overflow-hidden border-t-2 border-[var(--ink)]">
+        <ScrollBackground src={peteBanner} alt="Pete the Pig" direction="left" sizePercent={70} />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper)]/90 via-[var(--paper)]/40 to-transparent"/>
+        <Container className="relative flex min-h-[90vh] items-end pb-12">
+          <div className="max-w-xl rounded-3xl border-2 border-[var(--ink)] bg-[var(--paper)] px-6 py-5">
+            <Reveal bidirectional>
+              <span className="inline-flex items-center rounded-full border-2 border-[var(--ink)] bg-[var(--cyan)] px-3 py-1 text-xs font-semibold text-[var(--ink)]">Demo</span>
+            </Reveal>
+            <Reveal delay={0.08} bidirectional>
+              <h2 className="mt-4 text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Pete the Pig</h2>
+            </Reveal>
+            <Reveal delay={0.14} bidirectional>
+              <p className="mt-3 text-[var(--ink-70)]">A classic platformer featuring a pig heading to the bank!</p>
             </Reveal>
             <Reveal delay={0.20} bidirectional>
               <Link to="/games" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
