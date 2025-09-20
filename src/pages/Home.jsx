@@ -9,6 +9,7 @@ import { Code, Zap, Search, Beaker, FileText } from 'lucide-react';
 import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
+import appleManSamBanner from '/Assets/APPLE-MAN-SAM-ART.png';
 import { getRecentPosts, resolvePostImage } from '../blog/blogUtils.js';
 
 export default function Home() {
@@ -104,7 +105,63 @@ export default function Home() {
               <p className="mt-3 text-[var(--ink-70)]">A classic platformer featuring a pig heading to the bank!</p>
             </Reveal>
             <Reveal delay={0.20} bidirectional>
-              <Link to="/games" className="mt-6 inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
+              <div className="mt-6 space-y-4">
+                <Link to="/games" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--paper)] px-5 py-3 font-semibold text-[var(--ink)]">View Game</Link>
+                <div className="mt-4">
+                  <div className="aspect-video rounded-2xl overflow-hidden border-2 border-[var(--ink-20)]">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/2GcVkwc27sI?start=192"
+                      title="Pete the Pig Gameplay"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <div className="h-6 bg-[var(--deep)]"></div>
+
+      {/* Apple Man Sam - full-bleed section */}
+      <section className="relative min-h-[90vh] w-full overflow-hidden border-t-2 border-[var(--ink)]">
+        <ScrollBackground src={appleManSamBanner} alt="Apple Man Sam" direction="right" sizePercent={70} />
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--paper)]/90 via-[var(--paper)]/40 to-transparent"/>
+        <Container className="relative flex min-h-[90vh] items-end pb-12">
+          <div className="max-w-xl rounded-3xl border-2 border-[var(--ink)] bg-[var(--paper)] px-6 py-5 ml-auto text-right">
+            <Reveal bidirectional>
+              <span className="inline-flex items-center rounded-full border-2 border-[var(--ink)] bg-[var(--cyan)] px-3 py-1 text-xs font-semibold text-[var(--ink)]">Demo</span>
+            </Reveal>
+            <Reveal delay={0.08} bidirectional>
+              <h2 className="mt-4 text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Apple Man Sam</h2>
+            </Reveal>
+            <Reveal delay={0.14} bidirectional>
+              <p className="mt-3 text-[var(--ink-70)]">Apple Man Sam is a top-down shooter where our hero Sam the Apple battles an endless horde of vegetables.</p>
+            </Reveal>
+            <Reveal delay={0.20} bidirectional>
+              <div className="mt-6 space-y-4">
+                <a href="https://bonehead-labs.itch.io/apple-man-sam" target="_blank" rel="noopener noreferrer" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] bg-[var(--cyan)] px-5 py-3 font-semibold text-[var(--ink)] hover:translate-y-[-1px] transition">Play Demo</a>
+                <div className="mt-4">
+                  <div className="aspect-video rounded-2xl overflow-hidden border-2 border-[var(--ink-20)]">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src="https://www.youtube.com/embed/1gxtZbFFvAc"
+                      title="Apple Man Sam Gameplay"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
             </Reveal>
           </div>
         </Container>

@@ -13,6 +13,7 @@ import boneheadBanner from "../assets/Bonehead Friend/BONEHEAD BANNER.png";
 import boneheadIcon from "../assets/Bonehead Friend/base-bonehead-ICON.png";
 import boneheadScreenshot1 from "../assets/Bonehead Friend/bonehead-friend screenshot1.png";
 import boneheadScreenshot2 from "../assets/Bonehead Friend/bonehead-friend screenshot2.png";
+import appleManSamBanner from "/Assets/APPLE-MAN-SAM-ART.png";
 
 export default function Games() {
   const [expandedGame, setExpandedGame] = useState(null);
@@ -75,6 +76,34 @@ export default function Games() {
       ],
       links: {
         demo: "https://bonehead-labs.itch.io/pete-the-pig",
+        discord: "https://discord.gg/boneheadlabs",
+        twitter: "https://twitter.com/boneheadlabs"
+      }
+    },
+    { 
+      id: "apple-man-sam",
+      title: "Apple Man Sam", 
+      tag: "Demo", 
+      art: appleManSamBanner, 
+      blurb: "Apple Man Sam is a top-down shooter where our hero Sam the Apple battles an endless horde of vegetables.",
+      description: "Apple Man Sam is a top-down shooter where our hero Sam the Apple battles an endless horde of vegetables. Early demo features most of the core functionality with aimable camera, variety of enemies, CRT shader effects, and complete shooting, damage and score mechanics.",
+      status: "Demo Available on Itch.io",
+      platforms: ["PC", "Web"],
+      releaseDate: "2025 (Demo)",
+      developmentHistory: [
+        "Demo Developed and Released - 2025"
+      ],
+      features: [
+        "Aimable camera.",
+        "Variety of Enemies.",
+        "CRT Shader.",
+        "Shooting, damage and score mechanics."
+      ],
+      artwork: [
+        appleManSamBanner
+      ],
+      links: {
+        demo: "https://bonehead-labs.itch.io/apple-man-sam",
         discord: "https://discord.gg/boneheadlabs",
         twitter: "https://twitter.com/boneheadlabs"
       }
@@ -210,6 +239,42 @@ export default function Games() {
                                 height="100%"
                                 src="https://www.youtube.com/embed/udO6Zvwv9Hs"
                                 title="Bonehead Friend Gameplay"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                                className="w-full h-full"
+                              ></iframe>
+                            </div>
+                          </div>
+                        )}
+
+                        {game.id === "pete-the-pig" && (
+                          <div>
+                            <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Gameplay Video</h3>
+                            <div className="aspect-video rounded-lg overflow-hidden border-2 border-[var(--ink-20)]">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/2GcVkwc27sI?start=192"
+                                title="Pete the Pig Gameplay"
+                                frameBorder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowFullScreen
+                                className="w-full h-full"
+                              ></iframe>
+                            </div>
+                          </div>
+                        )}
+
+                        {game.id === "apple-man-sam" && (
+                          <div>
+                            <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Gameplay Video</h3>
+                            <div className="aspect-video rounded-lg overflow-hidden border-2 border-[var(--ink-20)]">
+                              <iframe
+                                width="100%"
+                                height="100%"
+                                src="https://www.youtube.com/embed/1gxtZbFFvAc"
+                                title="Apple Man Sam Gameplay"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 allowFullScreen
