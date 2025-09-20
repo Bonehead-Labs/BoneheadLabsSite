@@ -33,7 +33,7 @@ Currently, this demo is a representation of the core functionality, but not the 
 
 
 ## Explore More of Bonehead Labs
-- [The Lab (Projects)](/projects) - Check out our latest experiments and creations.
-- [Games](/games) - Dive into our growing collection of games.
-- [Contact](/contact) - Have questions or want to collaborate? Reach out!
-- [About](/about) - Learn more about who we are and what drives us.
+- [The Lab (Projects)](https://boneheadlabs.org/projects) - Open source & premium software, interesting research.
+- [Games](https://boneheadlabs.org/games) - Game library.
+- [Contact](https://boneheadlabs.org/contact) 
+- [About](https://boneheadlabs.org/about) - Learn more about bonehead labs.

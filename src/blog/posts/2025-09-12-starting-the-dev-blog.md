@@ -48,7 +48,7 @@ I expect a preliminary version of all the modules to drop relatively quickly, bu
 I'm beyond excited to embark on this journey with Bonehead Labs, and I hope you'll join us every step of the way. Whether you're a developer, a gamer, or just curious about what we're cooking up, there's something here for you. Stay tuned for more updates.
 
 ## Explore More of Bonehead Labs
-- [The Lab (Projects)](/projects) - Check out our latest experiments and creations.
-- [Games](/games) - Dive into our growing collection of games.
-- [Contact](/contact) - Have questions or want to collaborate? Reach out!
-- [About](/about) - Learn more about who we are and what drives us.
+- [The Lab (Projects)](https://boneheadlabs.org/projects) - Open source & premium software, interesting research.
+- [Games](https://boneheadlabs.org/games) - Game library.
+- [Contact](https://boneheadlabs.org/contact) 
+- [About](https://boneheadlabs.org/about) - Learn more about bonehead labs.
