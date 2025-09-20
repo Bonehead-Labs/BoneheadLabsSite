@@ -74,7 +74,7 @@ export default function Games() {
         peteScreenshot
       ],
       links: {
-        demo: "https://itch.io/pete-the-pig-demo",
+        demo: "https://bonehead-labs.itch.io/pete-the-pig",
         discord: "https://discord.gg/boneheadlabs",
         twitter: "https://twitter.com/boneheadlabs"
       }
