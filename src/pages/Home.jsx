@@ -9,7 +9,7 @@ import { Code, Zap, Search, Beaker, FileText } from 'lucide-react';
 import mascotImage from '../assets/bc9171fd-31f9-4b54-966c-7e2fd1a0afec.png';
 import peteBanner from '../assets/Pete the Pig/BANNER V2.png';
 import boneheadBanner from '../assets/Bonehead Friend/BONEHEAD BANNER.png';
-import appleManSamBanner from '/Assets/APPLE-MAN-SAM-ART.png';
+import appleManSamBanner from '../assets/Apple Man Sam/APPLE-MAN-SAM-ART.png';
 import { getRecentPosts, resolvePostImage } from '../blog/blogUtils.js';
 
 export default function Home() {

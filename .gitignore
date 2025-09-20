@@ -90,9 +90,11 @@ jspm_packages/
 
 # Gatsby files
 .cache/
-public
-!public/CNAME
-!public/favicon-32x32.png
+# Keep public in repo (needed for static assets like CNAME, favicons, images)
+# If you later want to ignore build artifacts only, prefer ignoring dist/ instead
+# public
+# !public/CNAME
+# !public/favicon-32x32.png
 
 # Storybook build outputs
 .out

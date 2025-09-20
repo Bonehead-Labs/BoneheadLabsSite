@@ -13,7 +13,7 @@ import boneheadBanner from "../assets/Bonehead Friend/BONEHEAD BANNER.png";
 import boneheadIcon from "../assets/Bonehead Friend/base-bonehead-ICON.png";
 import boneheadScreenshot1 from "../assets/Bonehead Friend/bonehead-friend screenshot1.png";
 import boneheadScreenshot2 from "../assets/Bonehead Friend/bonehead-friend screenshot2.png";
-import appleManSamBanner from "/Assets/APPLE-MAN-SAM-ART.png";
+import appleManSamBanner from "../assets/Apple Man Sam/APPLE-MAN-SAM-ART.png";
 
 export default function Games() {
   const [expandedGame, setExpandedGame] = useState(null);

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.png">
+  <script>
+    (function() {
+      var repoBase = '/BoneheadLabsSite/';
+      var path = window.location.pathname;
+      // Strip the repo base prefix
+      if (path.indexOf(repoBase) === 0) {
+        path = path.slice(repoBase.length);
+      }
+      // Build hash-based URL for HashRouter
+      var target = repoBase + '#/' + path.replace(/^\//, '');
+      if (window.location.search) target += window.location.search;
+      if (window.location.hash) target += window.location.hash;
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <noscript>
+    JavaScript is required. Go to <a href="/BoneheadLabsSite/#/">/BoneheadLabsSite/#/</a>.
+  </noscript>
+</body>
+</html>
