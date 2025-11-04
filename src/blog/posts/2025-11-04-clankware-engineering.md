@@ -4,7 +4,7 @@ date: "2025-11-04"
 excerpt: "Clankware Engineering"
 tags: ["Agents", "vibe coding", "clanker", "clankware engineering"]
 readTime: "10 min read"
-image: "@blog-images/cursor.png"
+image: "@blog-images/Cursor.png"
 author: "George Nizoridis"
 ---
 # Clankware Engineering
