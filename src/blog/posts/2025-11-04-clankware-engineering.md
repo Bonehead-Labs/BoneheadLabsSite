@@ -137,11 +137,8 @@ Checkpoint often using Git & Github. Set up a local repo, publish to github. Ide
 * **Groups:** Use for coarse filters (e.g., `"enemies"`, `"projectiles"`), not as a logic bus.
 * **class_name vs autoloads (CRITICAL):** **Never use `class_name` in autoload singleton scripts.** Autoload names become global identifiers and will conflict with `class_name` declarations, causing "hides an autoload singleton" errors. Use `class_name` only for non-autoload classes (components, resources, utilities). Ref: Godot 4.x docs on autoloads and global scope (DeepWiki MCP).
 
----
+## 4) File & Project Layout
 
-## 5) File & Project Layout
-
-```
 /src
   /Entities
     /Player
@@ -168,7 +165,7 @@ Checkpoint often using Git & Github. Set up a local repo, publish to github. Ide
 /systems_adapters                 # Thin adapters to EventBus/Save/Input/SceneFlow
 /examples                         # Golden & test scenes
 /docs                             # Architecture, production, style
-```
+
 
 Naming: PascalCase for scenes; components suffixed with `Component`. Mirror names between `.gd` and `.tscn` when a script is the root.
 
