@@ -83,27 +83,30 @@ export default function Games() {
     { 
       id: "apple-man-sam",
       title: "Apple Man Sam", 
-      tag: "Demo", 
+      tag: "Coming Sep 2026",
       art: appleManSamBanner, 
-      blurb: "Apple Man Sam is a top-down shooter where our hero Sam the Apple battles an endless horde of vegetables.",
-      description: "Apple Man Sam is a top-down shooter where our hero Sam the Apple battles an endless horde of vegetables. Early demo features most of the core functionality with aimable camera, variety of enemies, CRT shader effects, and complete shooting, damage and score mechanics.",
-      status: "Demo Available on Itch.io",
-      platforms: ["PC", "Web"],
-      releaseDate: "2025 (Demo)",
+      blurb: "A manual-fire survivors-like roguelite with escalating waves, build progression, and endless mode.",
+      description: "Pick a loadout, level up, upgrade your weapons, and loot items to blast through escalating hordes and bosses. Complete quests to unlock items and cosmetics, then push your build into endless mode and chase the global leaderboards.",
+      status: "Steam demo available · Early Access coming",
+      platforms: ["Windows PC", "Steam"],
+      releaseDate: "September 2026",
       developmentHistory: [
-        "Demo Developed and Released - 2025"
+        "Original demo released - 2025",
+        "Steam demo and Early Access page launched - 2026"
       ],
       features: [
-        "Aimable camera.",
-        "Variety of Enemies.",
-        "CRT Shader.",
-        "Shooting, damage and score mechanics."
+        "Manual-fire top-down combat.",
+        "Three unlockable loadouts.",
+        "Boss fights and escalating waves.",
+        "100+ quests, unlockable items, and cosmetics.",
+        "Endless rising-tide mode.",
+        "Global leaderboards."
       ],
       artwork: [
         appleManSamBanner
       ],
       links: {
-        demo: "https://bonehead-labs.itch.io/apple-man-sam",
+        demo: "https://store.steampowered.com/app/4293080/Apple_Man_Sam/",
         discord: "https://discord.gg/boneheadlabs",
         twitter: "https://twitter.com/boneheadlabs"
       }
@@ -135,7 +138,7 @@ export default function Games() {
       <section className="bg-[var(--paper)]">
         <Container className="py-16">
           <div className="grid gap-8">
-            {games.map((game, i) => (
+            {[...games].sort((a, b) => (a.id === "apple-man-sam" ? -1 : b.id === "apple-man-sam" ? 1 : 0)).map((game, i) => (
               <FadeIn 
                 key={game.id} 
                 delay={i} 

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Sun, Moon } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { AnimatePresence } from "framer-motion";
 import PageTransition from './components/PageTransition.jsx';
 import Home from './pages/Home';
@@ -13,32 +13,33 @@ import BlogPost from './pages/BlogPost';
 import { Container } from './utils/common.jsx';
 import logoImage from './assets/image.png';
 
-function Nav({ theme, onToggleTheme }) {
+const STEAM_URL = "https://store.steampowered.com/app/4293080/Apple_Man_Sam/";
+
+function Nav() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--ink-20)] bg-[var(--paper-elevated)] shadow-sm backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-[#090d0b]/95 text-white shadow-lg backdrop-blur-xl">
       <Container className="flex h-14 items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src={logoImage} alt="Bonehead Labs" className="h-8 w-8 rounded-full border-2 border-[var(--ink)] object-contain"/>
-          <strong className="tracking-wide text-[var(--ink)]">Bonehead Labs</strong>
+          <img src={logoImage} alt="" className="h-8 w-8 rounded-full border border-white/30 object-contain"/>
+          <strong className="text-sm font-black uppercase tracking-[0.15em] text-white">Bonehead Labs</strong>
         </Link>
         <div className="flex items-center gap-3">
-          <nav className="hidden gap-6 text-sm sm:flex text-[var(--ink-70)]">
-            <Link to="/" className="hover:text-[var(--ink)]">Home</Link>
-            <Link to="/games" className="hover:text-[var(--ink)]">Games</Link>
-            <Link to="/projects" className="hover:text-[var(--ink)]">The Lab</Link>
-            <Link to="/blog" className="hover:text-[var(--ink)]">Blog</Link>
-            <Link to="/about" className="hover:text-[var(--ink)]">About</Link>
-            <Link to="/contact" className="hover:text-[var(--ink)]">Contact</Link>
+          <nav className="hidden items-center gap-6 text-xs font-bold uppercase tracking-widest text-white/55 md:flex">
+            <Link to="/games" className="transition hover:text-white">Games</Link>
+            <Link to="/projects" className="transition hover:text-white">The Lab</Link>
+            <Link to="/blog" className="transition hover:text-white">Dev Blog</Link>
+            <Link to="/about" className="transition hover:text-white">Studio</Link>
           </nav>
-          <button
-            type="button"
-            onClick={onToggleTheme}
-            aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            className="inline-flex items-center justify-center rounded-xl border-2 border-[var(--ink-20)] px-2.5 py-1.5 text-[var(--ink-70)] hover:text-[var(--ink)] hover:border-[var(--ink)] transition-colors"
-            title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+          <a
+            href={STEAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md bg-[#d8ff45] px-3 py-2 text-[11px] font-black uppercase tracking-wider text-[#10150f] transition hover:-translate-y-0.5 hover:bg-white sm:px-4"
           >
-            {theme === 'dark' ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-          </button>
+            <span className="hidden sm:inline">Wishlist Apple Man Sam</span>
+            <span className="sm:hidden">Wishlist</span>
+            <ArrowUpRight className="h-4 w-4" />
+          </a>
         </div>
       </Container>
     </header>
@@ -47,19 +48,18 @@ function Nav({ theme, onToggleTheme }) {
 
 function Footer() {
   return (
-    <footer className="border-t-2 border-[var(--ink)] bg-[var(--paper)]">
+    <footer className="border-t border-white/10 bg-[#050705] text-white">
       <Container className="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
         <div className="flex items-center gap-3">
-          <img src={logoImage} alt="Bonehead Labs" className="h-7 w-7 rounded-full border-2 border-[var(--ink)] object-contain"/>
-          <span className="text-sm text-[var(--ink-70)]">© {new Date().getFullYear()} Bonehead Labs</span>
+          <img src={logoImage} alt="Bonehead Labs" className="h-7 w-7 rounded-full border border-white/25 object-contain"/>
+          <span className="text-xs font-semibold uppercase tracking-wider text-white/45">© {new Date().getFullYear()} Bonehead Labs</span>
         </div>
-        <nav className="flex items-center gap-5 text-sm text-[var(--ink-70)]">
-          <Link to="/" className="hover:text-[var(--ink)]">Home</Link>
-          <Link to="/games" className="hover:text-[var(--ink)]">Games</Link>
-          <Link to="/projects" className="hover:text-[var(--ink)]">The Lab</Link>
-          <Link to="/blog" className="hover:text-[var(--ink)]">Blog</Link>
-          <Link to="/about" className="hover:text-[var(--ink)]">About</Link>
-          <Link to="/contact" className="hover:text-[var(--ink)]">Contact</Link>
+        <nav className="flex flex-wrap items-center justify-center gap-5 text-xs font-bold uppercase tracking-wider text-white/45">
+          <Link to="/" className="hover:text-white">Apple Man Sam</Link>
+          <Link to="/games" className="hover:text-white">Games</Link>
+          <Link to="/projects" className="hover:text-white">The Lab</Link>
+          <Link to="/blog" className="hover:text-white">Blog</Link>
+          <Link to="/contact" className="hover:text-white">Contact</Link>
         </nav>
       </Container>
     </footer>
@@ -155,7 +155,7 @@ export default function App() {
     <div className="min-h-screen scroll-smooth">
       <Router>
         <ScrollToTop />
-        <Nav theme={theme} onToggleTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+        <Nav />
         <main>
           <AnimatedRoutes />
         </main>
@@ -164,6 +164,5 @@ export default function App() {
     </div>
   );
 }
-
 
 
