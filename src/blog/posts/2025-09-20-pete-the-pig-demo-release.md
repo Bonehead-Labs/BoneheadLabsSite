@@ -45,7 +45,7 @@ To facilitate this story and a fun game loop, here are the planned changes, feat
 Stay tuned, and enjoy the demo!
 
 ## Explore More of Bonehead Labs
-- [The Lab (Projects)](https://boneheadlabs.org/projects) - Open source & premium software, interesting research.
+- [Software](https://boneheadlabs.org/software) - Tools and the Instrumenta suite.
 - [Games](https://boneheadlabs.org/games) - Game library.
 - [Contact](https://boneheadlabs.org/contact) 
 - [About](https://boneheadlabs.org/about) - Learn more about bonehead labs.

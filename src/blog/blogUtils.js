@@ -1,7 +1,13 @@
 import fm from 'front-matter';
 
-// Eagerly import all blog images from src so Vite gives us hashed URLs in build
-const blogImageUrls = import.meta.glob('/src/assets/blog-images/*', { as: 'url', eager: true });
+// Serve optimized copies while preserving the historical markdown asset references.
+const blogImageUrls = {
+  'Cursor.png': '/media/blog-cursor.webp',
+  'BANNER_V2.png': '/media/blog-banner-v2.webp',
+  'BONEHEAD_BANNER.png': '/media/blog-bonehead-banner.webp',
+  'APPLE-MAN-SAM-ART.png': '/media/blog-apple-man-sam-art.webp',
+  'Official-banner.png': '/media/blog-official-banner.webp',
+};
 
 // Resolve a blog image path. Supports:
 // - @blog-images/filename.png -> resolves via Vite to hashed asset URL
@@ -13,8 +19,7 @@ export function resolvePostImage(path) {
 
   if (path.startsWith('@blog-images/')) {
     const fileName = path.slice('@blog-images/'.length);
-    const matchKey = Object.keys(blogImageUrls).find(k => k.endsWith('/' + fileName));
-    return matchKey ? blogImageUrls[matchKey] : undefined;
+    return blogImageUrls[fileName];
   }
 
   const base = import.meta.env.BASE_URL || '/';
@@ -44,7 +49,7 @@ export function getAllPosts() {
         slug,
         frontmatter: data,
         content: markdown,
-        date: new Date(data?.date || extractDateFromSlug(slug))
+        date: new Date(String(data?.date || extractDateFromSlug(slug)).trim() + 'T12:00:00')
       };
     });
 

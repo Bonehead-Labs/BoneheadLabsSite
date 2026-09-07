@@ -1,71 +1,66 @@
-# Bonehead Labs Website
+# Bonehead Labs
 
-A minimal, brand-aligned website built with React, Tailwind CSS, and Framer Motion.
+The independent studio website, built with React, Vite and Framer Motion. Bonehead Labs has the homepage; Apple Man Sam has its own campaign page. The site also contains games, the Instrumenta software preview, the studio story, a journal and contact details.
 
-## Project Structure
+## Local development
 
-```
-BoneheadLabsSite/
-├── Assets/                          # Your image assets
-├── src/                            # Source code (like Python src/)
-│   ├── BoneheadMinimalSite.jsx     # Main React component
-│   ├── main.jsx                    # Entry point (like Python main.py)
-│   └── index.css                   # Styles with Tailwind imports
-├── package.json                     # Dependencies (like requirements.txt)
-├── vite.config.js                  # Build configuration
-├── tailwind.config.js              # Tailwind CSS configuration
-├── postcss.config.js               # CSS processing configuration
-└── index.html                      # Main HTML file
+Use Node.js 22 and npm, matching the deployment workflow.
+
+```bash
+npm ci
+npm run dev
 ```
 
-## Getting Started
+Development runs at http://localhost:3000.
 
-### Prerequisites
-- Node.js (like Python for web development)
-- npm (like pip for Python)
+## Review before publishing
 
-### Installation
+```bash
+npm run build:review
+npm run preview:review
+```
 
-1. **Install dependencies** (like `pip install -r requirements.txt`):
-   ```bash
-   npm install
-   ```
+Open **http://localhost:4173**. When running in WSL, this address is also available from the Windows browser through WSL localhost forwarding. Vite also prints a network address if needed.
 
-2. **Start development server** (like `python app.py`):
-   ```bash
-   npm run dev
-   ```
+The review build goes into `.preview-dist/`, which is ignored by Git. The review server binds to all interfaces so the preview can be reached from the host machine. Stop it with Ctrl+C. These commands do not publish or modify the existing `dist/` deployment output.
 
-3. **Open your browser** to `http://localhost:3000`
+After editing, run `npm run build:review` again and refresh the browser. Use the development server when you want live reload.
 
-### Available Scripts
+## Pages and content
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
+| Address                | Content                                                     |
+| ---------------------- | ----------------------------------------------------------- |
+| `/`                    | Bonehead Labs studio homepage and featured work             |
+| `/games`               | Apple Man Sam, early prototype teasers and previous demos   |
+| `/games/apple-man-sam` | Dedicated Apple Man Sam campaign and gameplay gallery       |
+| `/software`            | Instrumenta preview, tool filters and existing repositories |
+| `/about`               | Founder, studio history and working philosophy              |
+| `/blog`                | Searchable journal                                          |
+| `/blog/:slug`          | Archived Markdown article                                   |
+| `/contact`             | Email address, social links and email-draft helper          |
 
-## Technologies Used
+The earlier `/projects` address redirects to `/software`; `/apple-man-sam` redirects to the game campaign. Legacy hash links are recovered. Unknown pages have a designed not-found screen.
 
-- **React** - JavaScript framework (like Flask/Django for Python)
-- **Tailwind CSS** - Utility-first CSS framework
-- **Framer Motion** - Animation library
-- **Vite** - Build tool (like Flask's built-in server)
+- `src/data/site.js`: external links, software descriptions and game gallery.
+- `src/components/ProjectFeatures.jsx`: featured projects and intentionally brief game teasers.
+- `src/components/UI.jsx`: shared controls, reveals and page metadata.
+- `src/index.css`: design tokens, layouts, animation and responsive styles.
+- `src/blog/posts/`: historical journal content. Filenames are permanent article URLs.
+- `public/media/`: optimized copies of existing studio, game and Instrumenta artwork.
+- `public/fonts/`: self-hosted fonts and their licences.
 
-## Customization
+The contact form opens the visitor's email application with a draft; it does not submit to a server. Site motion respects the operating-system preference and can also be paused from the header.
 
-- Update images in the `Assets/` folder
-- Modify colors in the CSS variables in `BoneheadMinimalSite.jsx`
-- Edit content directly in the React component
+## Production
 
-## Python vs Web Development Concepts
+```bash
+npm run build
+```
 
-| Python Concept | Web Equivalent | Purpose |
-|----------------|----------------|---------|
-| Virtual Environment | `node_modules/` | Isolate dependencies |
-| `requirements.txt` | `package.json` | List dependencies |
-| `pip install` | `npm install` | Install packages |
-| `python app.py` | `npm run dev` | Run development server |
-| `__main__.py` | `main.jsx` | Entry point |
-| Flask/Django | React | Web framework |
+This builds `dist/`. The post-build script creates HTML entry pages with page-specific metadata and a sitemap, so direct links work on GitHub Pages. `public/404.html` handles uncatalogued paths and older links through the React router.
 
-Updated 04/09/2025
+The GitHub Actions workflow builds and publishes on pushes to `main`. Commit the reviewed source changes and generated `dist/` output before pushing. The legacy `npm run deploy` helper stages only generated output, so source changes must already be committed when using it.
+
+## Content review
+
+See [SITE_REVIEW.md](SITE_REVIEW.md) for the design scope, source notes, teaser boundaries and validation notes.

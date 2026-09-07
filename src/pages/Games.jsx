@@ -1,356 +1,103 @@
-import { useState } from "react";
-import { Link } from 'react-router-dom';
-import { motion, AnimatePresence } from "framer-motion";
-import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
-import { Gamepad2 } from 'lucide-react';
-
-// Import game images
-import peteBanner from "../assets/Pete the Pig/BANNER V2.png";
-import peteSplash from "../assets/Pete the Pig/SPLASH SCREEN.webp";
-import peteJump from "../assets/Pete the Pig/Jump.png";
-import peteScreenshot from "../assets/Pete the Pig/Screenshot 2025-08-22 174113.png";
-import boneheadBanner from "../assets/Bonehead Friend/BONEHEAD BANNER.png";
-import boneheadIcon from "../assets/Bonehead Friend/base-bonehead-ICON.png";
-import boneheadScreenshot1 from "../assets/Bonehead Friend/bonehead-friend screenshot1.png";
-import boneheadScreenshot2 from "../assets/Bonehead Friend/bonehead-friend screenshot2.png";
-import appleManSamBanner from "../assets/Apple Man Sam/APPLE-MAN-SAM-ART.png";
-
+import {
+  PageIntro,
+  Reveal,
+  SectionHeading,
+  SEO,
+  TextLink,
+} from "../components/UI";
+import { SamFeature, PrototypeCards } from "../components/ProjectFeatures";
+import { links } from "../data/site";
 export default function Games() {
-  const [expandedGame, setExpandedGame] = useState(null);
-
-  const games = [
-    { 
-      id: "bonehead-friend",
-      title: "Bonehead Friend", 
-      tag: "Demo", 
-      art: boneheadBanner, 
-      blurb: "A physics-based fidget game that lets you have fun whilst doing other tasks.",
-      description: "Bonehead friend is a physics-based game with a bonehead mascot that you can interact with. You can throw objects, pick them up and hit him with them, use explosives and more! It has a transparent background, so it can be overlayed over any other program on your computer.",
-      status: "Demo Available on Itch.io",
-      platforms: ["PC", "Web"],
-      releaseDate: "19/09/2025 (Demo)",
-      developmentHistory: [
-        "Demo Developed and Released - 19/09/2025"
-      ],
-      features: [
-        "Physics based draggable system.",
-        "Melee Weapons.",
-        "Explosives.",
-        "Cursor Powers."
-      ],
-      artwork: [
-        boneheadIcon,
-        boneheadScreenshot1,
-        boneheadScreenshot2
-      ],
-      links: {
-        demo: "https://bonehead-labs.itch.io/bonehead-friend",
-        discord: "https://discord.gg/boneheadlabs",
-        twitter: "https://twitter.com/boneheadlabs"
-      }
-    },
-    { 
-      id: "pete-the-pig",
-      title: "Pete the Pig", 
-      tag: "Demo", 
-      art: peteBanner, 
-      blurb: "A classic platformer featuring a pig heading to the bank!",
-      description: "Pete the pig is a simple platformer with the goal of collecting briefcases of money to complete levels in the fastest time.",
-      status: "Demo Available on Itch.io",
-      platforms: ["PC"],
-      releaseDate: "2025 (Demo)",
-      developmentHistory: [
-        "Demo Developed and Released - 2025"
-      ],
-      features: [
-        "Snappy platformer controls.",
-        "Double jumping and wall-jumping.",
-        "Hand crafted levels.",
-        "Wolf enemies to defeat.",
-        "Level timer, and best time tracker."
-      ],
-      artwork: [
-        peteSplash,
-        peteJump,
-        peteScreenshot
-      ],
-      links: {
-        demo: "https://bonehead-labs.itch.io/pete-the-pig",
-        discord: "https://discord.gg/boneheadlabs",
-        twitter: "https://twitter.com/boneheadlabs"
-      }
-    },
-    { 
-      id: "apple-man-sam",
-      title: "Apple Man Sam", 
-      tag: "Coming Sep 2026",
-      art: appleManSamBanner, 
-      blurb: "A manual-fire survivors-like roguelite with escalating waves, build progression, and endless mode.",
-      description: "Pick a loadout, level up, upgrade your weapons, and loot items to blast through escalating hordes and bosses. Complete quests to unlock items and cosmetics, then push your build into endless mode and chase the global leaderboards.",
-      status: "Steam demo available · Early Access coming",
-      platforms: ["Windows PC", "Steam"],
-      releaseDate: "September 2026",
-      developmentHistory: [
-        "Original demo released - 2025",
-        "Steam demo and Early Access page launched - 2026"
-      ],
-      features: [
-        "Manual-fire top-down combat.",
-        "Three unlockable loadouts.",
-        "Boss fights and escalating waves.",
-        "100+ quests, unlockable items, and cosmetics.",
-        "Endless rising-tide mode.",
-        "Global leaderboards."
-      ],
-      artwork: [
-        appleManSamBanner
-      ],
-      links: {
-        demo: "https://store.steampowered.com/app/4293080/Apple_Man_Sam/",
-        discord: "https://discord.gg/boneheadlabs",
-        twitter: "https://twitter.com/boneheadlabs"
-      }
-    }
-  ];
-
-  const toggleExpanded = (gameId) => {
-    setExpandedGame(expandedGame === gameId ? null : gameId);
-  };
-
   return (
-    <div className="min-h-screen bg-[var(--paper)]">
-      {/* Page Header */}
-      <section className="bg-[var(--paper)]">
-        <Container className="py-16">
-          <div className="text-center">
-            <div className="mx-auto w-48 h-48 mb-4 flex items-center justify-center">
-              <Gamepad2 className="w-48 h-48 text-[var(--ink)]" />
-            </div>
-            <h1 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Games</h1>
-            <FadeInInitial>
-              <p className="mt-2 max-w-prose text-[var(--ink-70)] mx-auto">A diverse set of games, both small in scope demos to more polished products.</p>
-            </FadeInInitial>
-          </div>
-        </Container>
+    <>
+      <SEO
+        title="Games"
+        description="Games from Bonehead Labs: Apple Man Sam, earlier playable demos and new projects in development."
+      />
+      <PageIntro eyebrow="BONEHEAD LABS" title="Our" accent="games.">
+        Apple Man Sam, playable demos and upcoming projects.
+      </PageIntro>
+      <section className="wrap games-feature">
+        <SamFeature />
       </section>
-
-      {/* Games Grid */}
-      <section className="bg-[var(--paper)]">
-        <Container className="py-16">
-          <div className="grid gap-8">
-            {[...games].sort((a, b) => (a.id === "apple-man-sam" ? -1 : b.id === "apple-man-sam" ? 1 : 0)).map((game, i) => (
-              <FadeIn 
-                key={game.id} 
-                delay={i} 
-                className="group overflow-hidden rounded-3xl border-2 border-[var(--ink)] bg-[var(--paper)]"
-              >
-                <div className="grid gap-0 sm:grid-cols-2">
-                  <div className="relative aspect-[16/9] p-4">
-                    <div className="relative h-full w-full rounded-2xl overflow-hidden border-2 border-[var(--ink-20)]">
-                      <img src={game.art} alt={game.title} className="h-full w-full object-cover"/>
-                      <span className="absolute left-3 top-3 rounded-full border-2 border-[var(--ink)] bg-[var(--cyan)] px-3 py-1 text-xs font-semibold text-[var(--ink)]">
-                        {game.tag}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="mb-4">
-                      <h2 className="text-2xl font-bold text-[var(--ink)]">{game.title}</h2>
-                      <p className="mt-2 text-sm text-[var(--ink-70)]">{game.blurb}</p>
-                    </div>
-                    
-                    <div className="space-y-3 text-sm">
-                      <div>
-                        <span className="font-semibold text-[var(--ink)]">Status:</span>
-                        <span className="ml-2 text-[var(--ink-70)]">{game.status}</span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-[var(--ink)]">Platforms:</span>
-                        <span className="ml-2 text-[var(--ink-70)]">{game.platforms.join(", ")}</span>
-                      </div>
-                      <div>
-                        <span className="font-semibold text-[var(--ink)]">Release:</span>
-                        <span className="ml-2 text-[var(--ink-70)]">{game.releaseDate}</span>
-                      </div>
-                    </div>
-
-                    <p className="mt-4 text-sm text-[var(--ink-70)]">{game.description}</p>
-                    
-                    <div className="mt-6 flex gap-3">
-                      <button 
-                        onClick={() => toggleExpanded(game.id)}
-                        className="rounded-xl border-2 border-[var(--ink)] bg-[var(--cyan)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--cyan)]/90 transition-colors"
-                      >
-                        {expandedGame === game.id ? 'Show Less' : 'Learn More'}
-                      </button>
-                      <a 
-                        href={game.links.demo} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="rounded-xl border-2 border-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--ink-20)] transition-colors"
-                      >
-                        Play Demo
-                      </a>
-                    </div>
-                  </div>
+      <section className="section wrap" id="in-development">
+        <SectionHeading label="UPCOMING PROJECTS" title="In development." />
+        <PrototypeCards />
+      </section>
+      <section className="section paper" id="demos">
+        <div className="wrap">
+          <SectionHeading
+            label="EARLIER PROJECTS"
+            title="Playable demos."
+            light
+          >
+            <p>Earlier releases, available on itch.io.</p>
+          </SectionHeading>
+          <div className="archive-grid">
+            <Reveal>
+              <article className="archive-card">
+                <a
+                  href={links.pete}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Play the Pete the Pig demo on itch.io"
+                >
+                  <img
+                    src="/media/pete-banner.webp"
+                    alt="Pete the Pig platformer artwork"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                  />
+                </a>
+                <div>
+                  <p className="eyebrow">2025 / PLATFORMER DEMO</p>
+                  <h3>Pete the Pig</h3>
+                  <p>
+                    Collect cash, wall-jump through levels and beat your best
+                    time.
+                  </p>
+                  <TextLink href={links.pete}>
+                    Play the demo on itch.io
+                  </TextLink>
                 </div>
-
-                {/* Expandable Content */}
-                <AnimatePresence>
-                  {expandedGame === game.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="overflow-hidden border-t-2 border-[var(--ink-20)]"
-                    >
-                      <div className="p-6 space-y-8">
-                        {/* Development History */}
-                        <div>
-                          <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Development History</h3>
-                          <ul className="space-y-2">
-                            {game.developmentHistory.map((item, index) => (
-                              <li key={index} className="flex items-start">
-                                <span className="w-2 h-2 bg-[var(--cyan)] rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                                <span className="text-sm text-[var(--ink-70)]">{item}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        {/* Features */}
-                        <div>
-                          <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Key Features</h3>
-                          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                            {game.features.map((feature, index) => (
-                              <div key={index} className="flex items-center">
-                                <span className="w-1.5 h-1.5 bg-[var(--cyan)] rounded-full mr-2"></span>
-                                <span className="text-sm text-[var(--ink-70)]">{feature}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-
-                        {/* Gameplay Video */}
-                        {game.id === "bonehead-friend" && (
-                          <div>
-                            <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Gameplay Video</h3>
-                            <div className="aspect-video rounded-lg overflow-hidden border-2 border-[var(--ink-20)]">
-                              <iframe
-                                width="100%"
-                                height="100%"
-                                src="https://www.youtube.com/embed/udO6Zvwv9Hs"
-                                title="Bonehead Friend Gameplay"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                className="w-full h-full"
-                              ></iframe>
-                            </div>
-                          </div>
-                        )}
-
-                        {game.id === "pete-the-pig" && (
-                          <div>
-                            <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Gameplay Video</h3>
-                            <div className="aspect-video rounded-lg overflow-hidden border-2 border-[var(--ink-20)]">
-                              <iframe
-                                width="100%"
-                                height="100%"
-                                src="https://www.youtube.com/embed/2GcVkwc27sI?start=192"
-                                title="Pete the Pig Gameplay"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                className="w-full h-full"
-                              ></iframe>
-                            </div>
-                          </div>
-                        )}
-
-                        {game.id === "apple-man-sam" && (
-                          <div>
-                            <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Gameplay Video</h3>
-                            <div className="aspect-video rounded-lg overflow-hidden border-2 border-[var(--ink-20)]">
-                              <iframe
-                                width="100%"
-                                height="100%"
-                                src="https://www.youtube.com/embed/1gxtZbFFvAc"
-                                title="Apple Man Sam Gameplay"
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                                allowFullScreen
-                                className="w-full h-full"
-                              ></iframe>
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Artwork Gallery */}
-                        {game.artwork.length > 1 && (
-                          <div>
-                            <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Artwork</h3>
-                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                              {game.artwork.map((art, index) => (
-                                <div key={index} className="aspect-square rounded-lg overflow-hidden border border-[var(--ink-20)]">
-                                  <img 
-                                    src={art} 
-                                    alt={`${game.title} artwork ${index + 1}`} 
-                                    className="h-full w-full object-cover hover:scale-105 transition-transform duration-200"
-                                  />
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* Links */}
-                        <div>
-                          <h3 className="text-lg font-bold text-[var(--ink)] mb-3">Stay Connected</h3>
-                          <div className="flex flex-wrap gap-3">
-                            <a 
-                              href={game.links.discord} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center rounded-xl border-2 border-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--ink-20)] transition-colors"
-                            >
-                              Join Discord
-                            </a>
-                            <a 
-                              href={game.links.twitter} 
-                              target="_blank" 
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center rounded-xl border-2 border-[var(--ink)] px-4 py-2 text-sm font-semibold text-[var(--ink)] hover:bg-[var(--ink-20)] transition-colors"
-                            >
-                              Follow on Twitter
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </FadeIn>
-            ))}
+              </article>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <article className="archive-card">
+                <a
+                  href={links.friendDemo}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label="Play the original Bonehead Friend demo on itch.io"
+                >
+                  <img
+                    src="/media/friend-archive.webp"
+                    alt="Artwork from the original Bonehead Friend demo"
+                    width="1200"
+                    height="675"
+                    loading="lazy"
+                  />
+                </a>
+                <div>
+                  <p className="eyebrow">2025 / ORIGINAL PHYSICS DEMO</p>
+                  <h3>
+                    Bonehead Friend{" "}
+                    <span className="title-note">The original demo</span>
+                  </h3>
+                  <p>
+                    The original desktop physics toy. Separate from the new
+                    version in development.
+                  </p>
+                  <TextLink href={links.friendDemo}>
+                    Play the original demo on itch.io
+                  </TextLink>
+                </div>
+              </article>
+            </Reveal>
           </div>
-        </Container>
+        </div>
       </section>
-
-      {/* Coming Soon */}
-      <section className="bg-[var(--paper)]">
-        <Container className="py-16">
-          <FadeIn className="text-center">
-            <h2 className="text-2xl font-bold text-[var(--ink)]">More Games Coming Soon</h2>
-            <p className="mt-2 text-[var(--ink-70)]">We're always cooking something!</p>
-            <div className="mt-6">
-              <Link to="/contact" className="inline-flex items-center rounded-2xl border-2 border-[var(--ink)] px-5 py-3 font-semibold text-[var(--ink)] transition hover:translate-y-[-1px]">
-                Get in touch
-              </Link>
-            </div>
-          </FadeIn>
-        </Container>
-      </section>
-    </div>
+    </>
   );
 }

@@ -1,287 +1,206 @@
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
-import { Link } from 'react-router-dom';
-import { Code, Zap, Search, Beaker } from 'lucide-react';
-import LabAnimation from "../components/LabAnimation.jsx";
-
+import {
+  ArrowUpRight,
+  Code2,
+  FolderOpen,
+  SlidersHorizontal,
+  Layers3,
+  Image,
+  Clapperboard,
+  PenLine,
+  AudioLines,
+  GraduationCap,
+} from "lucide-react";
+import { SoftwareDisciplines } from "../components/ProjectFeatures";
+import { Reveal, SectionHeading, SEO, TextLink } from "../components/UI";
+import { links, software } from "../data/site";
+const categories = [
+  "All tools",
+  "Visuals",
+  "Video",
+  "Writing",
+  "Audio",
+  "Learning",
+];
+const categoryIcons = {
+  "All tools": Layers3,
+  Visuals: Image,
+  Video: Clapperboard,
+  Writing: PenLine,
+  Audio: AudioLines,
+  Learning: GraduationCap,
+};
 export default function Projects() {
-  const [expandedProject, setExpandedProject] = useState(null);
-
-  const projects = [
-    {
-      id: "github",
-      title: "Open Source Codebases",
-      tag: "Community Driven",
-      icon: <Code className="w-20 h-20 text-white" />,
-      blurb: "Robust, reusable software solutions for developers and creators.",
-      highlights: [
-        "Accessible libraries and frameworks for game development",
-        "Community-driven contributions and transparent development",
-        "Proven utility in real-world projects and prototypes",
-        "Focused on modularity and cross-platform compatibility"
-      ],
-      repositories: [
-        {
-          name: "bonehead-labs-official-systems",
-          description: "Reusable Godot game systems as importable modules (work in progress).",
-          language: "GDScript",
-          stars: 1,
-          url: "https://github.com/Bonehead-Labs/bonehead-labs-official-systems"
-        },
-        {
-          name: "PBIP-Factory",
-          description: "Generate multiple Power BI PBIP projects from a template + CSV of parameter values.",
-          language: "Python",
-          stars: 1,
-          url: "https://github.com/Bonehead-Labs/PBIP-Factory"
-        }
-      ],
-      links: {
-        github: "https://github.com/Bonehead-Labs"
-      }
-    },
-    {
-      id: "research",
-      title: "Research & Development",
-      tag: "Innovation",
-      icon: <Search className="w-20 h-20 text-white" />,
-      blurb: "Data-driven insights for game design and industry advancement.",
-      highlights: [
-        "Traditional data science and machine learning on proprietary and public datasets",
-        "Statistical analysis to uncover trends and patterns",
-        "Interactive delivery via Streamlit apps hosted on GitHub Pages",
-        "Value-focused insights for consumers and industry partners"
-      ],
-      placeholder: true,
-      projects: [
-        {
-          name: "Indie Game Market Analysis",
-          description: "Decoding success factors and market trends for indie developers.",
-        },
-        {
-          name: "Understanding Gamers",
-          description: "Behavioral insights into player preferences and engagement drivers.",
-        }
-      ],
-      links: {
-        contact: "/contact"
-      }
-    },
-    {
-      id: "premium-tools",
-      title: "Premium Tools",
-      tag: "Enterprise Ready",
-      icon: <Zap className="w-20 h-20 text-white" />,
-      blurb: "Tailored solutions for critical development challenges.",
-      highlights: [
-        "One-off purchase model with reliable, ongoing support",
-        "Built with Python, Go, SQL, GraphQL, and cutting-edge databases",
-        "Developed by Bonehead Labs and trusted partners",
-        "Designed for business and personal value with timely care"
-      ],
-      placeholder: true,
-      projects: [
-        {
-          name: "GameFlow Studio",
-          description: "Streamlined game development pipeline for rapid prototyping and deployment.",
-        },
-        {
-          name: "DataForge Analytics",
-          description: "Advanced analytics engineering suite for real-time data pipeline optimization.",
-        }
-      ],
-      links: {
-        contact: "/contact"
-      }
-    }
-  ];
-
-  const toggleExpanded = (projectId) => {
-    setExpandedProject(expandedProject === projectId ? null : projectId);
-  };
-
+  const [category, setCategory] = useState("All tools");
+  const visible =
+    category === "All tools"
+      ? software
+      : software.filter((app) => app.category === category);
   return (
-    <div className="min-h-screen bg-[var(--deep)]">
-      {/* Page Header */}
-      <section className="bg-[var(--deep)]">
-        <Container className="py-16">
-          <div className="text-center">
-            <div className="mx-auto w-48 h-48 mb-4 flex items-center justify-center">
-              <Beaker className="w-48 h-48 text-white" />
-            </div>
-            <h1 className="text-4xl font-extrabold text-white sm:text-5xl">The Lab</h1>
-            <FadeInInitial>
-              <p className="mt-4 max-w-prose text-white/70 mx-auto">We develop video games, create open source and premium tools, and conduct and share research.</p>
-            </FadeInInitial>
-          </div>
-        </Container>
+    <div className="software-page">
+      <SEO
+        title="Instrumenta & software"
+        description="Instrumenta is a software suite for graphics, video, screenwriting, audio, 3D and learning. In development, with an open source release planned."
+      />
+      <section className="instrumenta-hero wrap">
+        <Reveal className="instrumenta-hero-copy">
+          <p className="eyebrow">
+            <span className="status-dot orange" /> SOFTWARE BY BONEHEAD LABS
+          </p>
+          <h1>
+            Instrumenta.
+            <br />
+            Software for
+            <br />
+            <span>creators.</span>
+          </h1>
+          <SoftwareDisciplines />
+          <a href="#the-suite" className="button button-orange">
+            View the applications <ArrowUpRight size={18} />
+          </a>
+          <span className="release-label">
+            IN DEVELOPMENT · OPEN SOURCE RELEASE PLANNED
+          </span>
+        </Reveal>
+        <div className="instrumenta-hero-art">
+          <div className="instrumenta-orbit" />
+          <img
+            src="/media/instrumenta.webp"
+            alt="The sculptural Instrumenta mark"
+            width="512"
+            height="512"
+          />
+          <span className="instrumenta-wordmark">
+            Instrumenta<span>SOFTWARE SUITE</span>
+          </span>
+        </div>
       </section>
-
-      {/* Projects Grid */}
-      <section className="bg-[var(--deep)]">
-        <Container className="py-16">
-          <div className="grid gap-8">
-            {projects.map((project, i) => (
-              <div key={project.id} id={project.id}>
-                <FadeIn 
-                  delay={i} 
-                                   className="group overflow-hidden rounded-3xl border-2 border-white/20 bg-white/5"
-                >
-                <div className="grid gap-0 sm:grid-cols-2">
-                  <div className="relative aspect-[16/9] p-4">
-                    <div className="relative h-full w-full rounded-2xl overflow-hidden border-2 border-white/20 bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center">
-                      {project.icon}
-                      <span className="absolute left-3 top-3 rounded-full border-2 border-white bg-[var(--cyan)] px-3 py-1 text-xs font-semibold text-white">
-                        {project.tag}
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="mb-4">
-                                           <h2 className="text-2xl font-bold text-white">{project.title}</h2>
-                      <p className="mt-2 text-sm text-white/70">{project.blurb}</p>
-                    </div>
-
-                    
-                    <div className="mt-6 flex gap-3">
-                      <button 
-                        onClick={() => toggleExpanded(project.id)}
-                        className="rounded-xl border-2 border-white bg-[var(--cyan)] px-4 py-2 text-sm font-semibold text-white hover:bg-[var(--cyan)]/90 transition-colors"
-                      >
-                        {expandedProject === project.id ? 'Show Less' : 'Learn More'}
-                      </button>
-                      {project.id === "github" ? (
-                        <a 
-                          href={project.links.github} 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                          className="rounded-xl border-2 border-white px-4 py-2 text-sm font-semibold text-white hover:bg-white/20 transition-colors"
-                        >
-                          View on GitHub
-                        </a>
-                      ) : null}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Expandable Content */}
-                <AnimatePresence>
-                  {expandedProject === project.id && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: "easeInOut" }}
-                      className="overflow-hidden border-t-2 border-white/20"
-                    >
-                      <div className="p-6 space-y-8">
-                        {/* Highlights */}
-                        {project.highlights && project.highlights.length > 0 && (
-                          <div>
-                            <h3 className="text-lg font-bold text-white mb-3">Capabilities & Delivery</h3>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                              {project.highlights.map((item, index) => (
-                                <div key={index} className="flex items-center">
-                                  <span className="w-1.5 h-1.5 bg-[var(--cyan)] rounded-full mr-2"></span>
-                                  <span className="text-sm text-white/70">{item}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-
-                        {/* GitHub Featured Repositories */}
-                        {project.id === "github" ? (
-                          <div>
-                            <h3 className="text-lg font-bold text-white mb-3">Featured Repositories</h3>
-                            <div className="space-y-4">
-                              {project.repositories.map((repo, index) => (
-                                <div key={index} className="p-4 rounded-xl border border-white/20 bg-white/5 hover:border-[var(--cyan)] transition-colors">
-                                  <div className="flex items-start justify-between">
-                                    <div className="flex-1">
-                                      <h4 className="font-semibold text-white">{repo.name}</h4>
-                                      <p className="text-sm text-white/70 mt-1">{repo.description}</p>
-                                      <div className="flex items-center gap-4 mt-2 text-xs text-white/50">
-                                        <span>{repo.language}</span>
-                                        <span>⭐ {repo.stars}</span>
-                                      </div>
-                                    </div>
-                                    <a 
-                                      href={repo.url} 
-                                      target="_blank" 
-                                      rel="noopener noreferrer"
-                                      className="ml-4 px-3 py-1 rounded-lg border border-white text-xs font-medium text-white hover:bg-white/20 transition-colors"
-                                    >
-                                      View
-                                    </a>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ) : project.id === "research" ? (
-                          <div>
-                            <h3 className="text-lg font-bold text-white mb-3">Upcoming Focus Areas</h3>
-                            <div className="space-y-4">
-                              {project.projects.map((proj, index) => (
-                                <div key={index} className="p-4 rounded-xl border border-white/20 bg-white/5 hover:border-[var(--cyan)] transition-colors">
-                                  <div className="flex items-start justify-between">
-                                    <div className="flex-1">
-                                      <h4 className="font-semibold text-white">{proj.name}</h4>
-                                      <p className="text-sm text-white/70 mt-1">{proj.description}</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ) : project.id === "premium-tools" ? (
-                          <div>
-                            <h3 className="text-lg font-bold text-white mb-3">Upcoming Products</h3>
-                            <div className="space-y-4">
-                              {project.projects.map((proj, index) => (
-                                <div key={index} className="p-4 rounded-xl border border-white/20 bg-white/5 hover:border-[var(--cyan)] transition-colors">
-                                  <div className="flex items-start justify-between">
-                                    <div className="flex-1">
-                                      <h4 className="font-semibold text-white">{proj.name}</h4>
-                                      <p className="text-sm text-white/70 mt-1">{proj.description}</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        ) : null}
-
-                        {/* Concise presentation; no extra CTA section */}
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </FadeIn>
+      <section className="suite-principles">
+        <div className="wrap">
+          <div>
+            <FolderOpen />
+            <p>
+              <strong>Local projects</strong>
+            </p>
+          </div>
+          <div>
+            <SlidersHorizontal />
+            <p>
+              <strong>Separate applications</strong>
+            </p>
+          </div>
+          <div>
+            <Code2 />
+            <p>
+              <strong>Open source planned</strong>
+            </p>
+          </div>
+        </div>
+      </section>
+      <section className="section wrap" id="the-suite">
+        <SectionHeading label="THE SUITE" title={<>The applications.</>}>
+          <p>All applications are in development.</p>
+        </SectionHeading>
+        <div
+          className="filter-bar"
+          role="group"
+          aria-label="Filter software by purpose"
+        >
+          {categories.map((item) => {
+            const Icon = categoryIcons[item];
+            return (
+              <button
+                key={item}
+                className={category === item ? "active" : ""}
+                aria-pressed={category === item}
+                onClick={() => setCategory(item)}
+              >
+                <Icon size={16} aria-hidden="true" />
+                {item}
+                {item === "All tools" && <span>{software.length}</span>}
+              </button>
+            );
+          })}
+        </div>
+        <p className="sr-only" role="status">
+          Showing {visible.length} tools
+        </p>
+        <div className="software-grid">
+          {visible.map((app) => (
+            <article
+              className="software-card"
+              key={app.id}
+              style={{ "--app-color": app.color }}
+            >
+              <div className="software-card-art">
+                <span>{app.category}</span>
+                <img
+                  src={`/media/${app.id}.webp`}
+                  alt={`${app.name} application mark`}
+                  width="512"
+                  height="512"
+                  loading="lazy"
+                />
               </div>
-            ))}
+              <div className="software-card-copy">
+                <p className="eyebrow">{app.discipline}</p>
+                <h3>{app.name}</h3>
+                <p>{app.description}</p>
+                <span className="app-status">
+                  <i /> In development
+                </span>
+              </div>
+            </article>
+          ))}
+        </div>
+        <aside className="release-note">
+          <div>
+            <h3>Release status</h3>
+            <p>
+              Instrumenta is in development, with an open source release
+              planned. Names, features and release plans may change. Source code
+              and licence details will be published with the release.
+            </p>
           </div>
-        </Container>
+        </aside>
       </section>
-
-      {/* Technical Blog */}
-      <section className="bg-[var(--deep)] border-t-2 border-white/20">
-        <Container className="py-16">
-          <FadeIn className="text-center">
-            <h2 className="text-2xl font-bold text-white">Development Blog</h2>
-            <p className="mt-2 text-white/70">Technical deep-dives, development logs, and lessons learned from our projects.</p>
-            <div className="mt-6 flex gap-4 justify-center">
-              <Link to="/blog" className="inline-flex items-center rounded-2xl border-2 border-white bg-[var(--cyan)] px-5 py-3 font-semibold text-white transition hover:translate-y-[-1px]">
-                Read Our Blog
-              </Link>
-              <Link to="/contact" className="inline-flex items-center rounded-2xl border-2 border-white px-5 py-3 font-semibold text-white transition hover:translate-y-[-1px]">
-                Subscribe to updates
-              </Link>
-            </div>
-          </FadeIn>
-        </Container>
+      <section className="section paper" id="open-source">
+        <div className="wrap">
+          <SectionHeading label="EXISTING SOFTWARE" title="On GitHub." light>
+            <TextLink href={links.github}>View our repositories</TextLink>
+          </SectionHeading>
+          <div className="repository-list">
+            <a
+              href="https://github.com/Bonehead-Labs/bonehead-labs-official-systems"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Code2 />
+              <div>
+                <p className="eyebrow">GDSCRIPT / GAME DEVELOPMENT</p>
+                <h3>Bonehead Labs systems</h3>
+                <p>Reusable Godot systems and modules for building games.</p>
+              </div>
+              <ArrowUpRight />
+            </a>
+            <a
+              href="https://github.com/Bonehead-Labs/PBIP-Factory"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Code2 />
+              <div>
+                <p className="eyebrow">PYTHON / DEVELOPER TOOL</p>
+                <h3>PBIP Factory</h3>
+                <p>
+                  Generate Power BI projects from a template and a table of
+                  parameter values.
+                </p>
+              </div>
+              <ArrowUpRight />
+            </a>
+          </div>
+        </div>
       </section>
     </div>
   );

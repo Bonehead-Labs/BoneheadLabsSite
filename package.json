@@ -26,9 +26,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/create-route-pages.mjs",
     "preview": "vite preview",
-    "deploy": "npm run build && git add dist -f && git commit -m 'deploy' && git push origin main"
+    "deploy": "npm run build && git add dist -f && git commit -m 'deploy' && git push origin main",
+    "build:review": "vite build --outDir .preview-dist && node scripts/create-route-pages.mjs .preview-dist",
+    "preview:review": "vite preview --outDir .preview-dist --host 0.0.0.0 --port 4173 --strictPort"
   },
   "browserslist": {
     "production": [

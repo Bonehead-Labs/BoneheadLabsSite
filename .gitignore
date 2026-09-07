@@ -120,3 +120,7 @@ temp/
 
 # Custom exclusions
 docs
+
+# Local design review (never published)
+.preview-dist/
+.review/

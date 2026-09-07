@@ -1,193 +1,140 @@
-import { Container, FadeIn, FadeInInitial } from "../utils/common.jsx";
-
+import { useState } from "react";
+import { ArrowUpRight, Check, Copy } from "lucide-react";
+import { PageIntro, Reveal, SEO } from "../components/UI";
+import { links } from "../data/site";
 export default function Contact() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const subject = formData.get('subject');
-    const message = formData.get('message');
-    
-    // Create mailto link with pre-filled data
-    const emailSubject = subject ? `[Contact Form] ${subject}` : '[Contact Form] New Message';
-    const emailBody = `Name: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`;
-    
-    const mailtoLink = `mailto:contact@boneheadlabs.org?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
-    
-    // Open the user's default email client
-    window.location.href = mailtoLink;
-  };
-
-  const contactMethods = [
-    {
-      title: "@Bonehead_Labs",
-      description: "Check out our Youtube Channel!",
-      value: "Youtube",
-      link: "https://www.youtube.com/@Bonehead-Labs",
-      icon: "📺"
-    },
-    {
-      title: "@Bonehead_Labs",
-      description: "Follow our development journey",
-      value: "Twitter",
-      link: "https://x.com/Bonehead_Labs",
-      icon: "🐦"
+  const [copied, setCopied] = useState(false);
+  const [notice, setNotice] = useState("");
+  async function copyEmail() {
+    try {
+      await navigator.clipboard.writeText(links.email);
+      setCopied(true);
+    } catch {
+      setNotice(`You can copy the address directly: ${links.email}`);
     }
-  ];
-
+  }
+  function openDraft(event) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
+    const subject = `[Bonehead Labs] ${data.get("subject")}`;
+    const body = `Hi Bonehead Labs,\n\n${data.get("message")}\n\nFrom: ${data.get("name")}\nReply to: ${data.get("email")}`;
+    window.location.href = `mailto:${links.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setNotice(
+      "Opening your email app with a draft. Review it there and press Send. If no app opens, email us directly at the address above.",
+    );
+  }
   return (
-    <div className="min-h-screen bg-[var(--paper)]">
-      {/* Page Header */}
-      <section className="bg-[var(--paper)]">
-        <Container className="py-16">
-          <FadeInInitial>
-            <h1 className="text-4xl font-extrabold text-[var(--ink)] sm:text-5xl">Get in Touch</h1>
-            <p className="mt-4 max-w-prose text-[var(--ink-70)]">We'd love to hear from you. Whether you have a question, want to collaborate, get in touch!</p>
-          </FadeInInitial>
-        </Container>
-      </section>
-
-      {/* Contact Form & Info */}
-      <section className="bg-[var(--paper)]">
-        <Container className="py-16">
-          <div className="grid items-start gap-12 lg:grid-cols-2">
-            {/* Contact Form */}
-            <FadeIn>
-              <h2 className="text-2xl font-bold text-[var(--ink)] mb-6">Email us!</h2>
-              <form onSubmit={handleSubmit} className="rounded-3xl border-2 border-[var(--ink)] p-6 space-y-4">
+    <>
+      <SEO
+        title="Contact"
+        description="Contact Bonehead Labs about our games, software, support or collaboration."
+      />
+      <PageIntro eyebrow="BONEHEAD LABS" title="Contact" accent="the studio.">
+        For game feedback, software enquiries, support and collaboration,
+        contact us by email.
+      </PageIntro>
+      <section className="contact-layout wrap">
+        <Reveal className="contact-details">
+          <p className="eyebrow">EMAIL</p>
+          <a className="contact-email" href={`mailto:${links.email}`}>
+            contact@
+            <br />
+            boneheadlabs.org <ArrowUpRight />
+          </a>
+          <button className="copy-email" onClick={copyEmail}>
+            {copied ? <Check size={16} /> : <Copy size={16} />}
+            {copied ? "Address copied" : "Copy email address"}
+          </button>
+          <div className="contact-socials">
+            <p className="eyebrow">FOLLOW BONEHEAD LABS</p>
+            {[
+              ["YouTube", "Development videos", links.youtube],
+              ["GitHub", "Software repositories", links.github],
+              ["X", "Studio updates", links.x],
+            ].map(([name, description, href]) => (
+              <a key={name} href={href} target="_blank" rel="noreferrer">
                 <div>
-                  <label className="block text-sm font-bold text-[var(--ink)]">Name</label>
-                  <input 
-                    type="text" 
-                    name="name"
-                    placeholder="Your name" 
-                    className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] placeholder-[var(--ink-50)] outline-none focus:border-[var(--cyan)]"
-                    required
-                  />
+                  <strong>{name}</strong>
+                  <span>{description}</span>
                 </div>
-                
-                <div>
-                  <label className="block text-sm font-bold text-[var(--ink)]">Email</label>
-                  <input 
-                    type="email" 
-                    name="email"
-                    placeholder="you@example.com" 
-                    className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] placeholder-[var(--ink-50)] outline-none focus:border-[var(--cyan)]"
-                    required
-                  />
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-bold text-[var(--ink)]">Subject</label>
-                  <select name="subject" className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] outline-none focus:border-[var(--cyan)]">
-                    <option value="">Select a subject</option>
-                    <option value="collaboration">Collaboration</option>
-                    <option value="feedback">Game Feedback</option>
-                    <option value="support">Support</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-bold text-[var(--ink)]">Message</label>
-                  <textarea 
-                    name="message"
-                    rows={5} 
-                    placeholder="Tell us what's on your mind..." 
-                    className="mt-1 w-full rounded-xl border-2 border-[var(--ink)] bg-[var(--paper)] px-3 py-2 text-[var(--ink)] placeholder-[var(--ink-50)] outline-none focus:border-[var(--cyan)]"
-                    required
-                  />
-                </div>
-                
-                <button 
-                  type="submit" 
-                  className="w-full rounded-2xl border-2 border-[var(--ink)] bg-[var(--cyan)] px-5 py-3 font-semibold text-[var(--ink)] hover:bg-[var(--cyan)]/90 transition-colors"
-                >
-                  Send Message
-                </button>
-              </form>
-            </FadeIn>
-
-            {/* Contact Information */}
-            <FadeIn delay={1}>
-              <h2 className="text-2xl font-bold text-[var(--ink)] mb-6">Our communities</h2>
-              
-              <div className="space-y-6">
-                {contactMethods.map((method, i) => (
-                  <a 
-                    key={method.title}
-                    href={method.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block rounded-3xl border-2 border-[var(--ink)] p-6 hover:bg-[var(--cyan-20)] hover:border-[var(--cyan)] transition-all duration-300 group cursor-pointer"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="text-2xl group-hover:scale-110 transition-transform duration-300">{method.icon}</div>
-                      <div className="flex-1">
-                        <h3 className="font-bold text-[var(--ink)] group-hover:text-[var(--cyan)] transition-colors">
-                          {method.title}
-                        </h3>
-                        <p className="text-sm text-[var(--ink-70)] mt-1 group-hover:text-[var(--ink)] transition-colors">
-                          {method.description}
-                        </p>
-                        <p className="text-sm text-[var(--ink-70)] mt-2 group-hover:text-[var(--ink)] transition-colors">
-                          {method.value}
-                        </p>
-                      </div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-
-              <div className="mt-8 rounded-3xl border-2 border-[var(--ink)] p-6">
-                <h3 className="font-bold text-[var(--ink)] mb-2">Response Time</h3>
-                <p className="text-sm text-[var(--ink-70)]">
-                  We typically respond within 24-48 hours during business days.
-                </p>
-              </div>
-            </FadeIn>
+                <ArrowUpRight />
+              </a>
+            ))}
           </div>
-        </Container>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="bg-[var(--paper)]">
-        <Container className="py-16">
-          <FadeIn className="text-center mb-12">
-            <h2 className="text-3xl font-extrabold text-[var(--ink)] sm:text-4xl">Frequently Asked Questions</h2>
-            <p className="mt-2 text-[var(--ink-70)]">Quick answers to common questions.</p>
-          </FadeIn>
-          
-          <div className="grid gap-6 max-w-4xl mx-auto">
-            <FadeIn delay={0} className="rounded-3xl border-2 border-[var(--ink)] p-6">
-              <h3 className="font-bold text-[var(--ink)] mb-2">Can I join your team?</h3>
-              <p className="text-sm text-[var(--ink-70)]">
-                We're always looking for talented people who share our passion for games. 
-                Send us a message with your portfolio and let's talk!
-              </p>
-            </FadeIn>
-            
-            <FadeIn delay={1} className="rounded-3xl border-2 border-[var(--ink)] p-6">
-              <h3 className="font-bold text-[var(--ink)] mb-2">Do you accept game ideas?</h3>
-              <p className="text-sm text-[var(--ink-70)]">
-                We love hearing creative ideas! While we can't implement every suggestion, 
-                we're always open to inspiration and collaboration opportunities.
-              </p>
-            </FadeIn>
-            
-            <FadeIn delay={2} className="rounded-3xl border-2 border-[var(--ink)] p-6">
-              <h3 className="font-bold text-[var(--ink)] mb-2">When will your next game release?</h3>
-              <p className="text-sm text-[var(--ink-70)]">
-                We believe in quality over speed, so we don't rush releases. 
-                Follow our social media for development updates and announcements.
-              </p>
-            </FadeIn>
+          <div className="contact-mascot">
+            <img
+              src="/media/bonehead-working.webp"
+              alt="Bonehead Labs mascot at a laptop"
+              width="1024"
+              height="629"
+              loading="lazy"
+            />
           </div>
-        </Container>
+        </Reveal>
+        <Reveal className="contact-form-panel">
+          <p className="eyebrow">EMAIL FORM</p>
+          <h2>Write an email.</h2>
+          <p>Fill this out to prepare an email in your own email app.</p>
+          <form onSubmit={openDraft}>
+            <div className="form-row">
+              <div>
+                <label htmlFor="contact-name">Your name</label>
+                <input
+                  id="contact-name"
+                  name="name"
+                  autoComplete="name"
+                  placeholder="Your name"
+                  required
+                  maxLength={120}
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-email">Your email</label>
+                <input
+                  id="contact-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  placeholder="you@example.com"
+                  required
+                  maxLength={254}
+                />
+              </div>
+            </div>
+            <label htmlFor="contact-subject">What’s it about?</label>
+            <select
+              id="contact-subject"
+              name="subject"
+              defaultValue="General enquiry"
+            >
+              <option>General enquiry</option>
+              <option>Game feedback</option>
+              <option>Software & Instrumenta</option>
+              <option>Press & collaboration</option>
+              <option>Support</option>
+            </select>
+            <label htmlFor="contact-message">Your message</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              rows={7}
+              placeholder="Enter your message"
+              required
+              maxLength={2500}
+            />
+            <button className="button" type="submit">
+              Open email draft <ArrowUpRight size={18} />
+            </button>
+            <p className="form-note">
+              This opens your email app. Nothing is sent until you send it
+              there.
+            </p>
+          </form>
+          <p className="form-status" role="status">
+            {notice}
+          </p>
+        </Reveal>
       </section>
-    </div>
+    </>
   );
 }
