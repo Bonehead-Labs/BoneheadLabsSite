@@ -7,78 +7,78 @@ export const links = {
   pete: "https://bonehead-labs.itch.io/pete-the-pig",
   friendDemo: "https://bonehead-labs.itch.io/bonehead-friend",
 };
+// Accents and one-line descriptions follow Instrumenta brand v2 (brand/tokens.json and each
+// product's README). Motus is discontinued; Fabula carries its place in the suite.
 export const software = [
+  {
+    id: "fabula",
+    name: "Fabula",
+    discipline: "Video",
+    glyph: "A clapperboard holding transcript lines",
+    color: "#ED7088",
+    line: "Cut a talking-head video by its words.",
+    description:
+      "Transcribes a recording locally, proposes cuts for dead air, fillers and false starts, and shows every cut as text before anything renders. Then Claude Code or Codex turns the reviewed cut into a draft film.",
+  },
   {
     id: "imago",
     name: "Imago",
-    category: "Visuals",
-    discipline: "Graphics & composition",
-    color: "#28c7b7",
+    discipline: "Graphics",
+    glyph: "A framed picture with a sparkle",
+    color: "#00BCAB",
+    line: "Thumbnails, photo edits and graphics, designed with your own Claude Code.",
     description:
-      "Layered graphics, thumbnails and title cards, with reusable layouts and animation export.",
-  },
-  {
-    id: "motus",
-    name: "Motus",
-    category: "Video",
-    discipline: "Rough-cut video editing",
-    color: "#e95087",
-    description:
-      "Arrange, trim and split video on a timeline. Export rough cuts as MP4.",
+      "Describe the image and Claude writes it as HTML, CSS and SVG, checks its own render and fixes what is wrong. Ask for changes in plain words and export PNG, JPG or WebP.",
   },
   {
     id: "ludere",
     name: "Ludere",
-    category: "Writing",
-    discipline: "Screenplays & story planning",
-    color: "#9a72ea",
+    discipline: "Writing",
+    glyph: "A screenplay page",
+    color: "#B583EB",
+    line: "Screenplay formatting that autosaves as you write.",
     description:
-      "Write formatted screenplays and plan scenes on a three-act beat board.",
-  },
-  {
-    id: "fabula",
-    name: "Fabula",
-    category: "Video",
-    discipline: "Transcript-led editing",
-    color: "#d97757",
-    description:
-      "Edit video through its transcript. Review suggested cuts for pauses and false starts.",
-  },
-  {
-    id: "forge3d",
-    name: "Forge3D",
-    category: "Visuals",
-    discipline: "3D asset creation",
-    color: "#d06b37",
-    description:
-      "Create editable 3D assets with prompt-assisted workflows, local previews and Blender.",
-  },
-  {
-    id: "luna",
-    name: "Luna",
-    category: "Audio",
-    discipline: "Local voice generation",
-    color: "#59d9f2",
-    description:
-      "Generate speech locally. Manage voice profiles and review audio on your computer.",
+      "A local screenplay editor with a scene rail and a three-act beat board. The page follows screenplay margins in Courier; the rest of the app stays out of the way.",
   },
   {
     id: "discere",
     name: "Discere",
-    category: "Learning",
-    discipline: "Interactive learning",
-    color: "#3e83f8",
+    discipline: "Learning",
+    glyph: "An open book",
+    color: "#5E9EFD",
+    line: "Lessons, review scheduling and a notebook that keep working offline.",
     description:
-      "Learn with interactive exercises, assessments and review. Track your progress.",
+      "A learning workspace built around explanation, interaction, assessment and review, with an optional tutor powered by the AI tools you already use.",
   },
   {
     id: "learnchess",
     name: "LearnChess",
-    category: "Learning",
-    discipline: "Chess practice",
-    color: "#2fa85f",
+    discipline: "Chess",
+    glyph: "A rook",
+    color: "#47B968",
+    line: "Openings, tactics, endgames and a Stockfish opponent.",
     description:
-      "Practice tactics, openings and endgames, or play against a chess engine.",
+      "Play Stockfish at five strengths, solve rated puzzles, drill a repertoire of openings with spaced repetition and work through canonical endgames. No accounts, no subscriptions.",
+  },
+  {
+    id: "luna",
+    name: "Luna",
+    discipline: "Voice",
+    glyph: "A crescent moon with a voice",
+    color: "#73A6C4",
+    line: "Private, local GPU voice generation.",
+    description:
+      "Generate speech on your own graphics card. Text, reference recordings, voice profiles and generated audio stay on your computer.",
+  },
+  {
+    id: "forge3d",
+    name: "Forge3D",
+    discipline: "3D",
+    glyph: "A cube",
+    color: "#EE7752",
+    line: "Prompt-driven 3D modelling.",
+    description:
+      "Turns a prompt into a versioned local 3D run, keeps the transcript and previews the result, working alongside Blender and Godot.",
   },
 ];
 export const gallery = [

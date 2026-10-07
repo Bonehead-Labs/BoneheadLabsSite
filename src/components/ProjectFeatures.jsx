@@ -20,6 +20,8 @@ import {
 import { Link } from "react-router-dom";
 import { Button, Reveal, TextLink } from "./UI";
 import { links, software } from "../data/site";
+import { InstrumentaIcon } from "../brand/instrumenta/InstrumentaIcon";
+import "../styles/instrumenta.css";
 export function SamFeature() {
   return (
     <Reveal>
@@ -110,12 +112,12 @@ export function SoftwareDisciplines() {
   return (
     <ul className="software-disciplines" aria-label="Instrumenta disciplines">
       {[
-        [Image, "Graphics"],
         [Clapperboard, "Video"],
+        [Image, "Graphics"],
         [PenLine, "Writing"],
-        [AudioLines, "Audio"],
-        [Box, "3D"],
         [GraduationCap, "Learning"],
+        [AudioLines, "Voice"],
+        [Box, "3D"],
       ].map(([Icon, label]) => (
         <li key={label}>
           <Icon size={22} strokeWidth={1.5} aria-hidden="true" />
@@ -128,7 +130,7 @@ export function SoftwareDisciplines() {
 export function SoftwareFeature() {
   return (
     <Reveal>
-      <article className="software-feature">
+      <article className="software-feature ii-hover">
         <div className="software-feature-copy">
           <p className="eyebrow">IN DEVELOPMENT / OPEN SOURCE PLANNED</p>
           <h3>
@@ -142,19 +144,16 @@ export function SoftwareFeature() {
           aria-label="Instrumenta application marks"
         >
           <div className="constellation-ring" aria-hidden="true" />
-          <img
+          <InstrumentaIcon
+            id="instrumenta"
+            label="Instrumenta"
             className="suite-core"
-            src="/media/instrumenta.webp"
-            alt="Instrumenta"
-            width="190"
-            height="190"
-            loading="lazy"
           />
           {software
             .filter((app) =>
               [
                 "imago",
-                "motus",
+                "fabula",
                 "ludere",
                 "forge3d",
                 "luna",
@@ -166,13 +165,7 @@ export function SoftwareFeature() {
                 className={`suite-satellite satellite-${app.id}`}
                 key={app.id}
               >
-                <img
-                  src={`/media/${app.id}.webp`}
-                  alt=""
-                  width="105"
-                  height="105"
-                  loading="lazy"
-                />
+                <InstrumentaIcon id={app.id} />
                 <span>{app.name}</span>
               </div>
             ))}

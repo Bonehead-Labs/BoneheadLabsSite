@@ -138,7 +138,7 @@ export default function ScrollArtifact() {
     gl.disable(gl.DEPTH_TEST);
     gl.clearColor(0, 0, 0, 0);
     const tint = pathname.startsWith("/software")
-      ? [0.95, 0.43, 0.19]
+      ? [0.84, 0.56, 0.0]
       : pathname.startsWith("/games")
         ? [0.52, 0.78, 0.3]
         : [0.12, 0.81, 0.77];

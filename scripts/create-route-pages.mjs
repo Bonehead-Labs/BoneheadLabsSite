@@ -26,7 +26,8 @@ const routes = [
   [
     "software",
     "Instrumenta & software",
-    "Instrumenta is a software suite for graphics, video, screenwriting, audio, 3D and learning. In development, with an open source release planned.",
+    "Instrumenta is a suite of local creative tools for video, graphics, screenwriting, learning, chess, voice and 3D. In development, with an open source release planned.",
+    "/media/instrumenta-organ.png",
   ],
   [
     "projects",
