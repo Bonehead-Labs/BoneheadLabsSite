@@ -9,7 +9,7 @@ const routes = [
   [
     "games",
     "Games",
-    "Games from Bonehead Labs: Apple Man Sam, earlier playable demos and new projects in development.",
+    "Games from Bonehead Labs: Apple Man Sam and new projects in development.",
   ],
   [
     "games/apple-man-sam",

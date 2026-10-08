@@ -11,6 +11,7 @@ The owner asked for a full redesign with creative freedom, keeping the Bonehead 
 - Apple Man Sam has a dark cinematic showcase with scroll parallax and screenshot cards that deal out as the section scrolls in. Its page uses the game's green.
 - Instrumenta keeps its own brand: warm ink, brass and the product marks. The `/software` page keeps the brand v2 layout, with a product row added under the hero and repositories restyled to match. The faint label colour is lightened from the brand token so it passes WCAG AA.
 - Removed: the WebGL particle background and the custom cursor.
+- The 2025 itch.io prototypes (Pete the Pig and the original Bonehead Friend) are studio history, not current games. They are not shown on the homepage or the games page, and the footer has no itch.io link. The about page lists them in a small "Where it started" note under the studio story.
 
 The copy guidance from the September review still applies: direct, factual copy; no repeating white banner; no numbered sections; no decorative star or asterisk branding.
 

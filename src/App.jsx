@@ -149,7 +149,6 @@ function Footer() {
               ["YouTube", links.youtube],
               ["GitHub", links.github],
               ["X", links.x],
-              ["itch.io", "https://bonehead-labs.itch.io/"],
             ].map(([label, href]) => (
               <a key={label} href={href} target="_blank" rel="noreferrer">
                 {label} <ArrowUpRight size={15} aria-hidden="true" />

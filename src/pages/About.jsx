@@ -1,6 +1,7 @@
-import { ChartNoAxesCombined, Gamepad2, Code2, Bot } from "lucide-react";
+import { ArrowUpRight, ChartNoAxesCombined, Gamepad2, Code2, Bot } from "lucide-react";
 import { Kicker, Reveal, SectionHead, SEO, TextLink } from "../components/UI";
 import Mascot from "../components/Mascot";
+import { origins } from "../data/site";
 
 const chapters = [
   {
@@ -104,6 +105,29 @@ export default function About() {
             </Reveal>
           ))}
         </div>
+        <Reveal className="origins">
+          <div className="origins-copy">
+            <Kicker>Where it started</Kicker>
+            <p>
+              Small prototypes made in 2025 while learning Godot. They are rough,
+              but they are how the studio began, and they are still on itch.io.
+            </p>
+          </div>
+          <ul className="origins-list">
+            {origins.map((item) => (
+              <li key={item.id}>
+                <a href={item.href} target="_blank" rel="noreferrer">
+                  <img src={item.image} alt="" width="1200" height="800" loading="lazy" />
+                  <span>
+                    <strong>{item.title}</strong>
+                    <span>{item.kind}</span>
+                  </span>
+                  <ArrowUpRight size={18} aria-hidden="true" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
         <Reveal className="about-gameplay">
           <img
             src="/media/sam-chaos.webp"

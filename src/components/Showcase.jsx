@@ -2,7 +2,6 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  ArrowUpRight,
   Crosshair,
   Layers3,
   Infinity as InfinityIcon,
@@ -16,7 +15,7 @@ import {
 } from "lucide-react";
 import { Button, Kicker, Reveal, TextLink, useMotion } from "./UI";
 import Mascot from "./Mascot";
-import { demos, links, software } from "../data/site";
+import { links, software } from "../data/site";
 import { InstrumentaIcon } from "../brand/instrumenta/InstrumentaIcon";
 
 const samShots = [
@@ -252,36 +251,9 @@ export function LabProjects() {
               <MousePointer2 size={16} aria-hidden="true" /> Physics play
             </li>
           </ul>
-          <p className="lab-note">Separate from the 2025 demo.</p>
+          <p className="lab-note">A new version, separate from the 2025 prototype.</p>
         </div>
       </Reveal>
-    </div>
-  );
-}
-
-export function DemoArchive() {
-  return (
-    <div className="demo-grid">
-      {demos.map((demo, index) => (
-        <Reveal as="article" key={demo.id} className="demo-card" delay={index * 0.08}>
-          <a href={demo.href} target="_blank" rel="noreferrer" className="demo-art" aria-label={`${demo.cta}: ${demo.title}${demo.note ? `, ${demo.note.toLowerCase()}` : ""}`}>
-            <img src={demo.image} alt={demo.alt} width="1200" height="800" loading="lazy" />
-            <span className="demo-play">
-              {demo.cta} <ArrowUpRight size={16} aria-hidden="true" />
-            </span>
-          </a>
-          <div className="demo-copy">
-            <Kicker>
-              {demo.year} · {demo.kind}
-            </Kicker>
-            <h3>
-              {demo.title}
-              {demo.note && <span className="title-note">{demo.note}</span>}
-            </h3>
-            <p>{demo.line}</p>
-          </div>
-        </Reveal>
-      ))}
     </div>
   );
 }

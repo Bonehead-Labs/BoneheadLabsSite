@@ -17,7 +17,6 @@ import {
   SamShowcase,
   InstrumentaShowcase,
   LabProjects,
-  DemoArchive,
 } from "../components/Showcase";
 import { InstrumentaIcon } from "../brand/instrumenta/InstrumentaIcon";
 import { getRecentPosts, resolvePostImage } from "../blog/blogUtils";
@@ -187,13 +186,6 @@ export default function Home() {
           <p>Two projects in progress. Details when they are ready.</p>
         </SectionHead>
         <LabProjects />
-      </section>
-
-      <section className="section wrap archive-section" id="demos">
-        <SectionHead kicker="Earlier releases" title="Free demos to play.">
-          <TextLink to="/games">All games</TextLink>
-        </SectionHead>
-        <DemoArchive />
       </section>
 
       <section className="studio-band">
