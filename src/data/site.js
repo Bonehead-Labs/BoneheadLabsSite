@@ -81,6 +81,45 @@ export const software = [
       "Turns a prompt into a versioned local 3D run, keeps the transcript and previews the result, working alongside Blender and Godot.",
   },
 ];
+export const demos = [
+  {
+    id: "pete",
+    title: "Pete the Pig",
+    year: "2025",
+    kind: "Platformer demo",
+    line: "Collect cash, wall-jump through levels and beat your best time.",
+    image: "/media/pete-banner.webp",
+    alt: "Pete the Pig, in sunglasses, running through a forest with a coin",
+    href: links.pete,
+    cta: "Play on itch.io",
+  },
+  {
+    id: "friend-2025",
+    title: "Bonehead Friend",
+    note: "Original demo",
+    year: "2025",
+    kind: "Desktop physics toy",
+    line: "The first desktop companion. Separate from the new version in development.",
+    image: "/media/friend-archive.webp",
+    alt: "Artwork from the original Bonehead Friend demo",
+    href: links.friendDemo,
+    cta: "Play on itch.io",
+  },
+];
+export const repositories = [
+  {
+    name: "Bonehead Labs systems",
+    language: "GDScript",
+    line: "Reusable Godot systems and modules for building games.",
+    href: "https://github.com/Bonehead-Labs/bonehead-labs-official-systems",
+  },
+  {
+    name: "PBIP Factory",
+    language: "Python",
+    line: "Generate Power BI projects from a template and a table of parameter values.",
+    href: "https://github.com/Bonehead-Labs/PBIP-Factory",
+  },
+];
 export const gallery = [
   {
     src: "/media/sam-action.webp",

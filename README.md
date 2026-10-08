@@ -41,13 +41,15 @@ After editing, run `npm run build:review` again and refresh the browser. Use the
 
 The earlier `/projects` address redirects to `/software`; `/apple-man-sam` redirects to the game campaign. Legacy hash links are recovered. Unknown pages have a designed not-found screen.
 
-- `src/data/site.js`: external links, software descriptions and game gallery.
-- `src/components/ProjectFeatures.jsx`: featured projects and intentionally brief game teasers.
-- `src/components/UI.jsx`: shared controls, reveals and page metadata.
-- `src/index.css`: design tokens, layouts, animation and responsive styles.
+- `src/data/site.js`: external links, software descriptions, demos, repositories and game gallery.
+- `src/components/Mascot.jsx`: the animated vector mascot (eye tracking, blinking, click reaction). `mascotPaths.js` holds its traced layers.
+- `src/components/Showcase.jsx`: the Apple Man Sam and Instrumenta showcases, in-development teasers and demo cards shared by the home and games pages.
+- `src/components/UI.jsx`: buttons, reveals, draggable stickers and page metadata.
+- `src/index.css`: fonts, design tokens, layouts, animation and responsive styles.
+- `src/styles/instrumenta.css`: the `/software` page, which follows the Instrumenta brand.
 - `src/blog/posts/`: historical journal content. Filenames are permanent article URLs.
 - `public/media/`: optimized copies of existing studio, game and Instrumenta artwork.
-- `public/fonts/`: self-hosted fonts and their licences.
+- `public/fonts/instrumenta/`: self-hosted Fraunces, Commissioner and Spline Sans Mono with their licences, used across the site.
 
 The contact form opens the visitor's email application with a draft; it does not submit to a server. Site motion respects the operating-system preference and can also be paused from the header.
 

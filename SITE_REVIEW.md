@@ -1,3 +1,25 @@
+# Website redesign — October 2026
+
+The owner asked for a full redesign with creative freedom, keeping the Bonehead mascot and promoting the games and software. The previous design is commit `22b2652` on `main`; revert to it if needed.
+
+## Design
+
+- Warm paper background, ink outlines and hard offset shadows taken from the mascot's line art and the Instrumenta organ's extrusion. Teal from the mascot is the studio accent.
+- Type is the vendored Instrumenta set used site-wide: Fraunces with the soft and wonky axes for display, Commissioner for text, Spline Sans Mono for labels. Inter and Space Grotesk are removed.
+- The mascot is now a vector trace of the original artwork (`src/assets/image.png`), split into layers. It follows the pointer with its eyes, blinks, wanders when the pointer rests, and on the homepage dances when clicked. It appears in the header, the homepage hero, the footer, the games and about pages, the Bonehead Friend teaser (draggable) and the 404 page.
+- Homepage hero: the mascot stands between "Bone" and "head", with floating, draggable stickers (Apple Man Sam logo, Instrumenta marks) that respond to pointer and scroll, and a rotating Steam demo badge.
+- Apple Man Sam has a dark cinematic showcase with scroll parallax and screenshot cards that deal out as the section scrolls in. Its page uses the game's green.
+- Instrumenta keeps its own brand: warm ink, brass and the product marks. The `/software` page keeps the brand v2 layout, with a product row added under the hero and repositories restyled to match. The faint label colour is lightened from the brand token so it passes WCAG AA.
+- Removed: the WebGL particle background and the custom cursor.
+
+The copy guidance from the September review still applies: direct, factual copy; no repeating white banner; no numbered sections; no decorative star or asterisk branding.
+
+## Validation
+
+- Production build passes.
+- axe WCAG 2 A/AA and 2.1 AA checks on nine routes at 1440 and 390 pixels: no violations, no horizontal overflow.
+- Checked in Chromium: mascot click reaction, motion pause toggle, mobile menu open and navigation, desktop and mobile layouts of every page.
+
 # Website review — September 2026
 
 The owner approved this redesign for publication on 7 September 2026, after reviewing the local preview.

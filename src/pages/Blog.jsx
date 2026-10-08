@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, Search } from "lucide-react";
-import { PageIntro, Reveal, SEO, formatDate } from "../components/UI";
+import { Kicker, Reveal, SEO, formatDate } from "../components/UI";
 import { getAllPosts, resolvePostImage } from "../blog/blogUtils";
+
+const filters = ["All posts", "Games", "Development", "Studio"];
+
 export default function Blog() {
   const [filter, setFilter] = useState("All posts");
   const [query, setQuery] = useState("");
@@ -18,24 +21,28 @@ export default function Blog() {
         .toLowerCase()
         .includes(query.toLowerCase()),
   );
+  const featured = filter === "All posts" && !query;
   return (
     <>
       <SEO
         title="Development blog"
         description="Development updates and articles about building games and software at Bonehead Labs."
       />
-      <PageIntro eyebrow="BONEHEAD LABS" title="Development" accent="blog.">
-        Updates on our projects, technical articles and experiences from
-        development.
-      </PageIntro>
-      <section className="wrap journal-section">
+      <section className="page-hero wrap">
+        <Reveal>
+          <Kicker>Development blog</Kicker>
+          <h1>
+            Blog<em>.</em>
+          </h1>
+          <p className="page-hero-line">
+            Project updates, technical articles and notes from development.
+          </p>
+        </Reveal>
+      </section>
+      <section className="wrap">
         <div className="journal-toolbar">
-          <div
-            className="filter-bar"
-            role="group"
-            aria-label="Filter blog posts"
-          >
-            {["All posts", "Games", "Development", "Studio"].map((item) => (
+          <div className="filter-bar" role="group" aria-label="Filter blog posts">
+            {filters.map((item) => (
               <button
                 key={item}
                 className={filter === item ? "active" : ""}
@@ -47,7 +54,7 @@ export default function Blog() {
             ))}
           </div>
           <label className="journal-search">
-            <Search size={18} />
+            <Search size={18} aria-hidden="true" />
             <span className="sr-only">Search the blog</span>
             <input
               type="search"
@@ -63,37 +70,35 @@ export default function Blog() {
         <div className="blog-grid">
           {posts.map((post, index) => (
             <Reveal
-              className={
-                index === 0 && filter === "All posts" && !query
-                  ? "blog-featured"
-                  : ""
-              }
+              className={index === 0 && featured ? "blog-featured" : ""}
               key={post.slug}
+              delay={Math.min(index, 3) * 0.05}
             >
-              <Link to={`/blog/${post.slug}`} className="blog-card">
-                <div className="blog-card-art">
+              <Link to={`/blog/${post.slug}`} className="post-card">
+                <div className="post-card-art">
                   {post.frontmatter.image && (
                     <img
                       src={resolvePostImage(post.frontmatter.image)}
                       alt=""
                       loading="lazy"
+                      width="600"
+                      height="400"
                     />
                   )}
-                  <span>{post.frontmatter.tags?.[0]}</span>
                 </div>
-                <div className="blog-card-copy">
-                  <p className="eyebrow">
-                    {formatDate(post.date)}
-                    <span> / {post.frontmatter.readTime}</span>
-                  </p>
-                  <h2>{post.frontmatter.title}</h2>
+                <div className="post-card-copy">
+                  <Kicker>
+                    {post.frontmatter.tags?.[0]} · {formatDate(post.date)} ·{" "}
+                    {post.frontmatter.readTime}
+                  </Kicker>
+                  <h3>{post.frontmatter.title}</h3>
                   <p>
                     {post.frontmatter.excerpt === "Clankware Engineering"
                       ? "A breakdown of agentic development workflows and the tools used to build software."
                       : post.frontmatter.excerpt}
                   </p>
-                  <span className="text-link">
-                    Read post <ArrowUpRight size={18} />
+                  <span className="post-card-go" aria-hidden="true">
+                    <ArrowUpRight size={20} />
                   </span>
                 </div>
               </Link>
@@ -105,13 +110,13 @@ export default function Blog() {
             <h2>No posts found.</h2>
             <p>Try another search or view all posts.</p>
             <button
-              className="button"
+              className="btn btn-primary"
               onClick={() => {
                 setFilter("All posts");
                 setQuery("");
               }}
             >
-              Show all posts <ArrowUpRight size={18} />
+              <span>Show all posts</span>
             </button>
           </div>
         )}

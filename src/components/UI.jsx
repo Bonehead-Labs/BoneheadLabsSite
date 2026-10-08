@@ -3,48 +3,65 @@ import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 export const MotionContext = createContext(true);
-export function Reveal({ children, className = "", delay = 0, ...props }) {
+export function useMotion() {
+  return useContext(MotionContext);
+}
+export function Reveal({
+  children,
+  className = "",
+  delay = 0,
+  as = "div",
+  y = 34,
+  ...props
+}) {
   const enabled = useContext(MotionContext);
+  const Tag = motion[as];
   return (
-    <motion.div
+    <Tag
       className={className}
-      initial={enabled ? { opacity: 0, y: 26 } : false}
+      initial={enabled ? { opacity: 0, y } : false}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.08 }}
-      transition={{ duration: 0.65, delay, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
       {...props}
     >
       {children}
-    </motion.div>
+    </Tag>
   );
 }
+const external = (href) => href?.startsWith("http");
 export function Button({
   children,
   to,
   href,
-  secondary = false,
-  light = false,
+  variant = "primary",
+  icon = true,
   className = "",
   ...props
 }) {
-  const classes = `button ${secondary ? "button-secondary" : ""} ${light ? "button-light" : ""} ${className}`;
+  const classes = `btn btn-${variant} ${className}`;
+  const Icon = to ? ArrowRight : ArrowUpRight;
+  const content = (
+    <>
+      <span>{children}</span>
+      {icon && <Icon size={19} strokeWidth={2.4} aria-hidden="true" />}
+    </>
+  );
   if (to)
     return (
       <Link to={to} className={classes} {...props}>
-        {children}
-        <ArrowUpRight size={18} />
+        {content}
       </Link>
     );
   return (
     <a
       href={href}
       className={classes}
-      target={href?.startsWith("https:") ? "_blank" : undefined}
-      rel={href?.startsWith("https:") ? "noreferrer" : undefined}
+      target={external(href) ? "_blank" : undefined}
+      rel={external(href) ? "noreferrer" : undefined}
       {...props}
     >
-      {children}
-      <ArrowUpRight size={18} />
+      {content}
     </a>
   );
 }
@@ -53,51 +70,55 @@ export function TextLink({ children, to, href, className = "", ...props }) {
     return (
       <Link to={to} className={`text-link ${className}`} {...props}>
         {children}
-        <ArrowRight size={18} />
+        <ArrowRight size={18} strokeWidth={2.4} aria-hidden="true" />
       </Link>
     );
   return (
     <a
       href={href}
       className={`text-link ${className}`}
-      target="_blank"
-      rel="noreferrer"
+      target={external(href) ? "_blank" : undefined}
+      rel={external(href) ? "noreferrer" : undefined}
       {...props}
     >
       {children}
-      <ArrowUpRight size={18} />
+      <ArrowUpRight size={18} strokeWidth={2.4} aria-hidden="true" />
     </a>
   );
 }
-export function SectionHeading({ label, title, children, light = false }) {
+export function Kicker({ children, className = "" }) {
+  return <p className={`kicker ${className}`}>{children}</p>;
+}
+export function SectionHead({ kicker, title, children, className = "" }) {
   return (
-    <Reveal className={`section-heading ${light ? "on-paper" : ""}`}>
+    <Reveal className={`section-head ${className}`}>
       <div>
-        <p className="eyebrow">{label}</p>
+        {kicker && <Kicker>{kicker}</Kicker>}
         <h2>{title}</h2>
       </div>
-      {children}
+      {children && <div className="section-head-aside">{children}</div>}
     </Reveal>
   );
 }
-export function PageIntro({
-  eyebrow,
-  title,
-  accent,
-  children,
-  className = "",
-}) {
+// Decorative object that can be picked up and springs back to its place.
+export function Sticker({ children, className = "", style, rotate = 0, label }) {
+  const enabled = useContext(MotionContext);
   return (
-    <section className={`page-intro wrap ${className}`}>
-      <Reveal>
-        <p className="eyebrow">{eyebrow}</p>
-        <h1>
-          {title}
-          <span>{accent}</span>
-        </h1>
-        {children && <p className="intro-copy">{children}</p>}
-      </Reveal>
-    </section>
+    <motion.div
+      className={`sticker ${className}`}
+      style={{ rotate, ...style }}
+      drag={enabled}
+      dragSnapToOrigin
+      dragElastic={0.6}
+      dragTransition={{ bounceStiffness: 260, bounceDamping: 14 }}
+      whileHover={enabled ? { scale: 1.06, rotate: rotate * 0.4 } : undefined}
+      whileDrag={{ scale: 1.14, rotate: 0, zIndex: 40 }}
+      aria-hidden={label ? undefined : true}
+      aria-label={label}
+      role={label ? "img" : undefined}
+    >
+      {children}
+    </motion.div>
   );
 }
 export function SEO({

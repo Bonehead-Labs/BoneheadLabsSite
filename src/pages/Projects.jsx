@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { AppWindow, ArrowDown, ArrowUpRight, Code2, HardDrive } from "lucide-react";
 import { InstrumentaIcon } from "../brand/instrumenta/InstrumentaIcon";
-import { Reveal, SectionHeading, SEO, TextLink } from "../components/UI";
-import { links, software } from "../data/site";
+import { Reveal, SEO } from "../components/UI";
+import { links, repositories, software } from "../data/site";
 import "../styles/instrumenta.css";
 
 const principles = [
@@ -24,9 +25,15 @@ const principles = [
 ];
 
 export default function Projects() {
-  const [selectedId, setSelectedId] = useState(software[0].id);
+  const { hash } = useLocation();
+  const fromHash = software.find((app) => hash === `#app-${app.id}`);
+  const [selectedId, setSelectedId] = useState(fromHash?.id ?? software[0].id);
   const tabs = useRef({});
   const selected = software.find((app) => app.id === selectedId);
+
+  useEffect(() => {
+    if (fromHash) setSelectedId(fromHash.id);
+  }, [fromHash]);
 
   function onRailKey(event, index) {
     const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key];
@@ -65,8 +72,9 @@ export default function Projects() {
               launcher that installs, updates and opens them.
             </p>
             <div className="ins-actions">
-              <a href="#the-suite" className="ins-button">
-                Meet the applications <ArrowDown size={17} aria-hidden="true" />
+              <a href="#the-suite" className="btn btn-brass">
+                <span>Meet the applications</span>
+                <ArrowDown size={18} strokeWidth={2.4} aria-hidden="true" />
               </a>
               <span className="ins-status">
                 In development · open source release planned
@@ -80,6 +88,14 @@ export default function Projects() {
             </figcaption>
           </figure>
         </div>
+        <ul className="wrap ins-pipes" aria-hidden="true">
+          {software.map((app) => (
+            <li key={app.id} style={{ "--accent": app.color }}>
+              <InstrumentaIcon id={app.id} size={34} />
+              <span>{app.name}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="ins-principles">
@@ -165,41 +181,33 @@ export default function Projects() {
         </div>
       </section>
 
-      <section className="section paper" id="open-source">
+      <section className="ins-repos" id="open-source">
         <div className="wrap">
-          <SectionHeading label="EXISTING SOFTWARE" title="On GitHub." light>
-            <TextLink href={links.github}>View our repositories</TextLink>
-          </SectionHeading>
-          <div className="repository-list">
-            <a
-              href="https://github.com/Bonehead-Labs/bonehead-labs-official-systems"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Code2 />
-              <div>
-                <p className="eyebrow">GDSCRIPT / GAME DEVELOPMENT</p>
-                <h3>Bonehead Labs systems</h3>
-                <p>Reusable Godot systems and modules for building games.</p>
-              </div>
-              <ArrowUpRight />
+          <Reveal className="ins-heading ins-repos-head">
+            <div>
+              <p className="ins-kicker">Already on GitHub</p>
+              <h2>Open repositories.</h2>
+            </div>
+            <a href={links.github} className="text-link" target="_blank" rel="noreferrer">
+              Bonehead Labs on GitHub <ArrowUpRight size={18} aria-hidden="true" />
             </a>
-            <a
-              href="https://github.com/Bonehead-Labs/PBIP-Factory"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Code2 />
-              <div>
-                <p className="eyebrow">PYTHON / DEVELOPER TOOL</p>
-                <h3>PBIP Factory</h3>
-                <p>
-                  Generate Power BI projects from a template and a table of
-                  parameter values.
-                </p>
-              </div>
-              <ArrowUpRight />
-            </a>
+          </Reveal>
+          <div className="ins-repo-list">
+            {repositories.map((repo, index) => (
+              <Reveal key={repo.name} delay={index * 0.08}>
+                <a href={repo.href} target="_blank" rel="noreferrer" className="ins-repo">
+                  <span className="ins-repo-icon">
+                    <Code2 size={24} aria-hidden="true" />
+                  </span>
+                  <span className="ins-repo-copy">
+                    <span className="ins-repo-lang">{repo.language}</span>
+                    <strong>{repo.name}</strong>
+                    <span>{repo.line}</span>
+                  </span>
+                  <ArrowUpRight className="ins-repo-go" aria-hidden="true" />
+                </a>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>

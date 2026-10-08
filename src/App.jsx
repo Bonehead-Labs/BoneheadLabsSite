@@ -11,8 +11,7 @@ import {
 import { ArrowUpRight, Menu, X, Pause, Play, ArrowUp } from "lucide-react";
 import { MotionConfig } from "framer-motion";
 import { MotionContext } from "./components/UI";
-import ScrollArtifact from "./components/ScrollArtifact";
-import AnimatedCursor from "./components/AnimatedCursor";
+import Mascot from "./components/Mascot";
 import { links } from "./data/site";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -33,9 +32,16 @@ const navItems = [
 
 function Nav({ motionEnabled, toggleMotion, systemReducedMotion }) {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const menuButton = useRef(null);
   useEffect(() => setOpen(false), [location]);
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 24);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
   useEffect(() => {
     if (!open) return;
     const handleKey = (event) => {
@@ -47,71 +53,62 @@ function Nav({ motionEnabled, toggleMotion, systemReducedMotion }) {
     document.addEventListener("keydown", handleKey);
     return () => document.removeEventListener("keydown", handleKey);
   }, [open]);
+  const motionLabel = systemReducedMotion
+    ? "Animations off to match your device settings"
+    : motionEnabled
+      ? "Pause animations"
+      : "Play animations";
   return (
-    <header className="site-header">
-      <div className="header-inner wrap">
-        <Link className="wordmark" to="/" aria-label="Bonehead Labs home">
-          <img src="/media/bonehead.webp" alt="" width="44" height="44" />
-          <span>
-            BONEHEAD
-            <span>LABS</span>
+    <header
+      className={`site-header ${scrolled ? "is-scrolled" : ""} ${open ? "is-open" : ""}`}
+    >
+      <div className="nav-pill">
+        <Link className="brand" to="/" aria-label="Bonehead Labs home">
+          <span className="brand-mark">
+            <Mascot label="" />
+          </span>
+          <span className="brand-name">
+            Bonehead<span>Labs</span>
           </span>
         </Link>
         <nav
-          className={`main-nav ${open ? "is-open" : ""}`}
+          className="nav-links"
           id="main-navigation"
           aria-label="Main navigation"
         >
           {navItems.map(([to, label]) => (
-            <NavLink to={to} key={to} onClick={() => setOpen(false)}>
+            <NavLink to={to} key={to}>
               {label}
-              <span className="nav-dot" />
             </NavLink>
           ))}
-          <Link
-            to="/contact"
-            className="mobile-contact"
-            onClick={() => setOpen(false)}
-          >
-            Contact <ArrowUpRight size={16} />
-          </Link>
+          <NavLink to="/contact" className="nav-contact-mobile">
+            Contact
+          </NavLink>
         </nav>
-        <div className="header-actions">
+        <div className="nav-actions">
           <button
             type="button"
-            className="icon-button motion-toggle"
+            className="round-button motion-toggle"
             onClick={toggleMotion}
             disabled={systemReducedMotion}
-            aria-label={
-              systemReducedMotion
-                ? "Animations off to match your device settings"
-                : motionEnabled
-                  ? "Pause animations"
-                  : "Enable animations"
-            }
-            title={
-              systemReducedMotion
-                ? "Animations off to match your device settings"
-                : motionEnabled
-                  ? "Pause animations"
-                  : "Enable animations"
-            }
+            aria-label={motionLabel}
+            title={motionLabel}
           >
             {motionEnabled ? <Pause size={15} /> : <Play size={15} />}
           </button>
-          <Link to="/contact" className="header-contact">
-            Contact <ArrowUpRight size={17} />
+          <Link to="/contact" className="btn btn-primary btn-small nav-contact">
+            <span>Contact</span>
           </Link>
           <button
             type="button"
             ref={menuButton}
-            className="icon-button menu-toggle"
+            className="round-button menu-toggle"
             aria-expanded={open}
             aria-controls="main-navigation"
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen(!open)}
           >
-            {open ? <X /> : <Menu />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
@@ -121,52 +118,55 @@ function Nav({ motionEnabled, toggleMotion, systemReducedMotion }) {
 function Footer() {
   return (
     <footer className="site-footer">
-      <div className="wrap">
-        <div className="footer-top">
-          <div>
-            <p className="eyebrow">
-              <span className="status-dot" /> CONTACT BONEHEAD LABS
-            </p>
-            <Link to="/contact" className="footer-hello">
-              Get in touch. <ArrowUpRight />
-            </Link>
-          </div>
-          <div className="footer-links">
-            <nav aria-label="Footer navigation">
-              {navItems.map(([to, label]) => (
-                <Link to={to} key={to}>
-                  {label}
-                </Link>
-              ))}
-              <Link to="/contact">Contact</Link>
-            </nav>
-            <nav aria-label="Social links">
-              <a href={links.steam} target="_blank" rel="noreferrer">
-                Steam <ArrowUpRight />
-              </a>
-              <a href={links.github} target="_blank" rel="noreferrer">
-                GitHub <ArrowUpRight />
-              </a>
-              <a href={links.youtube} target="_blank" rel="noreferrer">
-                YouTube <ArrowUpRight />
-              </a>
-              <a href={links.x} target="_blank" rel="noreferrer">
-                Follow on X <ArrowUpRight />
-              </a>
-            </nav>
-          </div>
+      <div className="footer-peek" aria-hidden="true">
+        <Mascot sticker label="" />
+      </div>
+      <div className="wrap footer-inner">
+        <div className="footer-call">
+          <p className="kicker">Say hello</p>
+          <a className="footer-email" href={`mailto:${links.email}`}>
+            contact@<wbr />
+            boneheadlabs.org
+          </a>
+          <p className="footer-note">
+            Game feedback, software, press and collaboration.
+          </p>
         </div>
-        <Link
-          to="/"
-          className="footer-wordmark"
-          aria-label="Bonehead Labs home"
-        >
-          BONEHEAD<span> LABS</span>
+        <div className="footer-columns">
+          <nav aria-label="Footer navigation">
+            <p className="kicker">Studio</p>
+            {navItems.map(([to, label]) => (
+              <Link to={to} key={to}>
+                {label}
+              </Link>
+            ))}
+            <Link to="/contact">Contact</Link>
+          </nav>
+          <nav aria-label="Social links">
+            <p className="kicker">Elsewhere</p>
+            {[
+              ["Steam", links.steam],
+              ["YouTube", links.youtube],
+              ["GitHub", links.github],
+              ["X", links.x],
+              ["itch.io", "https://bonehead-labs.itch.io/"],
+            ].map(([label, href]) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer">
+                {label} <ArrowUpRight size={15} aria-hidden="true" />
+              </a>
+            ))}
+          </nav>
+        </div>
+      </div>
+      <div className="wrap footer-base">
+        <Link to="/" className="footer-wordmark" aria-label="Bonehead Labs home">
+          Bonehead Labs
         </Link>
-        <div className="footer-bottom">
+        <div className="footer-meta">
           <span>© {new Date().getFullYear()} Bonehead Labs</span>
-          <span>Independent games & software.</span>
+          <span>Independent games and software</span>
           <button
+            type="button"
             onClick={() =>
               window.scrollTo({
                 top: 0,
@@ -177,7 +177,7 @@ function Footer() {
               })
             }
           >
-            Back to top <ArrowUp size={14} />
+            Back to top <ArrowUp size={14} aria-hidden="true" />
           </button>
         </div>
       </div>
@@ -216,6 +216,18 @@ function PagePosition() {
   }, [pathname, hash]);
   return null;
 }
+function PageTheme() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const theme = pathname.startsWith("/games/apple-man-sam")
+      ? "sam"
+      : pathname.startsWith("/software")
+        ? "ins"
+        : "studio";
+    document.documentElement.dataset.theme = theme;
+  }, [pathname]);
+  return null;
+}
 export default function App() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(
     () => window.matchMedia("(prefers-reduced-motion: reduce)").matches,
@@ -249,12 +261,11 @@ export default function App() {
     <MotionContext.Provider value={motionEnabled}>
       <MotionConfig reducedMotion={motionEnabled ? "user" : "always"}>
         <BrowserRouter>
-          <ScrollArtifact />
-          <AnimatedCursor />
           <a className="skip-link" href="#main-content">
             Skip to content
           </a>
           <PagePosition />
+          <PageTheme />
           <Nav
             motionEnabled={motionEnabled}
             toggleMotion={toggleMotion}
@@ -264,7 +275,7 @@ export default function App() {
             <Suspense
               fallback={
                 <div className="page-loading" role="status">
-                  Loading<span>…</span>
+                  Loading
                 </div>
               }
             >

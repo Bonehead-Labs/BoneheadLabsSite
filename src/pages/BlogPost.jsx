@@ -3,40 +3,39 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeHighlight from "rehype-highlight";
-import { SEO, formatDate } from "../components/UI";
+import { Button, Kicker, SEO, TextLink, formatDate } from "../components/UI";
 import { getPostBySlug, resolvePostImage } from "../blog/blogUtils";
+
 export default function BlogPost() {
   const { slug } = useParams();
   const post = getPostBySlug(slug);
   if (!post)
     return (
-      <div className="wrap empty-state">
+      <div className="wrap empty-state not-found">
         <SEO
           title="Post not found"
-          description="This journal entry could not be found."
+          description="This blog post could not be found."
         />
-        <p className="eyebrow">POST NOT FOUND</p>
+        <Kicker>Post not found</Kicker>
         <h1>Post not found.</h1>
         <p>It may have moved, or the link may be incomplete.</p>
-        <Link to="/blog" className="button">
-          Back to the blog <ArrowUpRight size={18} />
-        </Link>
+        <Button to="/blog">Back to the blog</Button>
       </div>
     );
   return (
-    <div className="article-page paper">
+    <div className="article-page">
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.excerpt}
       />
       <header className="article-header wrap">
         <Link to="/blog" className="back-link">
-          <ArrowLeft size={16} /> BACK TO THE BLOG
+          <ArrowLeft size={15} aria-hidden="true" /> Back to the blog
         </Link>
         <div className="article-meta">
           <span>{formatDate(post.date)}</span>
           <span>{post.frontmatter.readTime}</span>
-          <span>BY {post.frontmatter.author || "BONEHEAD LABS"}</span>
+          <span>By {post.frontmatter.author || "Bonehead Labs"}</span>
         </div>
         <h1>{post.frontmatter.title}</h1>
         <div className="article-tags">
@@ -47,16 +46,16 @@ export default function BlogPost() {
       </header>
       <div className="article-layout wrap">
         <aside className="article-sidebar">
-          <span className="eyebrow">FROM THE ARCHIVE</span>
+          <Kicker>From the archive</Kicker>
           <p>
             Written {formatDate(post.date)}. Product plans and tool details
             reflect that time.
           </p>
           <Link to="/games">
-            Games today <ArrowUpRight size={15} />
+            Games today <ArrowUpRight size={15} aria-hidden="true" />
           </Link>
           <Link to="/software">
-            Software today <ArrowUpRight size={15} />
+            Software today <ArrowUpRight size={15} aria-hidden="true" />
           </Link>
         </aside>
         <article className="article-body">
@@ -106,10 +105,8 @@ export default function BlogPost() {
             </ReactMarkdown>
           </div>
           <div className="article-end">
-            <span>BONEHEAD LABS</span>
-            <Link className="text-link" to="/blog">
-              All blog posts <ArrowUpRight size={18} />
-            </Link>
+            <Kicker>Bonehead Labs</Kicker>
+            <TextLink to="/blog">All blog posts</TextLink>
           </div>
         </article>
       </div>

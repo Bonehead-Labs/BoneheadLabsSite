@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { ArrowUpRight, Check, Copy } from "lucide-react";
-import { PageIntro, Reveal, SEO } from "../components/UI";
+import { Kicker, Reveal, SEO } from "../components/UI";
 import { links } from "../data/site";
+
 export default function Contact() {
   const [copied, setCopied] = useState(false);
   const [notice, setNotice] = useState("");
@@ -29,50 +30,57 @@ export default function Contact() {
         title="Contact"
         description="Contact Bonehead Labs about our games, software, support or collaboration."
       />
-      <PageIntro eyebrow="BONEHEAD LABS" title="Contact" accent="the studio.">
-        For game feedback, software enquiries, support and collaboration,
-        contact us by email.
-      </PageIntro>
+      <section className="page-hero wrap">
+        <Reveal>
+          <Kicker>Contact</Kicker>
+          <h1>
+            Say hello<em>.</em>
+          </h1>
+          <p className="page-hero-line">
+            Game feedback, software enquiries, support, press and
+            collaboration. Email is the quickest way to reach us.
+          </p>
+        </Reveal>
+      </section>
       <section className="contact-layout wrap">
         <Reveal className="contact-details">
-          <p className="eyebrow">EMAIL</p>
+          <Kicker>Email</Kicker>
           <a className="contact-email" href={`mailto:${links.email}`}>
-            contact@
-            <br />
-            boneheadlabs.org <ArrowUpRight />
+            contact@<wbr />
+            boneheadlabs.org
           </a>
-          <button className="copy-email" onClick={copyEmail}>
-            {copied ? <Check size={16} /> : <Copy size={16} />}
+          <button type="button" className="copy-email" onClick={copyEmail}>
+            {copied ? <Check size={16} aria-hidden="true" /> : <Copy size={16} aria-hidden="true" />}
             {copied ? "Address copied" : "Copy email address"}
           </button>
-          <div className="contact-socials">
-            <p className="eyebrow">FOLLOW BONEHEAD LABS</p>
+          <div className="social-list">
             {[
               ["YouTube", "Development videos", links.youtube],
               ["GitHub", "Software repositories", links.github],
               ["X", "Studio updates", links.x],
+              ["Steam", "Apple Man Sam", links.steam],
             ].map(([name, description, href]) => (
               <a key={name} href={href} target="_blank" rel="noreferrer">
-                <div>
+                <span>
                   <strong>{name}</strong>
                   <span>{description}</span>
-                </div>
-                <ArrowUpRight />
+                </span>
+                <ArrowUpRight aria-hidden="true" />
               </a>
             ))}
           </div>
-          <div className="contact-mascot">
+          <div className="contact-art">
             <img
               src="/media/bonehead-working.webp"
-              alt="Bonehead Labs mascot at a laptop"
+              alt="The Bonehead mascot at a laptop"
               width="1024"
               height="629"
               loading="lazy"
             />
           </div>
         </Reveal>
-        <Reveal className="contact-form-panel">
-          <p className="eyebrow">EMAIL FORM</p>
+        <Reveal className="contact-card" delay={0.1}>
+          <Kicker>Email form</Kicker>
           <h2>Write an email.</h2>
           <p>Fill this out to prepare an email in your own email app.</p>
           <form onSubmit={openDraft}>
@@ -101,7 +109,7 @@ export default function Contact() {
                 />
               </div>
             </div>
-            <label htmlFor="contact-subject">What’s it about?</label>
+            <label htmlFor="contact-subject">What's it about?</label>
             <select
               id="contact-subject"
               name="subject"
@@ -122,8 +130,9 @@ export default function Contact() {
               required
               maxLength={2500}
             />
-            <button className="button" type="submit">
-              Open email draft <ArrowUpRight size={18} />
+            <button className="btn btn-primary" type="submit">
+              <span>Open email draft</span>
+              <ArrowUpRight size={19} strokeWidth={2.4} aria-hidden="true" />
             </button>
             <p className="form-note">
               This opens your email app. Nothing is sent until you send it
