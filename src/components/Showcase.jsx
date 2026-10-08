@@ -8,14 +8,15 @@ import {
   Skull,
   UsersRound,
   Stethoscope,
-  Box,
+  Globe,
   Monitor,
   MousePointer2,
   Heart,
 } from "lucide-react";
 import { Button, Kicker, Reveal, TextLink, useMotion } from "./UI";
 import Mascot from "./Mascot";
-import { links, software } from "../data/site";
+import Sprite from "./Sprite";
+import { links, samLoadouts, software } from "../data/site";
 import { InstrumentaIcon } from "../brand/instrumenta/InstrumentaIcon";
 
 const samShots = [
@@ -108,6 +109,16 @@ export function SamShowcase({ id = "apple-man-sam" }) {
               <FanCard key={shot.src} shot={shot} index={index} progress={scrollYProgress} motionOn={motionOn} />
             ))}
           </div>
+          <div className="sam-parade" aria-hidden="true">
+            {samLoadouts.map((loadout, index) => (
+              <Sprite
+                key={loadout.id}
+                src={`/media/sam/${loadout.id}-run.png`}
+                frames={8}
+                fps={11 + (index % 3)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -162,25 +173,66 @@ export function InstrumentaShowcase() {
   );
 }
 
+// Top-down operating theatre: four players around a patient. Illustrated rather than captured,
+// because the game is at an early prototype stage.
+const wardPlayers = [
+  { x: 318, y: 58, cap: "var(--teal)", tool: "scalpel", look: [0, 1] },
+  { x: 150, y: 176, cap: "var(--pink)", tool: "paddles", look: [1, 0] },
+  { x: 300, y: 290, cap: "var(--brass)", tool: "clamp", look: [0, -1] },
+  { x: 482, y: 92, cap: "var(--violet)", tool: "syringe", look: [-0.7, 0.7] },
+];
+
 function WardArt() {
   return (
     <div className="ward-art" aria-hidden="true">
-      <div className="ward-monitor">
-        <div className="ward-screen">
-          <svg viewBox="0 0 400 120" preserveAspectRatio="none">
-            <path
-              className="ecg-trace"
-              d="M0 64H90L104 56L118 72L134 62H160L176 64L194 14L212 106L230 44L246 64H300L312 58L324 68L334 64H400"
-            />
-          </svg>
-          <span className="ward-bpm">
-            <Heart size={14} strokeWidth={3} /> 72
-          </span>
-        </div>
-      </div>
-      <div className="ward-cross" />
-      <div className="ward-pill ward-pill-a" />
-      <div className="ward-pill ward-pill-b" />
+      <svg className="ward-scene" viewBox="0 0 640 340">
+        <circle className="ward-lamp" cx="318" cy="176" r="118" />
+        <g className="ward-monitor-svg">
+          <rect x="22" y="22" width="112" height="72" rx="14" />
+          <rect className="ward-monitor-screen" x="32" y="32" width="92" height="52" rx="7" />
+          <path className="ecg-trace" pathLength="100" d="M36 60H58L64 55L70 64L76 58H84L90 38L97 78L104 50L110 60H120" />
+        </g>
+        <g className="ward-tray">
+          <rect x="520" y="226" width="96" height="74" rx="14" />
+          <path d="M538 248H592M538 264H580M538 280H598" />
+        </g>
+        <g className="ward-table">
+          <rect x="198" y="112" width="250" height="128" rx="24" />
+          <rect className="ward-sheet" x="214" y="128" width="168" height="96" rx="38" />
+          <path className="ward-fold" d="M246 132V220" />
+          <circle className="ward-patient-head" cx="408" cy="176" r="30" />
+          <path className="ward-patient-hair" d="M396 150C414 142 434 152 436 170C428 162 412 160 400 166Z" />
+        </g>
+        {wardPlayers.map((player, index) => {
+          const [lx, ly] = player.look;
+          const angle = (Math.atan2(ly, lx) * 180) / Math.PI;
+          return (
+            <g key={player.cap} transform={`translate(${player.x} ${player.y})`}>
+              <g className="ward-player" style={{ "--delay": `${index * -0.45}s` }}>
+                <ellipse
+                  className="ward-shoulders"
+                  style={{ fill: player.cap }}
+                  rx="44"
+                  ry="22"
+                  transform={`translate(${-lx * 10} ${-ly * 10}) rotate(${angle + 90})`}
+                />
+                <circle className="ward-hand" cx={lx * 30 - ly * 22} cy={ly * 30 + lx * 22} r="10" />
+                <circle className="ward-hand" cx={lx * 30 + ly * 22} cy={ly * 30 - lx * 22} r="10" />
+                <circle className="ward-head" r="27" />
+                <path
+                  className="ward-cap"
+                  style={{ fill: player.cap }}
+                  d="M-27 2A27 27 0 0 1 27 2C16 -4 -16 -4 -27 2Z"
+                  transform={`rotate(${angle - 90})`}
+                />
+                <circle className="ward-eye" cx={lx * 11 - ly * 9} cy={ly * 11 + lx * 9} r="3.6" />
+                <circle className="ward-eye" cx={lx * 11 + ly * 9} cy={ly * 11 - lx * 9} r="3.6" />
+              </g>
+            </g>
+          );
+        })}
+      </svg>
+      <span className="ward-stamp">Early prototype</span>
     </div>
   );
 }
@@ -224,19 +276,24 @@ export function LabProjects() {
       <Reveal as="article" className="lab-card lab-ward">
         <WardArt />
         <div className="lab-copy">
-          <Kicker>Early prototype · working title</Kicker>
+          <Kicker>Working title</Kicker>
           <h3>Ward Work</h3>
+          <p className="lab-line">
+            A co-op hospital game for one to four players. Run the hospital
+            together and perform physics-based surgery on incoming patients.
+          </p>
           <ul className="tag-row">
             <li>
-              <UsersRound size={16} aria-hidden="true" /> Co-op
+              <UsersRound size={16} aria-hidden="true" /> 1–4 players
             </li>
             <li>
-              <Stethoscope size={16} aria-hidden="true" /> Hospital
+              <Globe size={16} aria-hidden="true" /> Online co-op
             </li>
             <li>
-              <Box size={16} aria-hidden="true" /> Physics
+              <Stethoscope size={16} aria-hidden="true" /> Physics surgery
             </li>
           </ul>
+          <p className="lab-note">Early in development. Details will change.</p>
         </div>
       </Reveal>
       <Reveal as="article" className="lab-card lab-friend" delay={0.08}>

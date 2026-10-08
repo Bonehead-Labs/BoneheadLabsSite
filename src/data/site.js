@@ -142,3 +142,49 @@ export const gallery = [
     alt: "The Apple Man Sam weapon and item shop",
   },
 ];
+// Apple Man Sam content from the game's data files (loadouts.json, levels.json, boss scenes).
+// Sprite sheets in public/media/sam are horizontal strips: idle 7 frames, run 8 frames.
+export const samLoadouts = [
+  { id: "standard", name: "Standard Issue", type: "Ranged", weapons: ["Handgun", "Rifle", "Rocket Launcher"] },
+  { id: "ninja", name: "Ninja", type: "Melee", weapons: ["Katana", "Shurikens", "Nunchucks"] },
+  { id: "engineer", name: "Engineer", type: "Ranged", weapons: ["Shotgun", "Sentry Turret", "C4"] },
+  { id: "knight", name: "Knight", type: "Melee", weapons: ["Longsword", "Crossbow", "Mace and Shield"] },
+  { id: "peasant", name: "Peasant", type: "Melee", weapons: ["Hoe", "Bare Fists", "Rocks"] },
+  { id: "wizard", name: "Wizard", type: "Ranged", weapons: ["Fire Wand", "Ice Staff", "Tome of Fruitaria"] },
+];
+export const samPlannedLoadouts = [
+  { id: "cowboy", name: "Cowboy" },
+  { id: "spaceman", name: "Spaceman" },
+  { id: "cyborg", name: "Cyborg" },
+  { id: "king", name: "King" },
+];
+export const samBosses = [
+  { id: "billy", name: "Billy the Chilly", frames: 4 },
+  { id: "cole", name: "Cole the Corn", frames: 3 },
+  { id: "potato", name: "President Potato", frames: 6, arena: "The City" },
+  { id: "broccoli", name: "King Broccoli", frames: 6, arena: "The Kingdom" },
+];
+export const samMaps = [
+  {
+    id: "city",
+    name: "The City",
+    unlock: "Available from the start",
+    image: "/media/sam/map-city.webp",
+    alt: "Overview of The City map: streets, shops, a town hall and a fountain at night",
+  },
+  {
+    id: "kingdom",
+    name: "The Kingdom",
+    unlock: "Unlocked through quests",
+    image: "/media/sam/map-kingdom.webp",
+    alt: "Overview of The Kingdom map: a walled town and castle surrounded by farms and districts",
+  },
+];
+export const samRequirements = [
+  ["OS", "Windows 10 64-bit", "Windows 11 64-bit"],
+  ["Processor", "Intel Core i5-6400 / AMD Ryzen 3 1200", "Intel Core i5-9600K / AMD Ryzen 5 3600"],
+  ["Memory", "8 GB RAM", "16 GB RAM"],
+  ["Graphics", "GeForce GTX 1050 Ti / Radeon RX 560", "GeForce GTX 1660 / Radeon RX 6600"],
+  ["DirectX", "Version 12", "Version 12"],
+  ["Storage", "2 GB available space", "4 GB available space (SSD recommended)"],
+];

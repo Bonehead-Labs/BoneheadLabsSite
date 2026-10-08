@@ -19,6 +19,12 @@ Tone (owner, October 2026): plain and normal. Use simple titles ("In development
 
 Status (owner, October 2026): Apple Man Sam is in early access on Steam, with a free demo. Instrumenta and each of its seven applications have public repositories under `github.com/George-Nizor`; the site links to them. Most are MIT and LearnChess is GPL-3.0; Discere has no licence file, so the site says "source on GitHub" rather than "open source".
 
+## Apple Man Sam and Ward Work additions
+
+- Apple Man Sam page: loadouts (six live, four planned for full release), bosses, maps, system requirements and the Steam store widget. Facts, names and sprite sheets come from the private game repository (`data/loadouts.json`, `data/levels.json`, the boss arena scenes, `docs/steam_system_requirements.md`); the sprites are copied into `public/media/sam/`. Map overviews are the game's own menu thumbnails. The repository changelog is developer-facing, so the site shows no patch notes.
+- The homepage and games page Apple Man Sam showcase has a row of the six loadouts running.
+- Ward Work: the teaser now carries the pitch (co-op hospital game for one to four players, physics-based surgery), tags and an illustrated operating theatre. It is still marked as an early prototype; no in-game captures are shown, and design specifics that may change (the money goal, roguelite structure) are left out.
+
 ## Validation
 
 - Production build passes.

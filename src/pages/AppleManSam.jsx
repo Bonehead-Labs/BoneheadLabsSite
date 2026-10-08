@@ -9,12 +9,19 @@ import {
   Layers3,
   Maximize2,
   Trophy,
-  Infinity as InfinityIcon,
-  Skull,
   X,
 } from "lucide-react";
 import { Button, Kicker, Reveal, SectionHead, SEO, useMotion } from "../components/UI";
-import { gallery, links } from "../data/site";
+import Sprite from "../components/Sprite";
+import {
+  gallery,
+  links,
+  samBosses,
+  samLoadouts,
+  samMaps,
+  samPlannedLoadouts,
+  samRequirements,
+} from "../data/site";
 
 function GameplayGallery() {
   const [active, setActive] = useState(0);
@@ -224,10 +231,10 @@ export default function AppleManSam() {
 
       <div className="wrap sam-stats">
         {[
-          [<strong key="a">~20</strong>, "Minute runs"],
-          [<strong key="b"><InfinityIcon aria-hidden="true" /></strong>, "Endless mode"],
-          [<strong key="c"><Crosshair aria-hidden="true" /></strong>, "Manual aiming"],
-          [<strong key="d"><Skull aria-hidden="true" /></strong>, "Boss fights"],
+          [<strong key="a">6</strong>, "Loadouts"],
+          [<strong key="b">2</strong>, "Maps"],
+          [<strong key="c">4</strong>, "Bosses"],
+          [<strong key="d">280+</strong>, "Quests"],
         ].map(([value, label]) => (
           <Reveal key={label}>
             {value}
@@ -254,14 +261,7 @@ export default function AppleManSam() {
         </Reveal>
       </section>
 
-      <section className="wrap" id="gameplay">
-        <SectionHead kicker="Gameplay" title="Screenshots">
-          <p>Captured in development. Select a screenshot to view it full screen.</p>
-        </SectionHead>
-        <GameplayGallery />
-      </section>
-
-      <section className="section wrap">
+      <section className="wrap sam-features-section">
         <SectionHead kicker="Gameplay" title="Features" />
         <div className="sam-features">
           {features.map((item, index) => (
@@ -278,6 +278,109 @@ export default function AppleManSam() {
         </div>
       </section>
 
+      <section className="wrap" id="gameplay">
+        <SectionHead kicker="Gameplay" title="Screenshots">
+          <p>Captured in development. Select a screenshot to view it full screen.</p>
+        </SectionHead>
+        <GameplayGallery />
+      </section>
+
+      <section className="section wrap" id="loadouts">
+        <SectionHead kicker="Play as Sam" title="Loadouts">
+          <p>Each loadout has three weapons, and each weapon has its own ability.</p>
+        </SectionHead>
+        <div className="loadout-grid">
+          {samLoadouts.map((loadout, index) => (
+            <Reveal key={loadout.id} delay={Math.min(index, 5) * 0.05} className="loadout-card">
+              <div className="loadout-stage">
+                <Sprite src={`/media/sam/${loadout.id}-idle.png`} frames={7} fps={8} className="sprite-idle" />
+                <Sprite src={`/media/sam/${loadout.id}-run.png`} frames={8} fps={12} className="sprite-run" />
+              </div>
+              <div className="loadout-copy">
+                <span className="loadout-type">{loadout.type}</span>
+                <h3>{loadout.name}</h3>
+                <ul>
+                  {loadout.weapons.map((weapon) => (
+                    <li key={weapon}>{weapon}</li>
+                  ))}
+                </ul>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal className="loadout-planned">
+          <div className="loadout-planned-sprites">
+            {samPlannedLoadouts.map((loadout) => (
+              <Sprite key={loadout.id} src={`/media/sam/${loadout.id}-idle.png`} frames={7} fps={6} />
+            ))}
+          </div>
+          <p>
+            {samPlannedLoadouts.map((loadout) => loadout.name).join(", ").replace(/, ([^,]*)$/, " and $1")}{" "}
+            are planned for the full release.
+          </p>
+        </Reveal>
+      </section>
+
+      <section className="wrap" id="bosses">
+        <SectionHead kicker="Enemies" title="Bosses">
+          <p>Four bosses in early access. Each map ends in a boss arena.</p>
+        </SectionHead>
+        <div className="boss-grid">
+          {samBosses.map((boss, index) => (
+            <Reveal key={boss.id} delay={index * 0.06} className="boss-card">
+              <div className="boss-stage">
+                <Sprite src={`/media/sam/boss-${boss.id}.png`} frames={boss.frames} fps={7} />
+              </div>
+              <h3>{boss.name}</h3>
+              <p>{boss.arena ? `${boss.arena} arena` : "Appears during runs"}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="section wrap" id="maps">
+        <SectionHead kicker="Maps" title="Where you fight">
+          <p>The Dusty Town and The Space Station are planned for the full release.</p>
+        </SectionHead>
+        <div className="map-grid">
+          {samMaps.map((map, index) => (
+            <Reveal key={map.id} delay={index * 0.08} as="figure" className="map-card">
+              <img src={map.image} alt={map.alt} width="1600" height="720" loading="lazy" />
+              <figcaption>
+                <strong>{map.name}</strong>
+                <span>{map.unlock}</span>
+              </figcaption>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <section className="wrap sam-requirements" id="requirements">
+        <SectionHead kicker="PC" title="System requirements" />
+        <Reveal className="req-table-wrap" tabIndex={0} role="region" aria-label="System requirements">
+          <table className="req-table">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <span className="sr-only">Component</span>
+                </th>
+                <th scope="col">Minimum</th>
+                <th scope="col">Recommended</th>
+              </tr>
+            </thead>
+            <tbody>
+              {samRequirements.map(([label, minimum, recommended]) => (
+                <tr key={label}>
+                  <th scope="row">{label}</th>
+                  <td>{minimum}</td>
+                  <td>{recommended}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </Reveal>
+      </section>
+
       <section className="sam-cta">
         <Reveal className="sam-cta-panel">
           <div>
@@ -290,6 +393,14 @@ export default function AppleManSam() {
                 All games
               </Button>
             </div>
+            <iframe
+              className="steam-widget"
+              src="https://store.steampowered.com/widget/4293080/"
+              title="Apple Man Sam on the Steam store"
+              width="646"
+              height="190"
+              loading="lazy"
+            />
           </div>
           <img
             src="/media/sam-poster.webp"
