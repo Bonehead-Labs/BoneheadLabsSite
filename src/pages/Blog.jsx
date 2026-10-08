@@ -35,7 +35,7 @@ export default function Blog() {
             Blog<em>.</em>
           </h1>
           <p className="page-hero-line">
-            Project updates, technical articles and notes from development.
+            Project updates and technical articles.
           </p>
         </Reveal>
       </section>

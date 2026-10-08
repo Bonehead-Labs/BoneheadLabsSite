@@ -1,4 +1,4 @@
-import{F as mn}from"./index-ac658bd3.js";const gn=`---
+import{F as mn}from"./index-16384fd5.js";const gn=`---
 title: "Demo Released - Apple Man Sam"
 date: "2025-09-20"
 excerpt: "Demo release announcement."

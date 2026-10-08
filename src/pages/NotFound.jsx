@@ -8,13 +8,13 @@ export default function NotFound() {
         title="Page not found"
         description="The requested page could not be found. Return to Bonehead Labs to view our games and software."
       />
-      <Kicker>Page not found</Kicker>
+      <Kicker>Error 404</Kicker>
       <div className="nf-number" aria-hidden="true">
         4
         <Mascot label="" />
         4
       </div>
-      <h1>This page wandered off.</h1>
+      <h1>Page not found</h1>
       <p>The link may be incorrect or the page may have moved.</p>
       <Button to="/">Back to the homepage</Button>
     </section>

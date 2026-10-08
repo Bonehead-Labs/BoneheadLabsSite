@@ -78,13 +78,13 @@ export function SamShowcase({ id = "apple-man-sam" }) {
         <div className="sam-show-body">
           <Reveal className="sam-show-copy">
             <Kicker className="kicker-sam">
-              <span className="live-dot" /> Demo out now on Steam
+              <span className="live-dot" /> Early access on Steam
             </Kicker>
             <h2 className="sam-logo-title">
               <img src="/media/sam-logo.webp" alt="Apple Man Sam" width="1000" height="563" />
             </h2>
             <p className="sam-show-line">
-              A survivors-like where you do the aiming. One apple against an army of vegetables.
+              A survivors-like with manual aiming. Free demo available.
             </p>
             <ul className="trait-row" aria-label="Game features">
               {samTraits.map(([Icon, label]) => (
@@ -96,7 +96,7 @@ export function SamShowcase({ id = "apple-man-sam" }) {
             </ul>
             <div className="button-row">
               <Button href={links.steam} variant="sam">
-                Play the demo on Steam
+                Get it on Steam
               </Button>
               <Button to="/games/apple-man-sam" variant="ghost-light">
                 About the game
@@ -130,9 +130,14 @@ export function InstrumentaShowcase() {
           <p className="ins-show-lede">
             A suite of local creative tools. Everything runs on your computer.
           </p>
-          <TextLink to="/software" className="ins-show-link">
-            Meet the applications
-          </TextLink>
+          <div className="ins-show-links">
+            <TextLink to="/software" className="ins-show-link">
+              See the applications
+            </TextLink>
+            <TextLink href={links.instrumenta} className="ins-show-link ins-show-link-quiet">
+              Source on GitHub
+            </TextLink>
+          </div>
         </Reveal>
         <ul className="ins-show-apps" aria-label="Instrumenta applications">
           {software.map((app, index) => (
@@ -151,7 +156,7 @@ export function InstrumentaShowcase() {
             </Reveal>
           ))}
         </ul>
-        <p className="ins-show-status">In development · open source release planned</p>
+        <p className="ins-show-status">In development · source on GitHub</p>
       </div>
     </section>
   );
@@ -206,13 +211,9 @@ function FriendArt() {
         dragElastic={0.25}
         dragTransition={{ bounceStiffness: 400, bounceDamping: 12 }}
         whileDrag={{ scale: 1.08, rotate: -8 }}
-        title="Drag me"
       >
         <Mascot sticker label="" />
       </motion.div>
-      <span className="friend-hint" aria-hidden="true">
-        drag me
-      </span>
     </div>
   );
 }

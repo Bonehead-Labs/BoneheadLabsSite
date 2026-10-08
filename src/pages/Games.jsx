@@ -17,7 +17,8 @@ export default function Games() {
               Games<em>.</em>
             </h1>
             <p className="page-hero-line">
-              Apple Man Sam, out now as a demo on Steam, and two new projects in the lab.
+              Apple Man Sam is in early access on Steam, with a free demo. Two
+              more games are in development.
             </p>
           </Reveal>
           <div className="page-hero-art games-art" aria-hidden="true">
@@ -35,8 +36,8 @@ export default function Games() {
       </section>
       <SamShowcase id="featured" />
       <section className="section wrap games-lab" id="in-development">
-        <SectionHead kicker="In development" title="Still in the lab.">
-          <p>Early prototypes. Details when they are ready.</p>
+        <SectionHead kicker="Coming later" title="In development">
+          <p>Early prototypes. More details when they are ready.</p>
         </SectionHead>
         <LabProjects />
       </section>

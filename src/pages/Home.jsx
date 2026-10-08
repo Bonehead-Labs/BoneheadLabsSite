@@ -111,14 +111,14 @@ function HeroStickers() {
 
 function SpinBadge() {
   return (
-    <a className="spin-badge" href={links.steam} target="_blank" rel="noreferrer" aria-label="Play the Apple Man Sam demo on Steam">
+    <a className="spin-badge" href={links.steam} target="_blank" rel="noreferrer" aria-label="Apple Man Sam on Steam">
       <svg viewBox="0 0 200 200" aria-hidden="true">
         <defs>
           <path id="badge-circle" d="M100 100m-74 0a74 74 0 1 1 148 0a74 74 0 1 1-148 0" />
         </defs>
         <text>
           <textPath href="#badge-circle" textLength="462" lengthAdjust="spacing">
-            Free demo on Steam · Apple Man Sam ·
+            Apple Man Sam · Early access on Steam ·
           </textPath>
         </text>
       </svg>
@@ -137,7 +137,7 @@ export default function Home() {
   const posts = getRecentPosts(3);
   return (
     <>
-      <SEO description="Bonehead Labs is an independent game and software studio. Explore Apple Man Sam, the Instrumenta suite and projects in development." />
+      <SEO description="Bonehead Labs is a game and software studio. Apple Man Sam is in early access on Steam, and Instrumenta is a suite of local creative tools." />
       <section className="hero" ref={hero}>
         <div className="hero-grid" aria-hidden="true" />
         <div className="hero-glow" aria-hidden="true" />
@@ -152,21 +152,10 @@ export default function Home() {
           </h1>
           <div className="hero-mascot">
             <Mascot interactive />
-            <span className="hero-hint" aria-hidden="true">
-              <svg viewBox="0 0 120 60">
-                <path d="M112 8C86 6 52 14 30 44" />
-                <path d="M24 30L28 48L46 44" />
-              </svg>
-              <span className="hint-fine">click the bone</span>
-              <span className="hint-coarse">tap the bone</span>
-            </span>
           </div>
         </div>
         <Reveal className="hero-foot" delay={0.15}>
-          <p className="hero-tagline">
-            Independent <mark className="mk-lime">games</mark> and{" "}
-            <mark className="mk-brass">software</mark>, made by one person and a bone.
-          </p>
+          <p className="hero-tagline">Game and software studio</p>
           <div className="button-row">
             <Button to="/games/apple-man-sam">Play Apple Man Sam</Button>
             <Button to="/software" variant="secondary">
@@ -182,8 +171,8 @@ export default function Home() {
       <InstrumentaShowcase />
 
       <section className="section wrap" id="in-the-lab">
-        <SectionHead kicker="In development" title="Fresh out of the lab.">
-          <p>Two projects in progress. Details when they are ready.</p>
+        <SectionHead kicker="Games" title="In development">
+          <p>Early prototypes. More details when they are ready.</p>
         </SectionHead>
         <LabProjects />
       </section>
@@ -201,18 +190,18 @@ export default function Home() {
           </Reveal>
           <Reveal className="studio-band-copy" delay={0.1}>
             <Kicker>The studio</Kicker>
-            <h2>One developer. Games, tools and a lot of coffee.</h2>
+            <h2>About Bonehead Labs</h2>
             <p>
-              Bonehead Labs is an independent studio founded and run by George
-              Nizoridis: programming, design, art and the business.
+              Bonehead Labs is a game and software studio run by George
+              Nizoridis.
             </p>
-            <TextLink to="/about">About the studio</TextLink>
+            <TextLink to="/about">More about the studio</TextLink>
           </Reveal>
         </div>
       </section>
 
       <section className="section wrap">
-        <SectionHead kicker="Development blog" title="Notes from the bench.">
+        <SectionHead kicker="Latest posts" title="Blog">
           <TextLink to="/blog">All posts</TextLink>
         </SectionHead>
         <div className="post-row">

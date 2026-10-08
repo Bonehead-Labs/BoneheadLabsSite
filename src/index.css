@@ -893,43 +893,6 @@ mark {
   width: var(--mascot-w);
   transform: translate(-50%, -52%);
 }
-.hero-hint {
-  position: absolute;
-  left: 86%;
-  top: -14%;
-  display: grid;
-  justify-items: start;
-  width: 170px;
-  font: 600 0.92rem/1.2 var(--mono);
-  color: var(--muted);
-  transform: rotate(4deg);
-  pointer-events: none;
-}
-.hero-hint svg {
-  order: 2;
-  width: 92px;
-  margin-left: -26px;
-  margin-top: 4px;
-  overflow: visible;
-}
-.hero-hint path {
-  fill: none;
-  stroke: var(--muted);
-  stroke-width: 3;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.hint-coarse {
-  display: none;
-}
-@media (pointer: coarse) {
-  .hint-fine {
-    display: none;
-  }
-  .hint-coarse {
-    display: inline;
-  }
-}
 .hero-foot {
   position: relative;
   z-index: 4;
@@ -940,20 +903,11 @@ mark {
   margin-top: 36px;
 }
 .hero-tagline {
-  max-width: 30ch;
-  font: 600 clamp(1.2rem, 1.9vw, 1.6rem)/1.35 var(--ui);
-  font-variation-settings: "FLAR" 60, "VOLM" 30;
+  font: 600 0.9rem/1.4 var(--mono);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
-.mk-lime,
-.mk-brass {
-  padding: 0 0.12em;
-  border-radius: 0.2em;
-  background: linear-gradient(transparent 52%, var(--lime) 52%, var(--lime) 92%, transparent 92%);
-}
-.mk-brass {
-  background: linear-gradient(transparent 52%, var(--brass) 52%, var(--brass) 92%, transparent 92%);
-}
-
 /* Floating hero objects */
 .hero-stickers {
   position: absolute;
@@ -1368,9 +1322,17 @@ mark {
   font: 500 clamp(1.3rem, 2vw, 1.7rem)/1.3 var(--display);
   font-variation-settings: "SOFT" 100, "WONK" 0, "opsz" 36;
 }
-.ins-show-link {
+.ins-show-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 28px;
   margin-top: 28px;
+}
+.ins-show-link {
   color: #f0b23a;
+}
+.ins-show-link-quiet {
+  color: #cfc6bb;
 }
 .ins-show-apps {
   grid-column: 1 / -1;
@@ -1676,14 +1638,6 @@ mark {
   55% {
     transform: translate(-18px, 14px) scale(0.9);
   }
-}
-.friend-hint {
-  position: absolute;
-  right: 14%;
-  top: 92px;
-  font: 600 0.82rem var(--mono);
-  color: var(--muted);
-  transform: rotate(-6deg);
 }
 
 /* ---- Studio band and posts ---- */
@@ -2220,8 +2174,13 @@ mark {
 .sam-cta-panel .kicker {
   color: #0b4a19;
 }
+.sam-cta-line {
+  margin-bottom: 28px;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
 .sam-cta-panel h2 {
-  margin-block: 14px 30px;
+  margin-block: 14px 16px;
   font-size: clamp(3rem, 8vw, 7rem);
   line-height: 0.88;
   letter-spacing: -0.045em;
@@ -2968,6 +2927,9 @@ mark {
   .ins-show-lede {
     margin-inline: auto;
   }
+  .ins-show-links {
+    justify-content: center;
+  }
   .ins-show-organ svg {
     width: min(70%, 300px);
   }
@@ -3054,15 +3016,6 @@ mark {
     bottom: auto;
     top: -0.5em;
     font-size: 0.3em;
-  }
-  .hero-hint {
-    left: 78%;
-    top: 4%;
-    width: 110px;
-    font-size: 0.8rem;
-  }
-  .hero-hint svg {
-    width: 64px;
   }
   .hero-foot {
     margin-top: 26px;

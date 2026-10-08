@@ -15,6 +15,10 @@ The owner asked for a full redesign with creative freedom, keeping the Bonehead 
 
 The copy guidance from the September review still applies: direct, factual copy; no repeating white banner; no numbered sections; no decorative star or asterisk branding.
 
+Tone (owner, October 2026): plain and normal. Use simple titles ("In development", "Blog", "About the game"), not slogans, jokes or taglines. No lines like "made by one person and a bone" or playful hints on the page.
+
+Status (owner, October 2026): Apple Man Sam is in early access on Steam, with a free demo. Instrumenta and each of its seven applications have public repositories under `github.com/George-Nizor`; the site links to them. Most are MIT and LearnChess is GPL-3.0; Discere has no licence file, so the site says "source on GitHub" rather than "open source".
+
 ## Validation
 
 - Production build passes.

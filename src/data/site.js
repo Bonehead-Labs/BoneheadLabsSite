@@ -6,12 +6,14 @@ export const links = {
   email: "contact@boneheadlabs.org",
   pete: "https://bonehead-labs.itch.io/pete-the-pig",
   friendDemo: "https://bonehead-labs.itch.io/bonehead-friend",
+  instrumenta: "https://github.com/George-Nizor/Instrumenta",
 };
 // Accents and one-line descriptions follow Instrumenta brand v2 (brand/tokens.json and each
 // product's README). Motus is discontinued; Fabula carries its place in the suite.
 export const software = [
   {
     id: "fabula",
+    repo: "https://github.com/George-Nizor/Fabula",
     name: "Fabula",
     discipline: "Video",
     glyph: "A clapperboard holding transcript lines",
@@ -22,6 +24,7 @@ export const software = [
   },
   {
     id: "imago",
+    repo: "https://github.com/George-Nizor/Imago",
     name: "Imago",
     discipline: "Graphics",
     glyph: "A framed picture with a sparkle",
@@ -32,6 +35,7 @@ export const software = [
   },
   {
     id: "ludere",
+    repo: "https://github.com/George-Nizor/Ludere",
     name: "Ludere",
     discipline: "Writing",
     glyph: "A screenplay page",
@@ -42,6 +46,7 @@ export const software = [
   },
   {
     id: "discere",
+    repo: "https://github.com/George-Nizor/Discere",
     name: "Discere",
     discipline: "Learning",
     glyph: "An open book",
@@ -52,6 +57,7 @@ export const software = [
   },
   {
     id: "learnchess",
+    repo: "https://github.com/George-Nizor/LearnChess",
     name: "LearnChess",
     discipline: "Chess",
     glyph: "A rook",
@@ -62,6 +68,7 @@ export const software = [
   },
   {
     id: "luna",
+    repo: "https://github.com/George-Nizor/Luna",
     name: "Luna",
     discipline: "Voice",
     glyph: "A crescent moon with a voice",
@@ -72,6 +79,7 @@ export const software = [
   },
   {
     id: "forge3d",
+    repo: "https://github.com/George-Nizor/Forge3D",
     name: "Forge3D",
     discipline: "3D",
     glyph: "A cube",

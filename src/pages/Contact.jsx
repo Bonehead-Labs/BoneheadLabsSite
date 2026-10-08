@@ -32,13 +32,13 @@ export default function Contact() {
       />
       <section className="page-hero wrap">
         <Reveal>
-          <Kicker>Contact</Kicker>
+          <Kicker>Bonehead Labs</Kicker>
           <h1>
-            Say hello<em>.</em>
+            Contact<em>.</em>
           </h1>
           <p className="page-hero-line">
-            Game feedback, software enquiries, support, press and
-            collaboration. Email is the quickest way to reach us.
+            For game feedback, software questions, support, press or
+            collaboration, email us.
           </p>
         </Reveal>
       </section>

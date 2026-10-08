@@ -123,18 +123,18 @@ function Footer() {
       </div>
       <div className="wrap footer-inner">
         <div className="footer-call">
-          <p className="kicker">Say hello</p>
+          <p className="kicker">Contact</p>
           <a className="footer-email" href={`mailto:${links.email}`}>
             contact@<wbr />
             boneheadlabs.org
           </a>
           <p className="footer-note">
-            Game feedback, software, press and collaboration.
+            Game feedback, software, support and press.
           </p>
         </div>
         <div className="footer-columns">
           <nav aria-label="Footer navigation">
-            <p className="kicker">Studio</p>
+            <p className="kicker">Pages</p>
             {navItems.map(([to, label]) => (
               <Link to={to} key={to}>
                 {label}
@@ -143,7 +143,7 @@ function Footer() {
             <Link to="/contact">Contact</Link>
           </nav>
           <nav aria-label="Social links">
-            <p className="kicker">Elsewhere</p>
+            <p className="kicker">Follow</p>
             {[
               ["Steam", links.steam],
               ["YouTube", links.youtube],
@@ -163,7 +163,6 @@ function Footer() {
         </Link>
         <div className="footer-meta">
           <span>© {new Date().getFullYear()} Bonehead Labs</span>
-          <span>Independent games and software</span>
           <button
             type="button"
             onClick={() =>

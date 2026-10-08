@@ -176,7 +176,7 @@ export default function AppleManSam() {
     <div className="sam-page">
       <SEO
         title="Apple Man Sam"
-        description="Apple Man Sam is a survivors-like roguelite with manual aiming, weapon upgrades, bosses and endless mode. Demo available on Steam."
+        description="Apple Man Sam is a survivors-like roguelite with manual aiming, weapon upgrades, bosses and endless mode. In early access on Steam, with a free demo."
         image="/media/sam-hero.webp"
       />
       <section className="sam-hero" ref={hero}>
@@ -196,7 +196,7 @@ export default function AppleManSam() {
           </Link>
           <Reveal className="sam-hero-inner">
             <Kicker>
-              <span className="live-dot" /> Demo out now on Steam
+              <span className="live-dot" /> Early access on Steam
             </Kicker>
             <h1>
               <span className="sr-only">Apple Man Sam</span>
@@ -205,17 +205,18 @@ export default function AppleManSam() {
             <p className="sam-hero-line">A survivors-like with manual aiming.</p>
             <div className="button-row">
               <Button href={links.steam} variant="sam">
-                Play demo & wishlist
+                Get it on Steam
               </Button>
               <a href="#gameplay" className="btn btn-ghost-light">
-                <span>See gameplay</span>
+                <span>Screenshots</span>
               </a>
             </div>
             <div className="sam-hero-meta">
               <span>A Bonehead Labs game</span>
               <span>PC</span>
               <span>Single player</span>
-              <span>Coming soon</span>
+              <span>Early access</span>
+              <span>Free demo</span>
             </div>
           </Reveal>
         </div>
@@ -237,10 +238,8 @@ export default function AppleManSam() {
 
       <section className="section wrap sam-intro">
         <Reveal>
-          <Kicker>About the game</Kicker>
-          <h2>
-            Survive the <span>horde.</span>
-          </h2>
+          <Kicker>Apple Man Sam</Kicker>
+          <h2>About the game</h2>
         </Reveal>
         <Reveal delay={0.1}>
           <p className="large">
@@ -256,14 +255,14 @@ export default function AppleManSam() {
       </section>
 
       <section className="wrap" id="gameplay">
-        <SectionHead kicker="Screenshots" title="Gameplay.">
+        <SectionHead kicker="Gameplay" title="Screenshots">
           <p>Captured in development. Select a screenshot to view it full screen.</p>
         </SectionHead>
         <GameplayGallery />
       </section>
 
       <section className="section wrap">
-        <SectionHead kicker="Gameplay features" title="Combat, upgrades and progression." />
+        <SectionHead kicker="Gameplay" title="Features" />
         <div className="sam-features">
           {features.map((item, index) => (
             <Reveal key={item.title} delay={index * 0.08}>
@@ -282,12 +281,13 @@ export default function AppleManSam() {
       <section className="sam-cta">
         <Reveal className="sam-cta-panel">
           <div>
-            <Kicker>Available on Steam</Kicker>
-            <h2>Play the demo.</h2>
+            <Kicker>Early access</Kicker>
+            <h2>Apple Man Sam on Steam</h2>
+            <p className="sam-cta-line">Available now in early access, with a free demo.</p>
             <div className="button-row">
-              <Button href={links.steam}>Play the demo on Steam</Button>
+              <Button href={links.steam}>Get it on Steam</Button>
               <Button to="/games" variant="secondary">
-                More games
+                All games
               </Button>
             </div>
           </div>

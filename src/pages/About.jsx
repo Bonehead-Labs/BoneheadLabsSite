@@ -49,7 +49,7 @@ export default function About() {
     <>
       <SEO
         title="About"
-        description="Bonehead Labs is an independent game and software studio founded by George Nizoridis."
+        description="Bonehead Labs is a game and software studio founded by George Nizoridis."
       />
       <section className="page-hero wrap">
         <div className="page-hero-grid">
@@ -59,8 +59,8 @@ export default function About() {
               About<em>.</em>
             </h1>
             <p className="page-hero-line">
-              Bonehead Labs is an independent game and software studio, founded
-              and run by George Nizoridis.
+              Bonehead Labs is a game and software studio, founded and run by
+              George Nizoridis.
             </p>
             <p className="about-intro">
               I handle programming, design, art and the business. My background
@@ -91,7 +91,7 @@ export default function About() {
       </section>
 
       <section className="section wrap">
-        <SectionHead kicker="Background" title="How the studio started." />
+        <SectionHead kicker="The studio" title="Background" />
         <div className="timeline">
           {chapters.map((chapter, index) => (
             <Reveal key={chapter.title} className="timeline-item" delay={index * 0.06}>
@@ -108,10 +108,7 @@ export default function About() {
         <Reveal className="origins">
           <div className="origins-copy">
             <Kicker>Where it started</Kicker>
-            <p>
-              Small prototypes made in 2025 while learning Godot. They are rough,
-              but they are how the studio began, and they are still on itch.io.
-            </p>
+            <p>Early prototypes from 2025, made while learning Godot. Still on itch.io.</p>
           </div>
           <ul className="origins-list">
             {origins.map((item) => (
@@ -140,7 +137,7 @@ export default function About() {
       </section>
 
       <section className="wrap">
-        <SectionHead kicker="Development" title="How I work." />
+        <SectionHead kicker="Development" title="How I work" />
         <div className="values">
           {values.map((value, index) => (
             <Reveal key={value.title} className="value-card" delay={index * 0.08}>

@@ -4,7 +4,7 @@ import fm from "front-matter";
 const output = process.argv[2] || "dist";
 const html = await readFile(path.join(output, "index.html"), "utf8");
 const studioDescription =
-  "Bonehead Labs is an independent game and software studio. Explore Apple Man Sam, the Instrumenta suite and projects in development.";
+  "Bonehead Labs is a game and software studio. Apple Man Sam is in early access on Steam, and Instrumenta is a suite of local creative tools.";
 const routes = [
   [
     "games",
@@ -14,19 +14,19 @@ const routes = [
   [
     "games/apple-man-sam",
     "Apple Man Sam",
-    "Apple Man Sam is a survivors-like roguelite with manual aiming, weapon upgrades, bosses and endless mode. Demo available on Steam.",
+    "Apple Man Sam is a survivors-like roguelite with manual aiming, weapon upgrades, bosses and endless mode. In early access on Steam, with a free demo.",
     "/media/sam-hero.webp",
   ],
   [
     "apple-man-sam",
     "Apple Man Sam",
-    "Apple Man Sam is a survivors-like with manual aiming. Play the demo and wishlist the game on Steam.",
+    "Apple Man Sam is a survivors-like with manual aiming. In early access on Steam, with a free demo.",
     "/media/sam-hero.webp",
   ],
   [
     "software",
     "Instrumenta & software",
-    "Instrumenta is a suite of local creative tools for video, graphics, screenwriting, learning, chess, voice and 3D. In development, with an open source release planned.",
+    "Instrumenta is a suite of local creative tools for video, graphics, screenwriting, learning, chess, voice and 3D. In development, with source on GitHub.",
     "/media/instrumenta-organ.png",
   ],
   [
@@ -37,7 +37,7 @@ const routes = [
   [
     "about",
     "The studio",
-    "Bonehead Labs is an independent game and software studio founded by George Nizoridis.",
+    "Bonehead Labs is a game and software studio founded by George Nizoridis.",
   ],
   [
     "contact",

@@ -131,7 +131,7 @@ export function SEO({
     const canonicalPath = pathname.replace(/\/+$/, "") || "/";
     document.title = title
       ? `${title} — Bonehead Labs`
-      : "Bonehead Labs — Independent games & software";
+      : "Bonehead Labs";
     const values = {
       description,
       "og:title": document.title,

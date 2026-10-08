@@ -19,8 +19,8 @@ const principles = [
   },
   {
     icon: Code2,
-    title: "Open source planned",
-    copy: "Source code and licence details will be published with the release.",
+    title: "Source on GitHub",
+    copy: "Every application and the launcher have a public repository.",
   },
 ];
 
@@ -51,7 +51,7 @@ export default function Projects() {
     <div className="software-page ins">
       <SEO
         title="Instrumenta & software"
-        description="Instrumenta is a suite of local creative tools for video, graphics, screenwriting, learning, chess, voice and 3D. In development, with an open source release planned."
+        description="Instrumenta is a suite of local creative tools for video, graphics, screenwriting, learning, chess, voice and 3D. In development, with source on GitHub."
         image="/media/instrumenta-organ.png"
       />
       <section className="ins-hero">
@@ -73,13 +73,14 @@ export default function Projects() {
             </p>
             <div className="ins-actions">
               <a href="#the-suite" className="btn btn-brass">
-                <span>Meet the applications</span>
+                <span>See the applications</span>
                 <ArrowDown size={18} strokeWidth={2.4} aria-hidden="true" />
               </a>
-              <span className="ins-status">
-                In development · open source release planned
-              </span>
+              <a href={links.instrumenta} className="ins-ghost" target="_blank" rel="noreferrer">
+                Instrumenta on GitHub <ArrowUpRight size={17} aria-hidden="true" />
+              </a>
             </div>
+            <p className="ins-status">In development</p>
           </Reveal>
           <figure className="ins-organ ii-play">
             <InstrumentaIcon id="instrumenta" label="The Instrumenta organ" />
@@ -116,8 +117,8 @@ export default function Projects() {
         <div className="wrap">
           <Reveal className="ins-heading">
             <p className="ins-kicker">The suite</p>
-            <h2>The applications.</h2>
-            <p>Seven tools, one family. All are in development.</p>
+            <h2>The applications</h2>
+            <p>Seven applications, each in development.</p>
           </Reveal>
           <div className="ins-console" style={{ "--accent": selected.color }}>
             <div
@@ -135,6 +136,9 @@ export default function Projects() {
                 <h3>{selected.name}</h3>
                 <p className="ins-line">{selected.line}</p>
                 <p className="ins-description">{selected.description}</p>
+                <a className="ins-repo-link" href={selected.repo} target="_blank" rel="noreferrer">
+                  {selected.name} on GitHub <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
                 <p className="ins-glyph">
                   <span>Mark</span> {selected.glyph}
                 </p>
@@ -173,9 +177,7 @@ export default function Projects() {
           <aside className="ins-note">
             <h3>Release status</h3>
             <p>
-              Instrumenta is in development, with an open source release
-              planned. Names, features and release plans may change. Source code
-              and licence details will be published with the release.
+              Instrumenta is in development. Names and features may change.
             </p>
           </aside>
         </div>
@@ -185,8 +187,37 @@ export default function Projects() {
         <div className="wrap">
           <Reveal className="ins-heading ins-repos-head">
             <div>
-              <p className="ins-kicker">Already on GitHub</p>
-              <h2>Open repositories.</h2>
+              <p className="ins-kicker">Source code</p>
+              <h2>On GitHub</h2>
+            </div>
+          </Reveal>
+          <div className="ins-repo-grid">
+            {[
+              { id: "instrumenta", name: "Instrumenta", discipline: "Launcher", repo: links.instrumenta, color: "#d58e00" },
+              ...software,
+            ].map((app, index) => (
+              <Reveal key={app.id} delay={Math.min(index, 4) * 0.04}>
+                <a
+                  href={app.repo}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="ins-repo-tile ii-hover"
+                  style={{ "--accent": app.color }}
+                >
+                  <InstrumentaIcon id={app.id} size={40} />
+                  <span>
+                    <strong>{app.name}</strong>
+                    <span>{app.repo.replace("https://github.com/", "")}</span>
+                  </span>
+                  <ArrowUpRight className="ins-repo-go" size={18} aria-hidden="true" />
+                </a>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="ins-heading ins-repos-head ins-repos-other">
+            <div>
+              <p className="ins-kicker">Bonehead Labs</p>
+              <h3>Other repositories</h3>
             </div>
             <a href={links.github} className="text-link" target="_blank" rel="noreferrer">
               Bonehead Labs on GitHub <ArrowUpRight size={18} aria-hidden="true" />

@@ -411,6 +411,102 @@
   font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 24;
 }
 
+/* ---- GitHub links ---- */
+.ins-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 54px;
+  padding: 12px 22px;
+  border: 1.5px solid var(--ins-line-strong);
+  border-radius: 999px;
+  color: var(--ins-text);
+  font-weight: 650;
+  font-size: 15px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.ins-ghost:hover {
+  border-color: var(--ins-brass);
+  background: color-mix(in srgb, var(--ins-brass) 8%, transparent);
+}
+.ins-status {
+  margin-top: 18px;
+}
+.ins-repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 22px;
+  color: var(--accent);
+  font-weight: 650;
+  font-size: 15px;
+  border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  padding-bottom: 2px;
+  transition: border-color 0.2s ease;
+}
+.ins-repo-link:hover {
+  border-color: var(--accent);
+}
+.ins-repo-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+.ins-repo-tile {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  height: 100%;
+  padding: 16px 16px 16px 14px;
+  border: 1px solid var(--ins-line);
+  border-radius: 16px;
+  background: var(--ins-surface);
+  transition: border-color 0.2s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.2s ease;
+}
+.ins-repo-tile:hover,
+.ins-repo-tile:focus-visible {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  background: color-mix(in srgb, var(--accent) 8%, var(--ins-surface));
+}
+.ins-repo-tile strong {
+  display: block;
+  font: 650 19px/1.15 var(--ins-display);
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 24;
+}
+.ins-repo-tile span span {
+  display: block;
+  margin-top: 3px;
+  font: 12px/1.4 var(--ins-mono);
+  color: var(--ins-faint);
+  overflow-wrap: anywhere;
+}
+.ins-repo-tile:hover .ins-repo-go {
+  color: var(--accent);
+  transform: rotate(45deg);
+}
+.ins-repos-other {
+  margin-top: 56px;
+}
+.ins-repos-other h3 {
+  margin-top: 10px;
+  font-family: var(--ins-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 700;
+  font-variation-settings: "SOFT" 100, "WONK" 1, "opsz" 72;
+}
+@media (max-width: 1080px) {
+  .ins-repo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 560px) {
+  .ins-repo-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 /* ---- Repositories ---- */
 .ins-repos {
   padding-block: 40px 40px;
